@@ -2,7 +2,7 @@
 
 Status: **PLAN ONLY — NOT IMPLEMENTED**  
 Working authority: **`Local`**  
-Plan maturity: **revised specification candidate — requires final critique before freeze**  
+Plan maturity: **final specification candidate — hard critique passed**  
 Reference repositories: **BuildIT / TranslateIT / PRD-Creator (`Local`)**
 
 > This file is the implementation plan for **Develop-Builder itself**. It is not a permanent second governance authority and must not automatically be copied into instantiated projects. After preset v1 is implemented and accepted, durable rules belong in their canonical owners; this plan should be reduced or retired and Git history should retain implementation rationale.
@@ -160,18 +160,20 @@ A bounded task should use the direct path when **all** material conditions below
 ```text
 1. requested outcome is clear;
 2. current owner / first wrong owner is obvious or cheaply discoverable;
-3. no unresolved product/architecture/data/security decision exists;
-4. no new durable state authority, runtime, compatibility system, dependency boundary, or generic abstraction is required;
-5. blast radius is local and understandable;
-6. rollback/recovery is straightforward;
-7. the relevant proof is obvious and targeted.
+3. wider stable context/continuation cannot materially change the solution, or the relevant invariant is already known in the current bounded context;
+4. no unresolved product/architecture/data/security decision exists;
+5. no new durable state authority, runtime, compatibility system, dependency boundary, or generic abstraction is required;
+6. blast radius is local and understandable;
+7. rollback/recovery is straightforward;
+8. the relevant proof is obvious and targeted.
 ```
 
 Route:
 
 ```text
-current request
+pin current repo/ref + inherit root safety rules
 → exact owner / exact defect
+→ nearest caller/contract/test only when needed to establish impact
 → smallest complete correction
 → targeted proof
 → update canonical continuation only if it changed
@@ -190,9 +192,26 @@ remove one obsolete duplicate that has no remaining consumer
 
 The direct path is **not a separate work mode**. It is a short execution path inside Developing/Maintenance when the task is already sufficiently grounded.
 
-### Direct-path failure condition
+### 5.1 Direct path does not bypass safety or correctness
+
+Direct means **fewer unnecessary decision hops**, not less discipline.
+
+It never means:
+
+- write to an unpinned/ambiguous branch;
+- ignore root GitHub/safety rules;
+- skip a known requirement that can change correctness;
+- skip nearest caller/contract/regression evidence when the change can affect them;
+- ignore security/privacy/data implications;
+- claim stronger proof than actually obtained.
+
+The direct path may skip `CONTEXT.md`, `next-action.md`, `development-brief`, ownership maps, broad tests, or specialist loading **only when those surfaces cannot materially change the decision or proof**.
+
+### 5.2 Direct-path failure condition
 
 If the preset makes a trivial correction require foundation review, development-brief, ownership map, broad CI, multiple documentation updates, or multiple specialists when those cannot change correctness, **the preset has failed anti-overdevelopment**.
+
+If the direct path skips a material contract, invariant, affected caller, safety boundary, or required proof, **the preset has failed by underdevelopment**.
 
 ---
 
@@ -211,6 +230,8 @@ Use the full Developing path when at least one **material** escalation condition
 - target/runtime/hardware/human acceptance materially affects whether the solution is valid;
 - the root cause is not yet grounded;
 - the suggested method may materially change architecture or acceptance.
+
+The mere presence of one of these words/concepts is not enough. Escalate only when the condition can actually change implementation, risk, ownership, or acceptance.
 
 Full route:
 
@@ -315,7 +336,7 @@ The previous plan incorrectly treated the mature-repository shape as a mandatory
 
 **Core Bootstrap count: 9 persistent files.**
 
-Each has a unique unavoidable responsibility:
+Final critique retains all nine because each has a distinct day-zero responsibility and none adds a mandatory runtime decision hop for Direct Bounded work.
 
 | Owner | Unique responsibility |
 |---|---|
@@ -328,6 +349,8 @@ Each has a unique unavoidable responsibility:
 | `02-product-requirements.md` | durable intended behavior/constraints |
 | `next-action.md` | active continuation / one next step |
 | `development-brief/SKILL.md` | non-trivial Developing front door |
+
+The two foundation files remain separate because project purpose/scope and detailed intended behavior change at different semantic rates. They may remain very short; separation does not require every task to read both.
 
 ### 9.2 Promoted Governance — absent until earned
 
@@ -396,7 +419,7 @@ PIN
 → STOP
 ```
 
-Rules must support both a one-file bounded change and a coherent multi-file atomic delivery. “Write once” must mean intentional logical delivery, not forcing one file or one mutation path.
+Rules must support both a one-file bounded change and a coherent multi-file atomic delivery. “Write once” means intentional logical delivery, not forcing one file or one mutation path.
 
 ### `CONTEXT.md`
 
@@ -590,8 +613,6 @@ A mature repository should be allowed to become simpler again.
 
 ## 16. Verification architecture — template vs instantiated project
 
-The previous plan incorrectly mixed two different proof surfaces.
-
 ### 16.1 Develop-Builder template verification
 
 This is verification for **Develop-Builder itself** and may check:
@@ -652,15 +673,13 @@ Bootstrap makes development safe; it does not pretend the product is already ful
 
 ## 18. Reduced adversarial acceptance suite
 
-The old 15-scenario set was too repetitive. v1 needs a smaller high-signal suite.
-
 ### A. Read-only remains read-only
 
 `Amati repo dan pahami next step` → recover/report → do not execute.
 
 ### B. Simple work stays simple
 
-One label rename or one obvious local conditional fix → exact owner → edit → targeted check → STOP. Full development machinery must not be required unless a material hidden dependency appears.
+One label rename or one obvious local conditional fix → pin/inherit root rules → exact owner → edit → targeted check → STOP. Full development machinery must not be required unless a material hidden dependency appears.
 
 ### C. Unresolved architecture escalates
 
@@ -686,6 +705,10 @@ Hosted/source proof without actual runtime/target/human validation → stronger 
 
 “Add scalable provider/router/specialists/workspace/CI for later” → reject unless current responsibility passes the high-cost addition gate.
 
+### I. Direct path cannot bypass a material invariant
+
+A change appears local but a known project contract can change its correctness → read the relevant contract and escalate only if necessary. Simplicity is never permission to ignore known constraints.
+
 ---
 
 ## 19. Preset v1 acceptance criteria
@@ -698,7 +721,7 @@ The system explicitly prefers the simplest route that still satisfies correctnes
 
 ### B. Simple Work Stays Simple
 
-Bounded obvious changes can bypass full Developing ceremony and complete through direct owner + targeted proof.
+Bounded obvious changes can bypass full Developing ceremony and complete through pinned root rules + direct owner + targeted proof.
 
 ### C. Proportionate Escalation
 
@@ -708,48 +731,75 @@ Uncertainty, risk, blast radius, cross-owner impact, and proof difficulty escala
 
 The system does not omit necessary owners/contracts/tests merely to reduce file or step count.
 
-### E. Domain Neutrality
+### E. Root Safety Is Never Optional
+
+Direct work may skip non-material context, but never branch/ref authority, mutation safety, security boundaries, or honest proof rules.
+
+### F. Domain Neutrality
 
 Core Bootstrap imposes no reference product, runtime, framework, language, release, or storage architecture.
 
-### F. Cross-session Recoverability
+### G. Cross-session Recoverability
 
 A fresh session can recover stable project truth and active continuation without relying on chat history.
 
-### G. Ownership Integrity
+### H. Ownership Integrity
 
 Each responsibility has one canonical owner while a coherent task may affect the smallest necessary owner set.
 
-### H. Net Simplification
+### I. Net Simplification
 
 New abstraction/persistent architecture must reduce current total complexity or uniquely satisfy a demonstrated capability.
 
-### I. Proof Honesty
+### J. Proof Honesty
 
 Evidence strength cannot exceed the environment/claim actually exercised.
 
-### J. Growth and Pruning
+### K. Growth and Pruning
 
 Optional structures appear only when earned and can be removed when their responsibility disappears.
 
-### K. No AI-slop
+### L. No AI-slop
 
 No duplicate status/ownership/routing, generic filler systems, fabricated unknowns, ceremonial reports/tests, or placeholder specialists are required by the baseline.
 
 ---
 
-## 20. Implementation sequence after final plan acceptance
+## 20. Final critique result
 
-### Phase 0 — Final critique and freeze
+The revised specification was re-audited against the working patterns of BuildIT, TranslateIT, and PRD-Creator.
 
-Current phase after this revision.
+### Core Bootstrap
 
-- re-audit Core Bootstrap 9-file responsibility set;
-- challenge Direct Bounded Path vs non-trivial threshold with real examples;
-- verify no underdevelopment hole was introduced;
-- verify promoted governance is truly optional;
-- perform one final anti-slop/anti-overdevelopment critique;
-- only then freeze specification.
+**PASS.** Keep nine files.
+
+Reason: after removing mature-only routing/ownership/verification surfaces, each remaining file has a distinct day-zero responsibility. None must be read on every direct task, so the existence of nine owners does not itself make simple work complex.
+
+### Direct Bounded Path
+
+**PASS after correction.**
+
+The direct path now inherits root branch/safety rules and may bypass wider context only when that context cannot materially change the decision. Nearest caller/contract/test evidence remains required when it affects blast radius.
+
+### Non-trivial threshold
+
+**PASS.**
+
+Escalation is qualitative and impact-based, not triggered by code/file count or keyword presence. A material condition must actually change implementation, ownership, risk, or acceptance.
+
+### Underdevelopment risk
+
+**PASS after correction.**
+
+The specification explicitly rejects minimalism that skips necessary contract/safety/proof. “Shortest” is constrained by “correct”.
+
+### Remaining design concern
+
+No material architecture blocker remains. The next risk is implementation drift: writing Core Bootstrap files that restate the same rules in multiple places or accidentally turning promoted governance into mandatory output. That is an implementation-review concern, not a missing architecture decision.
+
+---
+
+## 21. Implementation sequence
 
 ### Phase 1 — Implement Core Bootstrap
 
@@ -757,13 +807,15 @@ Create/adapt the nine core files only.
 
 No promoted governance or domain/runtime structure.
 
+Implementation must keep each owner concise and non-overlapping. The plan is the source for implementation during this phase only.
+
 ### Phase 2 — Implement Develop-Builder template validation only if justified
 
 Choose the smallest reliable template verification mechanism. It must verify the template itself, not impose pristine-template invariants on future projects.
 
 ### Phase 3 — Direct-path / escalation audit
 
-Exercise the reduced adversarial suite and at least three different project contexts:
+Exercise the adversarial suite and three materially different contexts:
 
 ```text
 local application/runtime
@@ -789,7 +841,7 @@ Can obsolete layers be retired cleanly?
 
 ### Phase 5 — Freeze preset v1
 
-After all gates pass:
+After implementation and audits pass:
 
 - record v1 in the real canonical owner(s);
 - set one real next step or stable idle continuation;
@@ -798,7 +850,7 @@ After all gates pass:
 
 ---
 
-## 21. Protected non-goals
+## 22. Protected non-goals
 
 Develop-Builder v1 is not:
 
@@ -819,6 +871,6 @@ It is a **development governance and continuity kernel whose main job is to keep
 
 ---
 
-## 22. Next Step
+## 23. Next Step
 
-**Perform one final hard critique of this revised specification against BuildIT, TranslateIT, and PRD-Creator, concentrating on the 9-file Core Bootstrap, Direct Bounded Path, non-trivial escalation threshold, and risk of underdevelopment. Do not implement the preset until that critique passes.**
+**Implement Phase 1: the nine-file Core Bootstrap on `Local` as one coherent baseline, without promoted governance or domain/runtime architecture. After implementation, run a focused duplication/direct-path review before moving to template validation.**

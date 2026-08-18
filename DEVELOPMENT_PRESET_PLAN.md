@@ -2,190 +2,297 @@
 
 Status: **PLAN ONLY — NOT IMPLEMENTED**  
 Working authority: **`Local`**  
-Plan maturity: **architecture/specification freeze candidate**  
+Plan maturity: **revised specification candidate — requires final critique before freeze**  
 Reference repositories: **BuildIT / TranslateIT / PRD-Creator (`Local`)**
 
-> This file is the implementation plan for **Develop-Builder itself**. It is **not** a file that should automatically be copied into every instantiated project.
+> This file is the implementation plan for **Develop-Builder itself**. It is not a permanent second governance authority and must not automatically be copied into instantiated projects. After preset v1 is implemented and accepted, durable rules belong in their canonical owners; this plan should be reduced or retired and Git history should retain implementation rationale.
 
 ---
 
 ## 1. Objective
 
-Develop-Builder will provide the **smallest general development operating preset that must exist before non-trivial project development begins**.
+Develop-Builder will provide the **smallest development operating kernel that makes non-trivial project development safe and resumable without making simple work complicated**.
 
-The preset standardizes **how development is understood, owned, continued, changed, verified, and stopped**. It does **not** standardize product architecture, programming language, framework, runtime, content workflow, release model, or domain-specific folder structure.
+The preset standardizes:
 
-The target is semantic parity with the mature operating model demonstrated by BuildIT, TranslateIT, and PRD-Creator while removing product-specific assumptions and refusing structures that have not yet earned a real responsibility.
+- current authority;
+- work-mode selection;
+- cross-session continuity;
+- requirement vs suggested-method separation;
+- semantic ownership;
+- direct vs escalated work paths;
+- minimum complete implementation;
+- evidence proportional to the claim;
+- continuation and STOP behavior.
 
-The preset must solve five recurring failure classes:
+It does **not** standardize product architecture, programming language, framework, runtime, release model, folder structure, database, provider system, production workflow, or specialist inventory.
 
-1. **context loss** — a new AI/session should not need the user to reconstruct prior work;
-2. **authority drift** — old chat, old TODO, generated artifact, or default branch must not silently become current truth;
-3. **AI-slop** — development must not create duplicate docs, generic frameworks, ceremonial layers, speculative abstractions, or fake proof;
-4. **overdevelopment** — adjacent opportunities must not expand the requested boundary;
-5. **proof inflation** — source/build/CI success must not be described as runtime, visual, hardware, target-machine, or human acceptance when that surface did not run.
+The primary success condition is:
 
-Success means a fresh project can start with a disciplined development kernel **without inheriting irrelevant architecture from another project**.
+> **Use the shortest correct path with sufficient context and sufficient proof.**
+
+A project should become more structured only when real product complexity earns that structure.
 
 ---
 
-## 2. What is actually common across the three reference repositories
+## 2. Correct definitions
 
-BuildIT, TranslateIT, and PRD-Creator have different products and different mature repository shapes. Their reusable commonality is not their domain folders; it is their **operating kernel**:
+### 2.1 Anti-overdevelopment
+
+Anti-overdevelopment does **not** mean “few files”, “few characters”, or “touch only one owner”.
+
+It means:
+
+> **The complexity of the solution and the process must be proportional to the real problem, uncertainty, risk, blast radius, and proof requirement.**
+
+A simple task must remain simple. A risky task may legitimately require more owners, proof, and coordination.
+
+Overdevelopment includes:
+
+- routing a local obvious correction through unnecessary planning layers;
+- introducing abstractions that do not reduce total current complexity;
+- adding workflows, skills, services, state owners, adapters, fallbacks, or documents before a real responsibility exists;
+- broad-reading or broad-testing unrelated surfaces;
+- requiring multiple handoffs for work one direct owner can complete safely;
+- turning an easy user action or developer workflow into multi-step setup without demonstrated need;
+- expanding scope merely because nearby opportunities are visible.
+
+Anti-overdevelopment must never become underdevelopment. Required contracts, affected owners, tests, safety checks, or target proof must not be skipped merely to minimize step count.
+
+### 2.2 AI-slop
+
+AI-slop is output with low decision/implementation value despite looking complete or professional.
+
+Typical forms:
+
+- generic professional filler;
+- duplicate documentation/state;
+- speculative architecture;
+- fabricated completeness where unknowns are invented;
+- ceremonial plans, tests, reviews, or reports;
+- generic robustness layers that hide unknown root causes;
+- placeholder specialists or framework layers;
+- abstractions that move complexity without reducing it;
+- audits that invent improvements because they assume every audit must produce changes.
+
+The controlling test is:
+
+```text
+Does this element materially:
+1. change a necessary decision; or
+2. prevent a realistic error; or
+3. satisfy a real requirement; or
+4. reduce total current complexity; or
+5. prove a claim that must actually be proven?
+
+If none apply → remove it.
+```
+
+---
+
+## 3. Reusable kernel proven by the three reference repositories
+
+The three mature repositories differ in domain and repository shape, but share this reasoning lifecycle:
 
 ```text
 PIN CURRENT AUTHORITY
-→ CLASSIFY THE WORK MODE
-→ RECOVER MINIMUM SUFFICIENT CURRENT CONTEXT
-→ IDENTIFY THE RESPONSIBLE / FIRST WRONG OWNER
+→ IDENTIFY REAL TASK CLASS
+→ RECOVER ONLY THE CONTEXT THAT CAN CHANGE THE DECISION
+→ FIND THE RESPONSIBLE / FIRST WRONG OWNER
 → SEPARATE GOAL FROM SUGGESTED METHOD
-→ DECIDE WHETHER DEVELOPMENT IS NEEDED AT ALL
-→ DEFINE THE MINIMUM COMPLETE CHANGE
-→ DEFINE 2–5 FALSIFIABLE ACCEPTANCE CRITERIA
-→ CHOOSE THE CHEAPEST PROOF THAT CAN FALSIFY THE CLAIM
-→ CHANGE ONE CANONICAL OWNER
-→ UPDATE ONLY STATE THAT ACTUALLY CHANGED
-→ RECORD EXACTLY ONE NEXT STEP
+→ DECIDE WHETHER A CHANGE IS NEEDED
+→ CHOOSE DIRECT OR ESCALATED PATH
+→ MAKE THE SMALLEST COMPLETE COHERENT CHANGE
+→ VERIFY ONLY THE CLAIMS THAT CHANGED
+→ UPDATE ONLY CANONICAL STATE THAT ACTUALLY CHANGED
+→ RECORD ONE NEXT STEP WHEN CONTINUATION CHANGED
 → STOP
 ```
 
-This lifecycle is the **1:1 behavior** that Develop-Builder must preserve.
+The important lesson is **not** that every task must traverse every governance file.
 
-The following mature-repository surfaces are **not** automatically part of that kernel:
+The reference repositories deliberately contain fast paths:
 
-```text
-product runtime folders
-production kits
-workspace/archive systems
-experimental research areas
-decision logs
-review archives
-backlogs
-local acceptance runbooks
-release systems
-product-specific CI
-specialist skills beyond development-brief
-```
+- bounded Maintenance can start at the exact defect when wider context cannot change the decision;
+- ordinary production/authoring work can bypass repository-development machinery;
+- specialists are loaded only when they add material semantic procedure;
+- broad repository/history reading is not a default safety ritual.
 
-They appear only when the project proves they are needed.
+Develop-Builder must preserve that behavior.
 
 ---
 
-## 3. Design doctrine
+## 4. Work modes and path selection
 
-### 3.1 Minimum sufficient context, not minimum context
+The base semantic modes remain:
 
-The preset must minimize reading **after** mandatory continuity has been recovered. It must never optimize token usage by skipping the context that prevents wrong work.
+| Mode | Use when | Default path |
+|---|---|---|
+| **Context Recovery** | inspect / amati / understand current truth | read-only recovery → report → STOP |
+| **Plan** | material method/architecture/product decision unresolved | recover relevant authority → resolve decision → NO IMPLEMENTATION → STOP |
+| **Developing** | approved behavior/system capability must be created or materially changed | Direct Bounded Path **or** Non-trivial Developing Path |
+| **Maintenance** | concrete defect, regression, stale rule, bounded cleanup | Direct Bounded Path by default; escalate only if diagnosis exposes a material unresolved decision |
 
-For non-trivial Developing:
+A project may add a domain mode such as `Production Execution` only after a real repeatable workflow exists that is semantically different from changing the system itself.
+
+### 4.1 No silent transitions
+
+```text
+Context Recovery finds a next step
+≠ permission to execute it
+
+Plan reaches a decision
+≠ permission to implement unless the user also requested implementation
+
+Maintenance reveals unresolved architecture/product behavior
+→ leave Maintenance → Plan
+
+Direct path reveals cross-owner/high-risk uncertainty
+→ escalate → Non-trivial Developing
+```
+
+---
+
+## 5. Direct Bounded Path — first-class anti-overdevelopment mechanism
+
+A bounded task should use the direct path when **all** material conditions below are true:
+
+```text
+1. requested outcome is clear;
+2. current owner / first wrong owner is obvious or cheaply discoverable;
+3. no unresolved product/architecture/data/security decision exists;
+4. no new durable state authority, runtime, compatibility system, dependency boundary, or generic abstraction is required;
+5. blast radius is local and understandable;
+6. rollback/recovery is straightforward;
+7. the relevant proof is obvious and targeted.
+```
+
+Route:
+
+```text
+current request
+→ exact owner / exact defect
+→ smallest complete correction
+→ targeted proof
+→ update canonical continuation only if it changed
+→ STOP
+```
+
+Examples expected to remain direct:
+
+```text
+rename one UI label
+fix one known condition
+correct one stale route/document pointer
+repair one deterministic parser edge case with an obvious owner
+remove one obsolete duplicate that has no remaining consumer
+```
+
+The direct path is **not a separate work mode**. It is a short execution path inside Developing/Maintenance when the task is already sufficiently grounded.
+
+### Direct-path failure condition
+
+If the preset makes a trivial correction require foundation review, development-brief, ownership map, broad CI, multiple documentation updates, or multiple specialists when those cannot change correctness, **the preset has failed anti-overdevelopment**.
+
+---
+
+## 6. Operational definition of non-trivial Developing
+
+Use the full Developing path when at least one **material** escalation condition exists, for example:
+
+- desired product/system behavior is being newly defined or materially changed;
+- responsibility/ownership is unclear or crosses meaningful subsystem boundaries;
+- a new persistent state authority/service/runtime/integration is required;
+- a new dependency materially changes runtime, distribution, security, or compatibility;
+- migration/backward-compatibility/data-conversion behavior is involved;
+- security, privacy, user-data ownership, destructive behavior, or release boundary is affected;
+- blast radius is large or rollback is difficult;
+- several callers/contracts must stay coherent;
+- target/runtime/hardware/human acceptance materially affects whether the solution is valid;
+- the root cause is not yet grounded;
+- the suggested method may materially change architecture or acceptance.
+
+Full route:
 
 ```text
 AGENTS.md
-→ GITHUB_RULES.md Core Rules
+→ GitHub Core Rules when material
 → CONTEXT.md
-→ docs/knowledge/next-action.md
+→ next-action.md when continuation matters
 → development-brief
-→ smallest relevant owner/source
+→ smallest relevant owner/caller/contract set
+→ zero/one useful specialist
+→ coherent implementation
+→ minimum honest proof
+→ state reconciliation
+→ STOP
 ```
 
-After that bootstrap, additional reading is evidence-driven and bounded.
+`Non-trivial` is determined by uncertainty/impact/risk/coordination, **not by whether code is involved or by line count**.
 
-### 3.2 One information type → one canonical owner
+---
 
-Every persistent fact or rule has one current owner. Other files may link to it, but must not independently maintain the same state.
+## 7. Complexity calibration
 
-### 3.3 Desired behavior and actual behavior are different claims
+Before choosing the path, assess only dimensions that can change the approach:
 
 ```text
-desired product/system behavior
-→ foundation / current approved requirement owner
-
-actual implemented behavior
-→ current source + matching proof
-
-active continuation
-→ next-action.md
-
-stable orientation
-→ CONTEXT.md
-
-historical rationale
-→ Git history / explicit decision record when justified
+uncertainty
+semantic/product impact
+blast radius
+reversibility
+security/privacy/data risk
+coordination across contracts/owners
+proof difficulty / target-environment dependence
 ```
 
-No global “one file outranks everything” rule should be used for all claim types.
+Do not create a scoring bureaucracy. These are qualitative escalation signals.
 
-### 3.4 A proposed implementation is not automatically the requirement
-
-User examples, screenshots, sample repositories, old source, technical suggestions, and fixtures are evidence or suggested methods unless the user explicitly makes the exact implementation a requirement.
-
-The development process must first recover the underlying outcome.
-
-### 3.5 `No change required` is a valid successful result
-
-An AI must not create a patch merely because the user asked it to investigate or because a tool is available.
-
-### 3.6 Completion is terminal
-
-When the requested acceptance boundary is satisfied, the correct behavior is `STOP`, not “continue improving”.
-
----
-
-## 4. Baseline work modes
-
-The base preset owns four modes.
-
-| Mode | Use when | Editing | Required behavior |
-|---|---|---:|---|
-| **Context Recovery** | inspect, amati, understand, audit current state | No | recover authority → smallest owner → report → STOP |
-| **Plan** | goal known but method/architecture/scope remains materially unresolved | No product implementation | inspect evidence → resolve decision → plan → STOP |
-| **Developing** | create/change approved product or repository behavior | Yes | continuity → development-brief → minimum complete change → proof → STOP |
-| **Maintenance** | concrete bug, regression, stale rule, bounded cleanup | Yes | exact defect → first wrong owner → smallest repair → targeted proof → STOP |
-
-A project may add a fifth domain mode such as `Production Execution` **only when a real repeatable production workflow exists that is semantically different from changing the system itself**.
-
-### No silent transitions
-
-Examples:
+### Rule
 
 ```text
-Context Recovery → discovers next-action
-≠ permission to execute next-action
+low uncertainty + low impact + local blast radius + obvious proof
+→ direct
 
-Plan → produces architecture decision
-≠ permission to implement it
-
-Maintenance → reveals unresolved product choice
-→ leave Maintenance and return to Plan
+material uncertainty / cross-owner impact / high risk / hard proof
+→ escalate only as far as necessary
 ```
 
----
-
-## 5. Canonical claim ownership model
-
-The preset should teach the AI to route by **claim type**, not by filename or framework.
-
-| Claim / responsibility | Canonical owner |
-|---|---|
-| task intent / new explicit user decision | current user instruction |
-| GitHub/ref/write/commit/CI/security discipline | `GITHUB_RULES.md` |
-| agent boot / work mode / routing / skill budget | `AGENTS.md` |
-| stable project orientation / terminology / architecture boundary | `CONTEXT.md` |
-| durable intended requirements / non-goals | `docs/foundation/` |
-| active current status / boundary / blocker / one next step | `docs/knowledge/next-action.md` |
-| responsibility → source/owner navigation | `docs/knowledge/ownership.md` |
-| non-trivial development contract | `.agents/skills/development-brief/SKILL.md` |
-| actual behavior | current implementation/source + relevant runtime/static proof |
-| generated/derived output | upstream canonical source + generator |
-| historical rationale | Git history; explicit decision owner only when the decision-recording gate is met |
-
-This matrix is intentionally small. New canonical state types are not created until a real responsibility appears.
+The goal is neither “always simple” nor “always rigorous”. It is **proportionate rigor**.
 
 ---
 
-## 6. Mandatory baseline preset
+## 8. Smallest coherent owner set — not “one owner per task”
 
-The v1 baseline should contain only this kernel:
+The correct invariant is:
+
+> **One canonical owner per responsibility.**
+
+A single logical change may legitimately affect several owners when all are necessary to keep one outcome coherent.
+
+Example:
+
+```text
+existing contract
++ implementation
++ regression assertion
+```
+
+may be the smallest complete owner set for one fix.
+
+Therefore the implementation rule is:
+
+> **Change the smallest coherent owner set required for the outcome; never create duplicate authority for one responsibility.**
+
+Do not force a one-file/one-owner solution if doing so creates workaround logic, stale contracts, unprotected regressions, or manual synchronization debt.
+
+---
+
+## 9. Core Bootstrap vs Earned/Promoted Governance
+
+The previous plan incorrectly treated the mature-repository shape as a mandatory day-zero shape. v1 must distinguish what a new repository needs immediately from what should appear only after complexity earns it.
+
+### 9.1 Core Bootstrap — required before non-trivial development
 
 ```text
 /
@@ -194,1361 +301,524 @@ The v1 baseline should contain only this kernel:
 ├─ GITHUB_RULES.md
 ├─ CONTEXT.md
 ├─ .gitignore
-│
 ├─ .agents/
 │  └─ skills/
 │     └─ development-brief/
 │        └─ SKILL.md
-│
-├─ docs/
-│  ├─ foundation/
-│  │  ├─ 01-project-overview.md
-│  │  └─ 02-product-requirements.md
-│  │
-│  └─ knowledge/
-│     ├─ work-routing.md
-│     ├─ ownership.md
-│     └─ next-action.md
-│
-├─ tools/
-│  └─ verify_repository.py
-│
-└─ .github/
-   └─ workflows/
-      └─ repository-verify.yml
+└─ docs/
+   ├─ foundation/
+   │  ├─ 01-project-overview.md
+   │  └─ 02-product-requirements.md
+   └─ knowledge/
+      └─ next-action.md
 ```
 
-**Baseline count: 13 persistent files.**
+**Core Bootstrap count: 9 persistent files.**
 
-That count is a guardrail, not a target to inflate. A new project begins with these responsibilities and adds nothing else at governance level unless a creation gate is satisfied.
+Each has a unique unavoidable responsibility:
 
-`LICENSE`, language/framework configs, source directories, test directories, release files, workspace systems, experimental areas, and product-specific workflows are **context-owned additions**, not general preset requirements.
+| Owner | Unique responsibility |
+|---|---|
+| `README.md` | human orientation / entrypoint |
+| `AGENTS.md` | AI task-class + routing authority |
+| `GITHUB_RULES.md` | GitHub execution/history/CI/safety policy |
+| `CONTEXT.md` | stable cross-session project orientation |
+| `.gitignore` | minimum repository hygiene |
+| `01-project-overview.md` | durable product intent/scope/non-goals |
+| `02-product-requirements.md` | durable intended behavior/constraints |
+| `next-action.md` | active continuation / one next step |
+| `development-brief/SKILL.md` | non-trivial Developing front door |
 
----
+### 9.2 Promoted Governance — absent until earned
 
-## 7. Exact content contract of every baseline file
-
-### 7.1 `README.md` — human orientation
-
-**Function**
-
-Give a human a fast explanation of what the project is and where current truth lives.
-
-**Must contain**
-
-- project name and one-paragraph purpose;
-- development authority (`Local` by default until explicitly changed);
-- high-level product/system boundary once known;
-- high-level repository map once real source roots exist;
-- links to `AGENTS.md`, `CONTEXT.md`, foundation, and `next-action.md`;
-- concise evidence-boundary statement.
-
-**Must not contain**
-
-- detailed work-mode rules;
-- duplicated current task status;
-- session diary;
-- roadmap/backlog;
-- copied product requirements;
-- full ownership matrix;
-- detailed CI procedure.
-
-**Anti-drift rule**
-
-For live current status, README links to `next-action.md` instead of maintaining another mutable status narrative.
-
----
-
-### 7.2 `AGENTS.md` — canonical AI work-routing owner
-
-**Function**
-
-Determine how an AI begins and routes every repository task.
-
-**Must contain**
-
-1. working branch/ref authority;
-2. Context Recovery boot;
-3. Plan boot;
-4. Developing boot;
-5. Maintenance boot;
-6. no-silent-mode-transition rule;
-7. canonical owner map summary;
-8. claim/source precedence by responsibility;
-9. first-wrong-owner discipline;
-10. minimum-complete-solution rule;
-11. specialist budget;
-12. evidence/proof boundary;
-13. user-facing final status format;
-14. STOP rule.
-
-**Required Developing route**
+These are useful in mature repositories but are **not universal day-zero requirements**:
 
 ```text
-AGENTS.md
-→ GITHUB_RULES.md Core Rules
-→ CONTEXT.md
-→ docs/knowledge/next-action.md
-→ development-brief
-→ smallest relevant owner/source
-→ zero/one specialist if justified
+docs/knowledge/work-routing.md
+docs/knowledge/ownership.md or source-ownership/implementation-map
+repository governance verifier
+repository governance CI workflow
+decision log
+backlog
+review archive
+validation report
+local acceptance runbook
+Experimental/
+workspace active/archive system
+additional specialist skills
+product-specific CI/release workflows
 ```
 
-**Must not contain**
+Promotion examples:
 
-- product requirement detail owned by foundation;
-- GitHub API/commit mechanics owned by `GITHUB_RULES.md`;
-- full source file inventory;
-- task-specific plans;
-- duplicated next step;
-- framework-specific coding standards unless no nearer owner can exist.
+- create `work-routing.md` only when `AGENTS.md` would otherwise become dense or product/domain modes need a detailed routing reference;
+- create an ownership map only when direct source ownership is no longer obvious enough for efficient navigation;
+- create repository governance automation only after stable governance invariants exist and drift risk justifies automated enforcement;
+- create workspace continuity only when user/project artifacts require continuity separate from repository-development continuity.
+
+Absence is valid architecture, not unfinished work.
 
 ---
 
-### 7.3 `GITHUB_RULES.md` — canonical repository execution policy
+## 10. Canonical content boundaries for Core Bootstrap
 
-**Function**
+### `README.md`
 
-Keep GitHub work safe, atomic, minimal, reviewable, and honest.
+Human-facing orientation only. Do not maintain detailed current status, roadmap, work modes, or copied requirements here.
 
-**Core lifecycle**
+### `AGENTS.md`
+
+Own:
+
+- authority/ref boot;
+- work-mode selection;
+- direct vs non-trivial route;
+- smallest sufficient context rule;
+- source/claim routing;
+- coherent owner-set discipline;
+- skill budget;
+- evidence boundary;
+- STOP behavior.
+
+It must explicitly state that simple bounded work should not enter the full Developing machinery when wider context cannot change the decision.
+
+### `GITHUB_RULES.md`
+
+Own the common execution kernel:
 
 ```text
 PIN
 → READ MINIMUM
 → DIAGNOSE
 → TOOL FIT
-→ WRITE ONCE
+→ WRITE COHERENTLY
 → VERIFY MINIMUM
 → STOP
 ```
 
-**Core rules must own**
+Rules must support both a one-file bounded change and a coherent multi-file atomic delivery. “Write once” must mean intentional logical delivery, not forcing one file or one mutation path.
 
-- exact repo/ref authority;
-- no silent default-branch fallback;
-- current-state fetch vs search distinction;
-- minimum read budget;
-- partial/truncated/paginated evidence handling;
-- first-wrong-owner diagnosis;
-- appropriate mutation/tool choice;
-- one logical delivery discipline;
-- commit classification/message discipline;
-- generated artifact rules;
-- CI claim boundaries;
-- retry budgets;
-- capability/permission denial behavior;
-- destructive operation boundaries;
-- sensitive data / release / PR surfaces as conditional sections;
-- STOP behavior.
+### `CONTEXT.md`
 
-**Default discipline**
+Stable facts only. No active next step, temporary blocker, task diary, proof transcript, or speculative future architecture.
+
+### `01-project-overview.md`
+
+Own the durable purpose, primary consumer, scope, explicit non-goals, known constraints, success boundary, and high-impact unknowns. Unknown remains unknown.
+
+### `02-product-requirements.md`
+
+Own observable current requirements and constraints. Do not require heavy IDs/taxonomy for small projects. Add structure only when cross-reference complexity makes it useful.
+
+### `next-action.md`
+
+Compact continuation only:
 
 ```text
-new files/task              0 unless required
-new workflows/task          0 unless required
-new abstractions/task       0 unless required
-history reads               0 by default
-broad scans                 0 by default
-logical commits/task        1 by default
-push/ref updates/task       1 by default
-same-cause retry            <= 2 with new evidence
-capability-denial retry     0 without changed evidence
-adjacent cleanup            0
-```
-
-**Must not become**
-
-A generic Git tutorial or an exhaustive copy of GitHub documentation.
-
----
-
-### 7.4 `CONTEXT.md` — stable project memory
-
-**Function**
-
-Allow a fresh session to understand the durable project shape without reading history.
-
-**Must contain only stable facts**
-
-- what the product/system is;
-- stable terms;
-- approved major boundary/architecture once decided;
-- durable repository shape;
-- stable execution/evidence limitations;
-- navigation to detailed owners.
-
-**Must not contain**
-
-- active next step;
-- temporary blocker;
-- recent test run transcript;
-- per-task status;
-- speculative future architecture;
-- historical narrative already owned by Git history.
-
-**Update threshold**
-
-Update only when a stable fact changes.
-
----
-
-### 7.5 `.gitignore` — minimal repository hygiene
-
-**Function**
-
-Prevent universal/transient local artifacts from entering history.
-
-**Baseline content must remain minimal** and cover only artifacts created by the baseline itself or universally unwanted OS/cache noise.
-
-Project-specific ignores are added with the project stack; the preset must not ship a giant language/framework ignore catalog.
-
----
-
-### 7.6 `docs/foundation/01-project-overview.md` — durable product intent
-
-**Function**
-
-Record what is being built before implementation detail begins driving the project.
-
-**Required sections**
-
-```text
-Purpose
-Primary user / consumer
-Problem or job to be solved
-In scope
-Explicit non-goals
-Material constraints already approved
-Success boundary
-Known high-impact unknowns
-```
-
-**Rules**
-
-- unknown stays unknown;
-- examples do not silently become requirements;
-- implementation choices appear only if already approved and materially constraining;
-- no status/history.
-
----
-
-### 7.7 `docs/foundation/02-product-requirements.md` — durable intended behavior
-
-**Function**
-
-Own current requirements and non-goals independently from implementation status.
-
-**Content model**
-
-Requirements should be expressed as observable product/system obligations, constraints, or boundaries.
-
-Use IDs only when cross-reference complexity makes them useful. Do not force ceremony such as hundreds of IDs for a small project.
-
-**Must distinguish**
-
-```text
-required behavior
-explicit non-goal
-approved constraint
-unknown / unresolved decision
-```
-
-**Must not contain**
-
-- implementation progress;
-- CI result logs;
-- speculative fallback behavior;
-- historical rejected ideas unless still materially needed to explain current policy.
-
-Additional foundation files are created only when one durable responsibility becomes too large or semantically distinct to remain correct here.
-
----
-
-### 7.8 `docs/knowledge/work-routing.md` — detailed routing reference
-
-**Function**
-
-Explain routing visually/compactly when `AGENTS.md` should remain concise.
-
-**Authority boundary**
-
-`AGENTS.md` remains canonical. `work-routing.md` may explain but must not introduce a conflicting work mode, owner, or rule.
-
-**Expected content**
-
-- Context Recovery route;
-- Plan route;
-- Developing route;
-- Maintenance route;
-- acceptance/proof result routing;
-- optional product-specific route only after it exists.
-
-**Must not become**
-
-A second AGENTS file, roadmap, project flow unless the project specifically needs production-flow documentation.
-
----
-
-### 7.9 `docs/knowledge/ownership.md` — semantic responsibility map
-
-**Function**
-
-Answer: “who currently owns this responsibility?” without broad repository searching.
-
-**Shape**
-
-```text
-Responsibility → canonical owner/source
-```
-
-**Baseline entries**
-
-- governance owners;
-- foundation owner;
-- active continuation owner;
-- actual product/source owners only after those sources exist.
-
-**Must not contain**
-
-- current status column;
-- completion percentage;
-- roadmap priority;
-- TODO list;
-- duplicate next steps;
-- every file in the repository.
-
-A mature project may rename this file to `source-ownership.md`, `implementation-map.md`, or another precise name if its semantic responsibility truly changes. It remains one ownership system.
-
----
-
-### 7.10 `docs/knowledge/next-action.md` — single active continuation owner
-
-**Function**
-
-Make current work resumable across chat/session boundaries.
-
-**Required minimum shape**
-
-```text
-# Next Action
-
 ## Current Status
-<compact factual state>
-
 ## Active Boundary
-<what is currently in scope and explicitly not being advanced>
-
-## Proof Boundary
-<only if material>
-
-## Blocker
-<only if real>
-
-## Next Step
-<exactly one meaningful next action>
+## Proof Boundary   # only when material
+## Blocker          # only when real
+## Next Step        # exactly one
 ```
 
-**Rules**
+Do not use it as backlog, roadmap, or historical timeline.
 
-- exactly one `## Next Step`;
-- no general backlog;
-- no historical timeline;
-- no duplicate durable requirements;
-- no automatically promoted audit findings;
-- update only when status, boundary, blocker, required proof, or the next meaningful action changes.
+### `development-brief/SKILL.md`
 
-If current source contradicts `next-action.md`, current source is inspected and the stale owner is reconciled before work continues.
+Use only for **non-trivial Developing**. Required contract fields are conditional: include only fields that can change the decision.
+
+Core logic:
+
+```text
+ground goal
+→ inspect current behavior/owner
+→ decide whether change is needed
+→ define smallest coherent scope
+→ 2–5 falsifiable criteria when complexity warrants them
+→ proof budget
+→ zero/one useful specialist
+→ implement
+→ final gate
+→ STOP
+```
+
+A trivial correction must not be escalated simply to satisfy this skill.
 
 ---
 
-### 7.11 `.agents/skills/development-brief/SKILL.md` — mandatory non-trivial Developing front door
+## 11. Simplified creation policy
 
-**Function**
+The previous eight-question gate for every persistent addition was itself too procedural.
 
-Convert a development request into the smallest grounded contract before edits begin.
+### 11.1 Normal addition gate
 
-**Required contract fields — only when material**
+For ordinary source/test/document additions, ask only:
 
 ```text
-Goal
-Suggested method / observed sample
-Actual requirement
-Input authority
-Expected output
-Build POV
-Acceptance POV
-Interface constraints
-In scope / Out of scope
-Acceptance criteria: 2–5
-Proof budget
-Open high-impact decisions
-Execution channel when it changes implementation/proof
+1. Is it needed for the current accepted outcome?
+2. Is this the correct existing responsibility/owner location?
+3. Is this the simplest complete form?
 ```
 
-**Required procedure**
+If yes, create it. No extra ceremony.
 
-1. recover continuity;
-2. separate fact / proposal / history / unknown;
-3. inspect current owner before assuming a change is needed;
-4. choose Build POV and Acceptance POV;
-5. define minimum complete scope;
-6. define 2–5 falsifiable acceptance criteria;
-7. select cheapest falsifying proof;
-8. use zero/one specialist;
-9. implement one coherent change;
-10. return to the same contract for final gate;
-11. reconcile `next-action.md` only if continuation changed;
-12. STOP.
+### 11.2 High-cost architectural addition gate
 
-**Hard rules**
+Use the extended gate only for additions that create durable complexity, such as:
 
-- `No change required` is valid;
-- no specialist merely because a language/framework appears;
-- no second independent problem inside the same bounded slice;
-- no fake success/fallback/placeholder promoted beyond what it proves.
+```text
+new state authority
+new service/runtime/worker
+provider/router/registry
+compatibility/fallback layer
+persistent cache/queue/event bus
+new dependency boundary
+new specialist skill
+new CI/release/experiment system
+new governance/state owner
+```
+
+Required questions:
+
+```text
+1. What current responsibility or demonstrated problem requires it?
+2. Why can the existing direct path/owner not satisfy the requirement cleanly?
+3. What current consumer needs this now?
+4. What complexity does it remove or what required capability does it uniquely add?
+5. What new failure/maintenance/synchronization cost does it introduce?
+6. Is there a smaller current solution with equal acceptance?
+```
+
+If there is an equally correct smaller solution, use it.
+
+“Best practice”, “clean architecture”, “future scalability”, “might need later”, and “another repository has it” are not sufficient reasons.
 
 ---
 
-### 7.12 `tools/verify_repository.py` — static governance contract verifier
+## 12. Net Simplification Test
 
-**Function**
+An abstraction is justified only when it improves the **total current system**, not merely local code appearance.
 
-Mechanically protect reusable repository invariants. It does not prove the product.
+Before adding an abstraction, ask whether it measurably reduces one or more current burdens:
 
-**Must verify**
+- repeated logic;
+- caller knowledge;
+- coupling;
+- duplicated state/authority;
+- change coordination;
+- failure handling complexity;
+- user/developer setup steps;
+- repeated semantic judgment.
 
-1. required baseline owners exist;
-2. `Local` authority is explicit in governance owners;
-3. four baseline work modes remain represented;
-4. Developing routes through `development-brief`;
-5. `next-action.md` contains exactly one `## Next Step`;
-6. `ownership.md` does not become a status/TODO owner;
-7. relative governance links resolve;
-8. temporary/one-use workflow patterns are absent;
-9. repository verification workflow is read-only;
-10. governance files remain below anti-bloat size ceilings;
-11. required baseline skill inventory remains exactly one skill until a project deliberately changes that invariant;
-12. generic preset files contain no forbidden reference-product leakage.
+Then account for costs it adds:
 
-**Must not verify**
+- additional indirection;
+- new files/modules/interfaces;
+- new synchronization/registration;
+- new failure modes;
+- debugging hops;
+- maintenance obligations.
 
-- product behavior;
-- runtime success;
-- UI quality;
-- model quality;
-- device behavior;
-- release success;
-- human acceptance.
-
-**Implementation constraint**
-
-Use Python standard library only. No dependency/lockfile is justified for a governance verifier that can remain dependency-free.
+If complexity is merely moved or renamed rather than reduced, **do not add the abstraction**.
 
 ---
 
-### 7.13 `.github/workflows/repository-verify.yml` — read-only governance CI
+## 13. Proof calibration
 
-**Function**
+Validation is evidence, not ceremony.
 
-Run the governance verifier only when governance surfaces change.
-
-**Required properties**
+Use the cheapest proof that can falsify the changed claim.
 
 ```text
-push: Local + governance paths only
-pull_request: only explicitly supported refs
-workflow_dispatch
-concurrency cancel-in-progress
-permissions: contents: read
-setup pinned supported Python
-run: python tools/verify_repository.py
+source/static claim
+→ targeted source/static proof
+
+build/contract claim
+→ relevant build/test
+
+runtime/UI/device/model claim
+→ actual matching runtime/target capability
+
+visual/audio/content acceptance
+→ responsible human or matching acceptance capability
 ```
 
-**Forbidden**
+A small task may require one focused check. A high-risk one-line security change may require more proof than a 100-line internal refactor.
 
-```text
-contents: write
-pull-request mutation
-git push
-release/deploy behavior
-continue-on-error that hides failure
-one-use temporary workflow behavior
-product/runtime claims
-```
+Do not use broad/full CI merely because it exists. Use broad verification only when the changed public/executable contract can realistically affect the broader surface.
 
-Product-specific CI is a separate future proof surface.
+Never upgrade source/CI proof into runtime/target/human acceptance.
 
 ---
 
-## 8. Anti-AI-slop contract
+## 14. Context economy without context loss
 
-The preset must explicitly reject the following patterns unless a current acceptance need proves them necessary.
+Mandatory continuity exists to prevent wrong work, not to create repeated I/O ceremony.
 
-### 8.1 Duplicate ownership
+Rules:
 
-Forbidden examples:
+- a fresh session/non-trivial Developing task recovers stable context and active continuation;
+- within the same bounded task/session, already verified context may be reused unless relevant repository state could have changed;
+- bounded Maintenance/direct work may skip stable-context files when they cannot change the decision;
+- history, old reports, reviews, all skills, and broad source scans remain on-demand evidence only.
 
-```text
-ROADMAP.md + next-action.md carrying the same active status
-STATUS.md + README + CONTEXT all maintaining current milestone
-flow.md + routing.md + AGENTS.md each defining work modes
-multiple ownership maps
-multiple config/state stores for the same responsibility
-```
-
-### 8.2 Ceremonial documentation
-
-Do not create:
-
-- per-task completion reports;
-- daily worklogs;
-- review-of-review files;
-- generic architecture documents with no decision to preserve;
-- empty placeholder directories;
-- “future scalability” docs with no current requirement;
-- copied checklists that are not used by a real gate.
-
-### 8.3 Speculative abstraction
-
-Do not introduce a service, manager, registry, router, provider layer, plugin system, generic adapter, compatibility framework, cache, queue, state machine, event bus, abstraction interface, or configuration layer merely because it could be useful later.
-
-### 8.4 Fake robustness
-
-Do not hide unknown failures behind:
-
-- broad catch-and-ignore;
-- arbitrary retry;
-- arbitrary delay;
-- silent fallback;
-- alternate provider/runtime;
-- compatibility aliases;
-- placeholder success;
-- dry-run success described as real execution.
-
-### 8.5 Test ceremony
-
-Tests exist to protect realistic invariants. Do not add tests that merely assert prose wording, file existence without semantic reason, implementation detail that is free to change, or “proof that the proof file exists”.
-
-### 8.6 Context inflation
-
-The AI should not broad-read the repository, Git history, old reports, all specialist files, or every dependency “to be safe”. Mandatory continuity is read first; everything else is question-driven.
-
-### 8.7 Adjacent cleanup
-
-Visible adjacent issues are not automatically part of the task. Record or mention them only when they block current acceptance or the user asks to include them.
+The correct target is **minimum sufficient context**, not “always re-read everything” and not “read as little as possible regardless of risk”.
 
 ---
 
-## 9. Persistent-addition creation gate
+## 15. Retirement and pruning
 
-Before creating **any new persistent file, directory, skill, workflow, abstraction, config, state owner, compatibility layer, fallback, cache, experiment, or dependency**, all applicable questions below must pass.
-
-```text
-1. Does a current responsibility actually exist?
-2. Is it required by the current goal, acceptance criterion, interface, root cause, or proof?
-3. Can an existing canonical owner represent it correctly without mixing incompatible responsibilities?
-4. Does the addition have one clearly named owner?
-5. Can we name the consumer that needs it now?
-6. Can we describe when it is updated and when it is not?
-7. Can we verify its usefulness with a falsifiable criterion?
-8. Is there a smaller solution with fewer persistent surfaces?
-```
-
-If the answer to 1–3 or 8 fails: **do not create it**.
-
-A persistent addition is not justified by:
+Anti-overdevelopment applies to removal as well as creation.
 
 ```text
-“best practice”
-“future scalability”
-“clean architecture”
-“might need later”
-“AI usually creates this”
-“another repository has it”
+hard to add without need
++
+easy to remove when the need disappears
 ```
+
+When a persistent layer no longer owns a live responsibility:
+
+- remove or fold it into the remaining canonical owner when safe;
+- remove stale routing to it;
+- do not retain it merely as compatibility/history;
+- keep historical rationale in Git history or a justified durable decision owner.
+
+A mature repository should be allowed to become simpler again.
 
 ---
 
-## 10. Specialized creation gates
+## 16. Verification architecture — template vs instantiated project
 
-### 10.1 New specialist skill
+The previous plan incorrectly mixed two different proof surfaces.
 
-Create only if:
+### 16.1 Develop-Builder template verification
 
-- a recurring semantic responsibility exists;
-- `development-brief` alone lacks material procedure;
-- the specialist is selected by responsibility, not language/framework;
-- its scope is non-overlapping with existing skills;
-- repeated tasks would materially benefit from the encoded judgment.
+This is verification for **Develop-Builder itself** and may check:
 
-Do not pre-create empty specialists.
+- Core Bootstrap package completeness;
+- reference-domain neutrality of the generic template;
+- no duplicate template owner definitions;
+- direct-path and non-trivial-path contracts exist;
+- template links/invariants are coherent;
+- promoted surfaces are not accidentally bundled as mandatory project output.
 
-### 10.2 New CI/workflow
+A template verifier/workflow may be implemented in Develop-Builder if it is the simplest reliable way to protect the template.
 
-Create only if:
+### 16.2 Instantiated project verification
 
-- an actual executable/proof surface exists;
-- there is a repeatable deterministic command or bounded procedure;
-- the workflow proves a claim that repository verification cannot prove;
-- path/event routing can be scoped appropriately;
-- permissions are minimum-needed.
+An instantiated project must **not automatically inherit a verifier that assumes**:
 
-Never create a temporary workflow solely to obtain one proof run when a safer existing channel exists.
+- exactly one skill forever;
+- generic neutrality terminology;
+- fixed reference-product forbidden words;
+- a permanent exact bootstrap file count.
 
-### 10.3 New decision log
+Project governance verification is added/promoted only when stable project invariants and drift risk justify it.
 
-Create only when decisions repeatedly need durable rationale that cannot be represented by current foundation + Git history, especially when:
-
-- the choice is high-impact and likely to be reconsidered;
-- alternatives/reasoning matter to future correctness;
-- the decision spans multiple owners or migrations.
-
-Small local decisions stay in the canonical owner and Git history.
-
-### 10.4 New backlog
-
-Create only when multiple deferred independent items genuinely need persistent prioritization. `next-action.md` is never allowed to become that backlog.
-
-### 10.5 New experiment area
-
-Create only when:
-
-- a bounded unknown cannot be resolved safely inside the production owner;
-- the experiment has a specific question;
-- entry/exit criteria are written;
-- experimental evidence cannot silently become production proof;
-- promotion requires an explicit production change.
-
-### 10.6 New fallback / compatibility layer
-
-Create only for a named, expected, supported condition. Never use fallback as a substitute for diagnosing an unknown root cause.
-
-### 10.7 New workspace/archive system
-
-Create only when the product has persistent user/project artifacts whose continuity is separate from repository-development continuity.
+If promoted, it verifies that project’s actual current governance — not the pristine template shape.
 
 ---
 
-## 11. Governance size and complexity budgets
+## 17. Bootstrap Adaptation
 
-These are anti-bloat ceilings for v1. A project may deliberately change a ceiling only when the affected responsibility genuinely outgrows it; exceeding a limit is not solved by splitting duplicated information into more files.
-
-| Owner | v1 ceiling |
-|---|---:|
-| `README.md` | 6,000 chars |
-| `AGENTS.md` | 10,000 chars |
-| `GITHUB_RULES.md` | 20,000 chars |
-| `CONTEXT.md` | 8,000 chars |
-| `01-project-overview.md` | 8,000 chars |
-| `02-product-requirements.md` | 12,000 chars |
-| `work-routing.md` | 6,000 chars |
-| `ownership.md` | 8,000 chars |
-| `next-action.md` | 6,000 chars |
-| `development-brief/SKILL.md` | 8,000 chars |
-
-The verifier should fail clearly when a baseline governance owner crosses its ceiling.
-
-A ceiling breach triggers **semantic compression/reconciliation first**, not automatic file proliferation.
-
----
-
-## 12. First-wrong-owner diagnostic algorithm
-
-Before editing, determine which owner is actually wrong.
+When using Develop-Builder for a new project, populate only facts required to begin correctly:
 
 ```text
-user changes intended behavior
-→ foundation / current product policy owner
-
-foundation is correct, implementation violates it
-→ implementation owner
-
-implementation is correct, regression test is stale
-→ test owner
-
-test/source are correct, CI routes or executes incorrectly
-→ workflow/repository policy owner
-
-derived/generated output is wrong
-→ upstream canonical source or generator
-
-next-action is stale but source is correct
-→ continuity owner
-
-historical issue cannot be reproduced and no current requirement supports it
-→ NO ACTIVE CHANGE
-```
-
-The AI must not “fix the easiest file”.
-
----
-
-## 13. Development-necessity gate
-
-After grounding the request:
-
-```text
-current behavior already satisfies requirement
-→ NO CHANGE REQUIRED
-
-requirement materially unresolved
-→ PLAN
-
-concrete existing behavior is wrong
-→ MAINTENANCE
-
-approved behavior requires creation/change
-→ DEVELOPING
-
-requested method conflicts with requirement/evidence
-→ REDIRECT METHOD, PRESERVE GOAL
-```
-
-This gate prevents automatic implementation output.
-
----
-
-## 14. Acceptance and proof model
-
-### 14.1 Acceptance criteria
-
-Non-trivial Developing uses **2–5** criteria only.
-
-Each criterion must be:
-
-- tied to the requested outcome;
-- observable/falsifiable;
-- free from implementation detail unless the detail is itself required;
-- capable of being supported by real proof.
-
-### 14.2 Proof budget
-
-Choose the cheapest evidence that can falsify each changed claim.
-
-Generic proof classes:
-
-```text
-SOURCE VERIFIED
-→ current repository/source/static contract proves the claim
-
-HOSTED VERIFIED
-→ CI/hosted environment actually executed the claim
-
-TARGET VERIFIED
-→ actual target/local/runtime/device environment executed the claim
-
-HUMAN ACCEPTED
-→ visual/audio/content/usability judgment was actually reviewed by the responsible human
-
-UNKNOWN / REQUIRED PROOF MISSING
-→ do not upgrade status
-```
-
-Labels are used only when materially useful; they are not mandatory decoration in every response.
-
-### 14.3 Status rule
-
-```text
-all required implementation + proof complete
-→ Selesai
-
-implementation complete but required target/human proof unavailable
-→ Perlu pemeriksaan
-
-material blocker prevents safe completion
-→ Terhenti
-```
-
----
-
-## 15. User-facing communication contract
-
-For non-trivial Developing, a compact visible pre-edit brief may use:
-
-```text
-Tujuan:
-Cara berpikir:
-Hasil yang dituju:
-Tidak diubah:
-Cara memastikan benar:
-```
-
-Final material report:
-
-```text
-Status: Selesai | Perlu pemeriksaan | Terhenti
-Hasil:
-Bukti:
-Batasan:
-Next step:
-```
-
-Exactly one `Next step`.
-
-Internal development-contract detail should not be dumped to the user unless it is needed for a material decision.
-
----
-
-## 16. Project instantiation contract
-
-Develop-Builder is a general source preset. Before the first real Developing task in a new project, perform a bounded **Bootstrap Adaptation**.
-
-### Bootstrap Adaptation inputs
-
-Recover or define only:
-
-```text
-project name
-project purpose
+project name/purpose
 primary user/consumer
-current scope
-explicit non-goals
-working branch authority
-known major constraints
+current scope/non-goals
+working authority
+known material constraints
 initial proof boundary
 first real development objective
 ```
 
-### Bootstrap Adaptation writes
+Candidate Core Bootstrap owners are updated **only when their owned state actually changes**. Do not force a write to every bootstrap file merely because adaptation is occurring.
 
-Adapt only:
-
-```text
-README.md
-AGENTS.md          # project-specific branch/product mode only when needed
-CONTEXT.md
-01-project-overview.md
-02-product-requirements.md
-ownership.md
-next-action.md
-```
-
-`GITHUB_RULES.md`, `development-brief`, repository verifier, and repository workflow remain generic unless the project proves a real reason to narrow/extend them.
-
-### Bootstrap prohibition
-
-Do **not** invent during bootstrap:
+Do not invent during bootstrap:
 
 - final architecture;
-- full source tree;
+- complete source tree;
 - specialist inventory;
-- release design;
-- database schema;
-- API system;
+- database/API/release systems;
 - compatibility matrix;
-- monitoring/telemetry;
 - test matrix for nonexistent surfaces;
 - future roadmap.
 
-The bootstrap makes development safe; it does not pretend the whole product has already been designed.
+Bootstrap makes development safe; it does not pretend the product is already fully designed.
 
 ---
 
-## 17. Domain adaptation order
+## 18. Reduced adversarial acceptance suite
 
-When a project starts growing, adapt in this sequence:
+The old 15-scenario set was too repetitive. v1 needs a smaller high-signal suite.
 
-### A. Product truth
+### A. Read-only remains read-only
 
-Define desired outcome and non-goals before technical shape.
+`Amati repo dan pahami next step` → recover/report → do not execute.
 
-### B. Semantic responsibilities
+### B. Simple work stays simple
 
-Ask who owns current truth for each real responsibility.
+One label rename or one obvious local conditional fix → exact owner → edit → targeted check → STOP. Full development machinery must not be required unless a material hidden dependency appears.
 
-### C. Current implementation owners
+### C. Unresolved architecture escalates
 
-Create/map source folders only for responsibilities that now exist.
+A task requiring new persistent authority/integration with unresolved product behavior → Plan or non-trivial Developing, not direct invention.
 
-### D. Specialist procedure
+### D. Suggested method can be redirected
 
-Add a specialist only after the semantic responsibility is stable and repeated.
+User proposes framework/provider/architecture → preserve goal, evaluate method, FOLLOW / REFINE / REDIRECT.
 
-### E. Product-specific proof
+### E. Stale continuation reconciles
 
-Add tests/workflows only when executable/product surfaces exist.
+`next-action` conflicts with current source → inspect current owner → reconcile stale state → continue from actual truth.
 
-### F. Release/operations
+### F. Coherent cross-owner change remains coherent
 
-Add only when deployment/distribution/operations becomes a current requirement.
+A fix requires contract + implementation + regression proof → touch the smallest coherent set; do not force a one-owner workaround.
 
-This order prevents framework-first design.
+### G. Proof does not inflate
 
----
+Hosted/source proof without actual runtime/target/human validation → stronger claim remains unverified.
 
-## 18. What is explicitly absent from baseline v1
+### H. Optional architecture is rejected without current need
 
-The following must be absent unless a creation gate later passes:
-
-```text
-additional .agents skills
-Experimental/
-workspace/active
-workspace/archive or workspace/saved
-reviews/
-decisions/
-backlog.md
-validation-report.md
-local-acceptance-runbook.md
-release workflow
-product CI
-deployment workflow
-source-code framework
-runtime folders
-database/storage layer
-provider/router registry
-feature-flag framework
-compatibility layer
-fallback runtime
-telemetry/analytics
-plugin architecture
-general cache/queue/event bus
-API gateway
-monorepo package hierarchy
-```
-
-Absence is intentional architecture, not missing work.
+“Add scalable provider/router/specialists/workspace/CI for later” → reject unless current responsibility passes the high-cost addition gate.
 
 ---
 
-## 19. Repository verifier specification
+## 19. Preset v1 acceptance criteria
 
-The v1 verifier should be small, deterministic, and dependency-free.
+Preset v1 may be frozen only when all pass.
 
-### Required checks
+### A. Shortest Correct Path
 
-#### Structure
+The system explicitly prefers the simplest route that still satisfies correctness, safety, continuity, and proof.
 
-- 13 baseline files exist;
-- exactly one canonical root `.agents/skills` directory exists;
-- baseline skill set is exactly `{development-brief}`.
+### B. Simple Work Stays Simple
 
-#### Authority
+Bounded obvious changes can bypass full Developing ceremony and complete through direct owner + targeted proof.
 
-- `Local` is explicitly identified as working authority in `AGENTS.md` and `GITHUB_RULES.md`;
-- no text suggests silent fallback to another branch.
+### C. Proportionate Escalation
 
-#### Work modes
+Uncertainty, risk, blast radius, cross-owner impact, and proof difficulty escalate process only as far as needed.
 
-- Context Recovery, Plan, Developing, Maintenance are present;
-- observation is explicitly read-only;
-- Developing references `development-brief`;
-- Plan is explicitly no implementation.
+### D. Complete, Not Minimalistic
 
-#### Continuity
+The system does not omit necessary owners/contracts/tests merely to reduce file or step count.
 
-- `next-action.md` has one `## Current Status`, one `## Active Boundary`, exactly one `## Next Step`;
-- optional proof/blocker headings may appear at most once;
-- next-action does not contain backlog/roadmap headings.
+### E. Domain Neutrality
 
-#### Ownership
+Core Bootstrap imposes no reference product, runtime, framework, language, release, or storage architecture.
 
-- ownership file references core canonical owners;
-- forbidden active-status columns/headings are absent.
+### F. Cross-session Recoverability
 
-#### Anti-bloat
+A fresh session can recover stable project truth and active continuation without relying on chat history.
 
-- governance size ceilings pass;
-- no second routing/status/ownership filenames from an explicit retired/forbidden baseline list;
-- no placeholder specialist directory exists.
+### G. Ownership Integrity
 
-#### Link integrity
+Each responsibility has one canonical owner while a coherent task may affect the smallest necessary owner set.
 
-- relative Markdown links in active governance owners resolve.
+### H. Net Simplification
 
-#### Workflow safety
+New abstraction/persistent architecture must reduce current total complexity or uniquely satisfy a demonstrated capability.
 
-- `repository-verify.yml` uses read-only permissions;
-- it runs on `Local` governance changes;
-- it uses concurrency cancellation;
-- no write, push, release, deploy, or `continue-on-error` bypass appears;
-- no `temp-*` / one-use workflows are present.
+### I. Proof Honesty
 
-#### Domain neutrality
+Evidence strength cannot exceed the environment/claim actually exercised.
 
-The generic baseline governance/kernel must not contain reference-product assertions such as:
+### J. Growth and Pruning
 
-```text
-BuildIT
-TranslateIT
-PRD-Creator
-Blockbench
-Minecraft
-Windows audio
-VoiceLab
-PRD production
-```
+Optional structures appear only when earned and can be removed when their responsibility disappears.
 
-Develop-Builder's own implementation plan may mention references; instantiated kernel files may not leak them.
+### K. No AI-slop
 
-### Verifier non-goals
-
-The verifier must not become a linter for writing style, architecture quality, or product behavior.
+No duplicate status/ownership/routing, generic filler systems, fabricated unknowns, ceremonial reports/tests, or placeholder specialists are required by the baseline.
 
 ---
 
-## 20. Adversarial usability scenarios
+## 20. Implementation sequence after final plan acceptance
 
-Preset v1 must be tested conceptually against these scenarios before freeze.
+### Phase 0 — Final critique and freeze
 
-### Scenario 1 — Read-only observation
+Current phase after this revision.
 
-Request: “Amati repo dan pahami next step.”
+- re-audit Core Bootstrap 9-file responsibility set;
+- challenge Direct Bounded Path vs non-trivial threshold with real examples;
+- verify no underdevelopment hole was introduced;
+- verify promoted governance is truly optional;
+- perform one final anti-slop/anti-overdevelopment critique;
+- only then freeze specification.
 
-Expected:
+### Phase 1 — Implement Core Bootstrap
+
+Create/adapt the nine core files only.
+
+No promoted governance or domain/runtime structure.
+
+### Phase 2 — Implement Develop-Builder template validation only if justified
+
+Choose the smallest reliable template verification mechanism. It must verify the template itself, not impose pristine-template invariants on future projects.
+
+### Phase 3 — Direct-path / escalation audit
+
+Exercise the reduced adversarial suite and at least three different project contexts:
 
 ```text
-recover context
-→ report current state
-→ do not execute next step
+local application/runtime
+content/production system
+creative/tooling/plugin system
 ```
 
-### Scenario 2 — User supplies a concrete method
+Do not build sample applications. Test assumptions only.
 
-Request: “Add X using framework/library Y.”
+### Phase 4 — Complexity/pruning audit
 
-Expected:
+Ask:
 
 ```text
-recover actual requirement
-→ verify whether Y is necessary/suitable
-→ FOLLOW / REFINE / REDIRECT
-→ do not blindly encode suggested method
+Can any core owner be removed without losing a unique day-zero responsibility?
+Does any rule create an unnecessary decision hop?
+Can simple work remain direct?
+Can legitimately complex work still become complete?
+Does any abstraction/gate merely move complexity?
+Is any promoted surface accidentally required?
+Can obsolete layers be retired cleanly?
 ```
 
-### Scenario 3 — Current behavior already works
+### Phase 5 — Freeze preset v1
 
-Expected result: `No change required`, no ceremonial commit.
+After all gates pass:
 
-### Scenario 4 — Concrete regression
-
-Expected: Maintenance begins from defect/first wrong owner, not full redesign.
-
-### Scenario 5 — Stale next-action
-
-Expected: current source inspected, stale continuation reconciled, no blind replay.
-
-### Scenario 6 — Derived artifact is wrong
-
-Expected: repair source/generator, not manually patch generated output.
-
-### Scenario 7 — Hosted CI passes but target runtime was never run
-
-Expected: target claim remains unverified; status cannot be inflated.
-
-### Scenario 8 — AI notices adjacent cleanup
-
-Expected: leave it out unless it blocks current acceptance.
-
-### Scenario 9 — “Create a scalable provider/router framework for future integrations.”
-
-Expected: reject/redirect unless current requirements prove multiple providers/routes.
-
-### Scenario 10 — “Create specialists for frontend, backend, database, testing before coding.”
-
-Expected: reject placeholder specialists; only `development-brief` remains.
-
-### Scenario 11 — A second independent problem appears during Developing
-
-Expected: finish/reframe current boundary before opening another specialist/scope.
-
-### Scenario 12 — Product requires persistent user project packages
-
-Expected: workspace system may now pass its creation gate; baseline itself was still correct to omit it.
-
-### Scenario 13 — High-impact architecture choice cannot be recovered
-
-Expected: return to Plan; do not invent a decision inside Developing.
-
-### Scenario 14 — CI failure appears after unrelated docs change
-
-Expected: diagnose exact failure; do not mutate product code merely to make CI green.
-
-### Scenario 15 — User asks to “improve everything”
-
-Expected: recover current product objective, bound acceptance, refuse undefined repo-wide refactor as default.
+- record v1 in the real canonical owner(s);
+- set one real next step or stable idle continuation;
+- reduce/retire this implementation plan so it does not become a second authority;
+- STOP.
 
 ---
 
-## 21. Cross-domain neutrality audit
-
-Before v1 freeze, apply the kernel without adding fake architecture to three materially different hypothetical contexts:
-
-```text
-A. local desktop/runtime application
-B. document/content production system
-C. creative plugin/tooling system
-```
-
-For each context, verify:
-
-- baseline governance adapts without deleting core responsibilities;
-- product source structure can differ completely;
-- no reference-domain terminology is required;
-- optional mode/specialist/workspace/CI surfaces are added only if context proves need;
-- fresh-session recovery works;
-- a simple task does not require broad repository reading;
-- no generic framework is forced.
-
-This is an **assumption audit**, not a request to build three sample applications.
-
----
-
-## 22. Implementation phases
-
-### Phase 0 — Reference audit + specification freeze
-
-**Current phase.**
-
-Deliverable:
-
-- this plan;
-- exact baseline responsibility set;
-- optional-surface gates;
-- anti-slop contract;
-- verifier contract;
-- acceptance/adversarial scenarios.
-
-No preset implementation yet.
-
-### Phase 1 — Governance core
-
-Create and ground:
-
-```text
-README.md
-AGENTS.md
-GITHUB_RULES.md
-CONTEXT.md
-.gitignore
-```
-
-Gate:
-
-- responsibilities do not overlap;
-- branch/routing/STOP behavior is explicit;
-- no domain leakage;
-- no fake project facts.
-
-### Phase 2 — Foundation + continuity
-
-Create:
-
-```text
-docs/foundation/01-project-overview.md
-docs/foundation/02-product-requirements.md
-docs/knowledge/work-routing.md
-docs/knowledge/ownership.md
-docs/knowledge/next-action.md
-```
-
-Gate:
-
-- stable vs active information is separated;
-- exactly one next step;
-- work-routing explains but does not override AGENTS;
-- ownership maps responsibilities only.
-
-### Phase 3 — Development front door
-
-Create:
-
-```text
-.agents/skills/development-brief/SKILL.md
-```
-
-Gate:
-
-- non-trivial Developing always enters through it;
-- 2–5 criteria + proof budget;
-- development necessity gate;
-- zero/one specialist rule;
-- no placeholder specialist set.
-
-### Phase 4 — Static governance verification
-
-Create:
-
-```text
-tools/verify_repository.py
-.github/workflows/repository-verify.yml
-```
-
-Gate:
-
-- dependency-free verifier passes locally/hosted;
-- workflow is read-only and path-scoped;
-- verifier tests only repository-governance claims.
-
-### Phase 5 — Adversarial + cross-domain audit
-
-Run Sections 20–21 against the implemented preset.
-
-Fix only assumptions that fail the baseline responsibility.
-
-Do not add optional architecture to make hypothetical scenarios more complete.
-
-### Phase 6 — Complexity audit
-
-Before v1 freeze ask:
-
-```text
-Can any baseline file be removed without losing a unique required responsibility?
-Can any two files be merged without mixing stable/active/execution responsibilities?
-Does every line belong to its owner?
-Does every automated check protect a real invariant?
-Is any rule duplicated?
-Is any optional system present without a current need?
-```
-
-Expected result is not “more complete”; expected result is the **smallest correct kernel**.
-
-### Phase 7 — Freeze preset v1
-
-Only after all gates pass:
-
-- record preset version in README;
-- set `next-action.md` to stable idle or the next real Develop-Builder objective;
-- commit as one coherent logical delivery if tooling allows atomicity;
-- stop.
-
----
-
-## 23. Preset v1 acceptance criteria
-
-Preset v1 is accepted only if all criteria below pass.
-
-### A. Semantic parity
-
-The Developing lifecycle preserves:
-
-```text
-continuity recovery
-→ development-brief
-→ requirement vs method separation
-→ development necessity gate
-→ one canonical owner
-→ 2–5 acceptance criteria
-→ proof budget
-→ minimum complete change
-→ honest status
-→ one next step
-→ STOP
-```
-
-### B. Domain neutrality
-
-No reference product, runtime, language, framework, platform, model, content type, or release architecture is required by the kernel.
-
-### C. Ownership singularity
-
-Each baseline responsibility has exactly one canonical owner and no competing state system.
-
-### D. Cross-session recoverability
-
-A fresh AI can recover:
-
-```text
-what this project is
-what branch/state is authoritative
-what mode applies
-where desired behavior lives
-where actual behavior lives
-what is currently active
-what the one next step is
-```
-
-without relying on chat history.
-
-### E. Anti-overdevelopment
-
-The preset begins with one skill, one governance workflow, no product-specific architecture, and explicit gates for every optional persistent surface.
-
-### F. Proof honesty
-
-Repository/static/hosted/target/human proof boundaries are distinguishable and cannot silently upgrade.
-
-### G. Mechanical drift protection
-
-The generic verifier catches baseline owner loss, routing drift, continuity shape drift, governance bloat, link breakage, unsafe verification workflow behavior, and reference-domain leakage.
-
-### H. Usability
-
-A normal bounded development task can start after continuity with the smallest relevant owner; the preset does not require broad scanning or loading multiple specialists.
-
-### I. Stop discipline
-
-Completion, `No change required`, and `Perlu pemeriksaan` are all valid terminal outcomes. The system does not automatically continue to adjacent work.
-
----
-
-## 24. Failure conditions — preset must not be frozen if any occur
-
-Do not call the preset v1 if:
-
-- more than one active status/next-step owner exists;
-- `AGENTS.md` and `work-routing.md` disagree;
-- a new project inherits reference-product terminology;
-- baseline contains placeholder specialists;
-- baseline contains generic runtime/source architecture;
-- verifier requires unnecessary third-party dependencies;
-- repository workflow can mutate the repo;
-- a fresh session still needs chat history for current continuation;
-- generated output can outrank its source;
-- current-source vs stale-next-action reconciliation is undefined;
-- proof classes are conflated;
-- optional-surface creation gates are missing;
-- governance size budgets are already exceeded;
-- hypothetical context audit requires deleting core responsibilities rather than merely adapting domain owners.
-
----
-
-## 25. Protected non-goals
+## 21. Protected non-goals
 
 Develop-Builder v1 is not:
 
-- a universal application framework;
+- a universal application/framework starter;
 - a universal folder tree;
-- a monorepo starter;
-- a coding-style framework;
+- a monorepo architecture;
 - an autonomous project manager;
 - a roadmap generator;
-- a prebuilt frontend/backend/database architecture;
-- a library of language-specific AI specialists;
+- a coding-style framework;
+- a prebuilt frontend/backend/database/provider architecture;
+- a library of placeholder specialists;
 - an automatic release/PR/branch system;
 - an exhaustive documentation framework;
 - a generic test framework;
-- a migration requirement for existing repositories;
-- a replacement for product/domain judgment.
+- a migration requirement for mature repositories.
 
-It is a **development governance and continuity kernel**.
-
----
-
-## 26. Final implementation principle
-
-The final preset should feel deliberately small.
-
-A good result is not the preset with the most safeguards, files, skills, workflows, and abstractions. A good result is the smallest system that reliably prevents:
-
-```text
-wrong authority
-lost context
-wrong owner
-method-before-requirement
-scope expansion
-duplicate state
-fake robustness
-proof inflation
-stale continuation
-endless improvement loops
-```
-
-Anything beyond that belongs to the project only after the project earns it.
+It is a **development governance and continuity kernel whose main job is to keep the path to a correct result as direct as the real problem allows**.
 
 ---
 
-## 27. Next Step
+## 22. Next Step
 
-**After this specification is accepted, implement Phases 1–4 as the complete baseline kernel on `Local` without adding any optional surface, then run the adversarial/cross-domain/complexity audits in Phases 5–6 before declaring preset v1.**
+**Perform one final hard critique of this revised specification against BuildIT, TranslateIT, and PRD-Creator, concentrating on the 9-file Core Bootstrap, Direct Bounded Path, non-trivial escalation threshold, and risk of underdevelopment. Do not implement the preset until that critique passes.**

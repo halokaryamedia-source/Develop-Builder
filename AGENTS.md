@@ -19,11 +19,13 @@ For read-only `amati`, inspect, understand, audit, study, or context recovery:
 AGENTS.md
 → GitHub Core Rules when material
 → CONTEXT.md
-→ docs/knowledge/next-action.md when active continuation matters
+→ docs/knowledge/next-action.md
 → smallest owner needed to explain current state
 → report
 → STOP
 ```
+
+`CONTEXT.md` and `docs/knowledge/next-action.md` are mandatory continuity for Context Recovery so a fresh session does not invent current boundaries or promote arbitrary historical work.
 
 Do not edit, run CI, execute a recorded next step, or promote old TODO/history merely because they were discovered.
 
@@ -99,7 +101,7 @@ Escalate when uncertainty, semantic impact, blast radius, risk, ownership coordi
 AGENTS.md
 → GITHUB_RULES.md Core Rules when material
 → CONTEXT.md
-→ docs/knowledge/next-action.md when continuation matters
+→ docs/knowledge/next-action.md
 → .agents/skills/development-brief/SKILL.md
 → smallest relevant owner/caller/contract set
 → zero/one useful specialist
@@ -108,6 +110,8 @@ AGENTS.md
 → reconcile changed canonical state
 → STOP
 ```
+
+`CONTEXT.md` and `docs/knowledge/next-action.md` are mandatory continuity for non-trivial Developing. The Direct Bounded Path remains the exception for work whose wider continuity cannot materially change correctness or proof.
 
 `Non-trivial` is determined by impact/uncertainty/risk/coordination, not by code presence, file count, or line count.
 

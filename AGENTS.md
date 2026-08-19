@@ -20,7 +20,7 @@ Canonical separation:
 project/product durable truth
 → docs/foundation/
 
-current repository navigation / operating memory
+current repository navigation + current development context
 → docs/knowledge/
 
 stable cross-session projection
@@ -33,7 +33,9 @@ actual implementation behavior
 → current source + matching proof
 ```
 
-Do not invent a documentation structure from file-count aesthetics. A simple project may need only Overview + Requirements; a complex project must add the durable owners its real responsibilities require.
+`docs/knowledge/` is a navigation/current-development-context layer, **not a generic project-management archive**. Historical rationale, completed reviews, inactive plans, meeting notes, and arbitrary backlog do not belong there unless a distinct current-navigation responsibility requires them and no simpler current owner exists.
+
+Do not invent a documentation structure from file-count aesthetics. A simple project may need only Overview + Requirements; a complex project must add the durable owners or current-navigation owners its real responsibilities require.
 
 ## Current-source finalization — hard anti-AI-slop invariant
 
@@ -135,6 +137,7 @@ Bootstrap rules:
 - do not invent architecture, source tree, database/API/release design, specialist inventory, compatibility matrix, roadmap, or test matrix merely to fill documentation;
 - do not preserve starter identity/status beside the new project state;
 - do not create empty future docs;
+- Knowledge growth must pass the `docs/README.md` Knowledge Navigation Gate; do not create generic archive/project-management files during bootstrap;
 - finish with exactly one real current `Next Step` or blocker.
 
 Bootstrap does not automatically start the first implementation objective unless the user also requested implementation **and** Documentation Readiness passes.
@@ -176,10 +179,12 @@ AGENTS.md
 → GITHUB_RULES.md Core Rules when material
 → CONTEXT.md
 → docs/knowledge/next-action.md
-→ smallest owner needed to explain current state
+→ smallest current navigation/owner source needed to explain state
 → report
 → STOP
 ```
+
+Do not broad-read every Knowledge owner. Open an earned Knowledge file only when it can materially change understanding of the active repository context.
 
 Do not edit, run CI, execute the recorded next step, or promote old TODO/history merely because it was discovered.
 
@@ -261,7 +266,7 @@ AGENTS.md
 → .agents/skills/development-brief/SKILL.md
 → Project Definition Gate for affected contract
 → nearest relevant AGENTS.md when one exists and matters
-→ smallest relevant foundation/source/caller/contract set
+→ smallest relevant foundation / current Knowledge navigation / source / caller / contract set
 → zero/one useful specialist
 → coherent final implementation
 → minimum honest proof
@@ -270,6 +275,8 @@ AGENTS.md
 ```
 
 If the Project Definition Gate fails, leave implementation and return to Plan / Project Definition.
+
+Open Knowledge only for current navigation/context needed to locate or understand the affected owners; Knowledge does not replace Foundation requirements or source inspection.
 
 `Non-trivial` is determined by impact/uncertainty/risk/coordination, not code/file/line count.
 
@@ -298,10 +305,11 @@ Use the nearest authoritative owner for each claim type:
 - work mode/path/skill budget → root/nearest applicable `AGENTS.md`;
 - stable project orientation → `CONTEXT.md`;
 - durable product/project behavior/non-goals → `docs/foundation/`;
+- current development navigation/context → earned `docs/knowledge/` owner;
 - active continuation/status/boundary/blocker/one next step → `docs/knowledge/next-action.md`;
 - actual behavior → current source + relevant proof;
 - generated/derived output → upstream canonical source/generator;
-- historical rationale → Git history unless a justified current decision owner exists.
+- ordinary historical rationale/completed work → Git history/issues/PRs unless a current owner explicitly needs bounded context from it.
 
 Conflict handling:
 
@@ -313,8 +321,13 @@ foundation vs current source
 → desired behavior vs implementation state
 → identify which current owner is wrong/stale
 
+knowledge navigation vs source
+→ navigation may be stale
+→ verify current source owner
+→ update/remove stale navigation
+
 next-action vs current source/state
-→ stale continuity vs stale implementation
+→ stale continuation vs stale implementation
 → reconcile stale owner
 → continue from actual current state
 
@@ -364,10 +377,10 @@ Before creating any persistent file/module/owner/layer:
 what distinct live responsibility needs an owner?
 why cannot an existing owner represent it cleanly?
 who consumes it now?
-what error/decision/acceptance problem does it solve?
+what error/decision/acceptance/navigation problem does it solve?
 ```
 
-For documentation specifically, follow `docs/README.md` creation and rejection gates.
+For documentation specifically, follow `docs/README.md` Foundation Expansion Gate or Knowledge Navigation Gate as applicable.
 
 Do not hide unknown causes with blind retry, arbitrary delay, broad fallback, compatibility aliases, duplicate state, parallel services, or generic frameworks.
 
@@ -375,11 +388,11 @@ If the same correction direction fails twice without materially new evidence, st
 
 # Minimum complete solution
 
-Every material file, dependency, abstraction, config, compatibility boundary, cache, state, workflow, document, or persistent side effect must trace to the current goal, acceptance criterion, required contract, proved cause, or required proof.
+Every material file, dependency, abstraction, config, compatibility boundary, cache, state, workflow, document, or persistent side effect must trace to the current goal, acceptance criterion, required contract, proved cause, required proof, or real current-navigation need.
 
 The final solution replaces superseded current behavior rather than accumulating generations around it.
 
-Do not add unrelated cleanup, speculative future architecture, duplicate owners, placeholder success, ceremonial tests, broad hardening, framework work, versioned rewrites, empty documentation scaffolds beyond the starter's two required Project Definition owners, or temporary compatibility paths by default.
+Do not add unrelated cleanup, speculative future architecture, duplicate owners, placeholder success, ceremonial tests, broad hardening, framework work, versioned rewrites, empty documentation scaffolds beyond the starter's two required Project Definition owners, generic Knowledge archives, or temporary compatibility paths by default.
 
 # Skill budget
 

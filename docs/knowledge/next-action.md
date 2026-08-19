@@ -3,44 +3,58 @@
 ## Current Status
 
 ```text
-STARTER_READY
+TEMPLATE_DESIGN_STABILIZATION
 ```
 
 Working authority: **`Local`**.
 
-The starter now treats **Project Definition and Documentation Readiness as prerequisites for non-trivial product/system Developing**. `docs/README.md` is the canonical documentation-system owner.
+The starter's pre-development design now includes the intended core responsibility chain:
 
-The project-definition scaffolds are:
+```text
+project-definition
+→ Foundation / Documentation Readiness
+→ project-skill-planner
+→ zero or more justified project specialists
+→ CONTEXT + only earned Knowledge navigation
+→ one next-action
+→ development-brief for non-trivial Developing
+```
 
-- `docs/foundation/01-project-overview.md`;
-- `docs/foundation/02-product-requirements.md`.
+`project-definition` owns critical evidence-backed project-meaning formation and may `FOLLOW`, `REFINE`, `REDIRECT`, `REJECT`, or `BLOCKED` rather than defaulting to user agreement.
 
-Additional foundation/knowledge docs are created only when a real responsibility passes the documented creation gate.
+`project-skill-planner` owns reusable project-specialist necessity/creation/pruning. Zero project specialists is a valid outcome; technology/file names are not skill boundaries.
 
 ## Active Boundary
 
-There is no active kernel-development milestone.
+The template is **still in design stabilization**.
 
-Future starter changes must modify the affected canonical owner directly. Do not create alternative generations, legacy/current copies, parallel documentation systems, or repeated hardening layers.
+Do not start real project-instantiation testing, smoke testing, CI/verifier creation, sample-project creation, or repeated execution testing merely to seek confidence while core template responsibilities are still being audited.
+
+Do not create another baseline/version/generation. Future corrections modify the exact current canonical owner.
+
+Current stabilization questions are limited to whether the starter still has:
+
+- a missing required project-definition/documentation/continuity/development responsibility;
+- a responsibility duplicated across core skills/docs/routing;
+- a rule conflict that could cause wrong project definition or wrong implementation routing;
+- an assumption path that can promote unsupported facts/proposals;
+- an underdefined specialist-selection/creation boundary;
+- an overdeveloped owner/layer that can be removed without losing a real responsibility.
 
 ## Proof Boundary
 
-The documentation architecture is designed against three repository archetypes represented by the reference repositories:
+Current proof is **static source-policy/design evidence only**.
 
-```text
-simple application/system
-domain-heavy authoring/tool system
-multi-stage production system
-```
+The two new core capabilities are grounded in reusable patterns already present in the reference repositories:
 
-The required behavior is:
+- source/requirement recovery that distinguishes authority, completion, proposal, and blocker;
+- independent judgment that can redirect unsupported methods;
+- semantic specialist selection rather than technology-based routing;
+- zero/one specialist per bounded Developing task;
+- new-skill creation only for a distinct reusable semantic procedure gap.
 
-- a simple project remains viable with Overview + Requirements when those owners are sufficient;
-- a domain-heavy project can earn workflow/quality/validation owners without making those universal;
-- a multi-stage production project can earn boundaries/flow/source-intake/stage/handoff owners without forcing that structure onto simpler projects.
-
-This is source-policy/architecture proof. A real instantiated project still must perform its own Project Definition and matching product/runtime acceptance.
+No execution/runtime/template-instantiation claim is made here.
 
 ## Next Step
 
-**Use the current starter tree for the next real project. During Bootstrap Instantiation, complete Project Definition through `docs/README.md`, pass Documentation Readiness, then set one real project next step. Do not start non-trivial product/system Developing before that gate passes.**
+**Perform one full static template-completeness audit across all current core owners and the reusable rules demonstrated by BuildIT, TranslateIT, and PRD-Creator. Resolve only material ownership/routing/definition gaps. Do not begin testing until that audit finds no material design issue.**

@@ -4,6 +4,8 @@ This file is the canonical documentation-system owner for projects created from 
 
 Its job is not to make the repository look documented. Its job is to ensure the project has **enough durable truth to develop correctly** and **enough current navigation/context to continue development safely**, while preventing duplicate, speculative, ceremonial, historical, or versioned documentation.
 
+Detailed critical project-definition judgment lives in `.agents/skills/project-definition/SKILL.md`. Detailed project-specialist planning lives in `.agents/skills/project-skill-planner/SKILL.md`. This file owns the documentation boundaries those skills must obey.
+
 ## 1. Documentation principle
 
 ```text
@@ -26,7 +28,7 @@ Git history owns ordinary historical versions. Current docs describe current tru
 | `CONTEXT.md` | What stable project/repository facts must a fresh session know? | stable summary + navigation |
 | `docs/foundation/` | What durable project/product truth must remain correct? | scope, requirements, boundaries, workflow policy, quality standards |
 | `docs/knowledge/` | How does an AI/developer navigate and resume the project **currently being developed**? | next action, current owner/source map, current implementation flow, source precedence needed for active work |
-| `.agents/skills/` | What reusable AI judgment/procedure is needed repeatedly? | non-trivial Developing, earned domain specialist |
+| `.agents/skills/` | What reusable AI judgment/procedure is needed repeatedly? | core project-definition/development procedures, earned project specialists |
 | implementation/source | What actually exists/behaves now? | code, assets, configs, tests, runtime source |
 
 ### Foundation vs Knowledge
@@ -47,16 +49,17 @@ A decision, review/evidence index, backlog/future-work owner, or runbook may exi
 
 Do not use a lower-authority or derived layer to repair missing upstream meaning.
 
-## 3. Project Definition lifecycle
+## 3. Pre-development lifecycle
 
-A fresh project does not enter normal product Developing until its current project definition is sufficient.
+A fresh project does not enter normal product Developing merely because repository bootstrap is complete.
 
 ```text
 CURRENT USER INTENT
 + APPROVED DECISIONS
 + AUTHORITATIVE SOURCES
         ↓
-SOURCE / REQUIREMENT RECOVERY
+project-definition
+critical evidence recovery + direction judgment
         ↓
 01 PROJECT OVERVIEW
         ↓
@@ -68,20 +71,30 @@ only required durable domain owners
         ↓
 DOCUMENTATION READINESS REVIEW
         ↓
+project-skill-planner
+zero or more justified project specialists
+        ↓
 CONTEXT.md
 stable projection/navigation
+        ↓
+KNOWLEDGE NAVIGATION GATE
+only current navigation actually needed
         ↓
 next-action.md
 one real next step / blocker
         ↓
-PROJECT DEFINITION READY
+DEVELOPMENT READY
         ↓
 Developing / Domain Execution
 ```
 
-`CONTEXT.md` is written/reconciled **after** foundation truth is established. It summarizes and navigates; it does not become a second requirements owner.
+`project-definition` is the critical semantic procedure; it does not replace Foundation. Approved current meaning is persisted in Foundation.
 
-`next-action.md` is the final active-continuation result of Project Definition, not a substitute for Project Definition.
+`project-skill-planner` does not change project requirements and does not create documentation just to describe skills. Its specialist-creation rules live in its own core skill.
+
+`CONTEXT.md` is written/reconciled **after** durable project truth and required initial capability planning are established. It summarizes and navigates; it does not become a second requirements owner.
+
+`next-action.md` is the final active-continuation result, not a substitute for Project Definition.
 
 ## 4. Mandatory project-definition owners
 
@@ -104,7 +117,7 @@ Do not turn Overview into implementation architecture, task history, or a detail
 
 ### `docs/foundation/02-product-requirements.md`
 
-Owns the durable observable requirements needed to build and accept the product/system.
+Owns durable observable requirements needed to build and accept the product/system.
 
 Depending on the project, it may own:
 
@@ -131,13 +144,13 @@ After Overview + Requirements, inspect the real project and ask:
 
 > Is any durable responsibility important enough that keeping it only as a subsection would mix distinct jobs, hide acceptance rules, or make multiple project areas depend on an unclear contract?
 
-Create an additional foundation owner **only** when the answer is yes.
+Create an additional Foundation owner **only** when the answer is yes.
 
 | Responsibility | Create a dedicated owner when... | Keep inside Overview/Requirements when... | Typical name |
 |---|---|---|---|
 | Product/domain boundaries | multiple semantic domains have materially different ownership or forbidden cross-repair rules | one product boundary is simple and obvious | `product-boundaries.md` |
 | Product/production workflow | multi-stage lifecycle/order materially controls correctness, handoff, or downstream eligibility | flow is short and safely described in Requirements | `product-flow.md` / `production-flow.md` |
-| Source intake / source authority policy | correctness depends on recovering, classifying, reconciling, or normalizing multiple source classes as durable product policy | input authority is simple | `source-intake.md` / `source-authority-policy.md` |
+| Source intake / source authority policy | correctness depends on recovering/classifying/reconciling multiple source classes as durable product policy | input authority is simple | `source-intake.md` / `source-authority-policy.md` |
 | System architecture | architecture decisions materially constrain implementation ownership, runtime boundaries, or acceptance | implementation architecture is not yet decided or is straightforward | `system-architecture.md` |
 | Data/state/storage | state ownership, lifecycle, persistence, migration, or destructive behavior is materially complex | storage/state rules are small | `data-state.md` |
 | External interface/integration | a public/external contract has independent semantics/compatibility/acceptance | interface details are local implementation detail | `interface-contract.md` |
@@ -148,7 +161,7 @@ Create an additional foundation owner **only** when the answer is yes.
 
 The filename is secondary. The **responsibility** is what earns the owner.
 
-### Reject a new foundation file when
+### Reject a new Foundation file when
 
 - it merely makes the folder look complete;
 - it repeats content already owned cleanly;
@@ -192,7 +205,7 @@ Before adding a Knowledge owner, require all of the following:
 
 ```text
 current development/navigation problem exists
-+ existing root/foundation/source/next-action owner does not answer it cleanly
++ existing root/Foundation/source/next-action owner does not answer it cleanly
 + information must survive across tasks/sessions
 + the new owner reduces repeated search, ambiguity, or resume error
 ```
@@ -204,7 +217,7 @@ current development/navigation problem exists
 | current `source-authority.md` navigation | several current source/state classes create recurring precedence ambiguity during development | authority is simple or the rule is durable product policy better owned by Foundation |
 | current proof/evidence navigation | several proof surfaces must be located/interpreted across sessions to continue active development correctly | proof is one-task/ephemeral or only historical evidence |
 | operations/runbook | a repeatable procedure is part of current development/operation and is risky/easy to execute incorrectly | procedure is one-off or does not help current navigation |
-| skill inventory/activation map | multiple earned specialists make current selection genuinely ambiguous | only one/few obvious skills exist |
+| skill inventory/activation map | multiple **earned** project specialists make current selection genuinely ambiguous | only one/few obvious skills exist |
 | durable decision context | a non-obvious decision is repeatedly needed to interpret current owners and current policy does not explain enough | it is only historical rationale or can be expressed in the current Foundation owner |
 | future/non-active work owner | retained future work must be explicitly separated to prevent it contaminating current continuation **and** issues/history are insufficient | it is merely a wishlist/project-management backlog |
 | review/evidence index | retained review evidence must be navigated as part of current development and current-vs-historical distinction matters | reviews are completed history with no current navigation role |
@@ -221,6 +234,9 @@ current development navigation / owner map / source map / implementation flow
 durable product meaning
 → Foundation
 
+reusable semantic procedure
+→ Skill
+
 actual behavior
 → source + proof
 
@@ -230,7 +246,7 @@ ordinary completed history / retired rationale
 
 Never create all possible Knowledge owners during bootstrap. Never broad-read all Knowledge owners during normal work; routing decides the smallest current context needed.
 
-## 8. Project Definition Readiness Gate
+## 8. Documentation Readiness Gate
 
 Before **non-trivial product/system Developing** begins for a fresh project or materially new domain, verify the smallest applicable set:
 
@@ -245,32 +261,67 @@ Before **non-trivial product/system Developing** begins for a fresh project or m
 - quality rules that materially control output are owned;
 - acceptance/proof requirements are defined;
 - unresolved high-impact decisions are visible rather than invented;
-- the Foundation Expansion Gate has been applied;
-- `CONTEXT.md` reflects the resulting stable truth;
-- `next-action.md` contains one real next step or exact blocker.
+- the Foundation Expansion Gate has been applied.
 
 If a required item is missing:
 
 ```text
 DO NOT IMPLEMENT THE UNDEFINED BEHAVIOR
-→ return to Plan / Project Definition
+→ project-definition / Plan
 → recover or decide the missing contract
-→ update the canonical foundation owner
+→ update the canonical Foundation owner
 → re-check readiness
 ```
 
-A bounded discovery/prototype may occur before readiness **only** when it is the minimum way to resolve a material unknown. It must not become product implementation by stealth. Its result returns to the correct foundation owner before normal Developing continues.
+A bounded discovery/prototype may occur before readiness **only** when it is the minimum way to resolve a material unknown. It must not become product implementation by stealth. Its result returns to the correct Foundation owner before normal Developing continues.
+
+Documentation Readiness does **not** require project specialists to exist. After it passes, `project-skill-planner` separately determines whether the project needs zero or more reusable project specialists before initial development routing is finalized.
 
 Direct Bounded Maintenance on an already understood local defect does not require replaying the full Project Definition gate when wider definition cannot change the fix.
 
-## 9. Documentation anti-AI-slop — hard rules
+## 9. Skill/document separation
+
+```text
+project/product fact or durable requirement
+→ Foundation
+
+current repository navigation + current development context
+→ Knowledge
+
+compact stable cross-session projection
+→ CONTEXT.md
+
+reusable AI judgment/procedure
+→ Skill
+
+actual implementation behavior
+→ current source + matching proof
+```
+
+Core workflow skills:
+
+```text
+project-definition
+project-skill-planner
+development-brief
+```
+
+Project specialists are **earned** reusable semantic procedures for the instantiated project and are governed by `project-skill-planner`.
+
+Skills must not become storage for project-specific facts or current implementation maps.
+
+A project specialist must not be created merely because a technology, subsystem, directory, test framework, research task, or difficult one-off problem exists.
+
+If multiple earned specialists later make selection genuinely ambiguous, Knowledge may earn a compact activation/navigation map through the Knowledge Navigation Gate. Do not pre-create one.
+
+## 10. Documentation anti-AI-slop — hard rules
 
 ### Do not
 
 - create one document per feature by default;
 - create empty/placeholder files for possible future needs;
 - create version-suffixed replacement docs instead of updating the current owner;
-- create `old`, `legacy`, `new`, backup, migration-copy, or parallel docs without a real external contract;
+- create old/legacy/new/backup/migration-copy/parallel docs without a real external contract;
 - duplicate Overview, Requirements, CONTEXT, README, routing, ownership, status, or next-step truth;
 - copy the same contract into several files instead of linking to its owner;
 - create per-task completion reports/worklogs;
@@ -279,6 +330,7 @@ Direct Bounded Maintenance on an already understood local defect does not requir
 - create an architecture document before architecture is a material project decision;
 - create a validation report before persistent proof-state navigation is needed;
 - create a specialist because a technology/file type exists;
+- create skill-planning reports/registries during bootstrap;
 - retain obsolete docs merely because they once existed;
 - turn Knowledge into a generic archive for decisions, reviews, meeting notes, or backlog;
 - interpret “professional documentation” as “more documentation.”
@@ -305,36 +357,17 @@ Every persistent document must materially do at least one of:
 
 Otherwise, do not create it.
 
-## 10. Foundation vs Knowledge vs Context vs Skill
-
-```text
-project/product durable definition or requirement
-→ Foundation
-
-current repository navigation + current development context
-→ Knowledge
-
-compact stable cross-session projection of project/repository truth
-→ CONTEXT.md
-
-reusable AI judgment/procedure
-→ Skill
-
-actual implementation behavior
-→ current source + matching proof
-```
-
-### Authority rule
+## 11. Authority rules
 
 - Foundation is not derived from Knowledge.
 - Knowledge does not define product requirements merely because it describes current development.
 - `CONTEXT.md` summarizes/navigates stable truth and must not become a second Foundation or Knowledge index dump.
 - Skills must not store project-specific facts.
 - Source owns actual implementation behavior, but source does not silently redefine approved Foundation meaning.
+- AI proposals from `project-definition` become durable truth only after current authority approves/corrects them where material.
+- Skill planning never repairs missing Project Definition inside a specialist file.
 
-A new specialist is justified only after a real recurring semantic responsibility exists and generic `development-brief` is insufficient. Technology names alone do not create specialists.
-
-## 11. Three archetypes
+## 12. Three archetypes
 
 These are examples of **decision outcomes**, not fixed file sets.
 
@@ -347,7 +380,9 @@ Often sufficient:
 02 Product Requirements
 ```
 
-Do not create architecture/flow/validation documents unless the project actually needs independent owners.
+It may also legitimately require **zero project specialists**.
+
+Do not create architecture/flow/validation documents or specialists unless the project actually needs independent owners/judgment.
 
 ### Domain-heavy authoring/tool
 
@@ -359,9 +394,10 @@ Requirements
 domain workflow
 one or more domain quality standards
 validation policy
+one or more semantic project specialists when recurring judgment requires them
 ```
 
-Only the standards materially needed by current scope are created.
+Only responsibilities materially needed by current scope are created.
 
 ### Multi-stage production system
 
@@ -373,11 +409,12 @@ production flow
 source intake/recovery
 stage-specific durable contracts
 validation/handoff policy
+semantic project specialists for truly distinct recurring production/development judgment
 ```
 
 Do not force this structure onto a simple application.
 
-## 12. Update and pruning rule
+## 13. Update and pruning rule
 
 When current truth changes, update the current canonical owner.
 
@@ -385,9 +422,9 @@ When a responsibility disappears:
 
 ```text
 remove or fold obsolete owner
-→ update navigation
+→ update navigation/routing
 → keep no current compatibility copy unless externally required
 → Git history retains retired rationale
 ```
 
-Documentation quality is measured by **clarity of current authority, current development navigation, and development readiness**, not document count.
+Documentation quality is measured by **clarity of current authority, development readiness, and current development navigation**, not document count.

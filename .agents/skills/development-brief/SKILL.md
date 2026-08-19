@@ -1,13 +1,13 @@
 ---
 name: development-brief
-description: Mandatory front door for non-trivial Developing after sufficient Project Definition exists. Recover current continuity, verify the affected durable contract is defined, ground the real goal, separate outcome from suggested method, identify the smallest coherent owner set, define 2-5 falsifiable acceptance criteria and a proportional proof budget, then use at most one useful specialist. Do not use for Direct Bounded work or normal existing-system/domain execution when wider context cannot materially change the decision.
+description: Mandatory front door for non-trivial Developing after sufficient Project Definition and initial capability planning exist. Recover current continuity, verify the affected durable contract is defined, ground the real goal, identify the smallest coherent owner set, define 2-5 falsifiable acceptance criteria and a proportional proof budget, then use zero or one already-earned matching project specialist. Do not create new specialists inside a normal development task.
 ---
 
 # Development Brief
 
-Turn a non-trivial development request into the **smallest grounded final development contract** without skipping project-definition prerequisites or adding ceremony/source generations.
+Turn a non-trivial development request into the **smallest grounded final development contract** without skipping project-definition prerequisites, inventing project meaning, or adding unnecessary structure.
 
-Root `AGENTS.md` owns task class, bootstrap/readiness routing, current-source finalization, continuity, source/claim ownership, local-rule inheritance, skill budget, and STOP behavior. `docs/README.md` owns documentation architecture and Project Definition readiness. Root `GITHUB_RULES.md` owns GitHub execution/history/CI/safety.
+Root `AGENTS.md` owns task class/routing/per-task skill budget. `docs/README.md` owns documentation architecture/readiness. `project-definition` owns critical project-definition judgment. `project-skill-planner` owns creation/pruning of project specialists. Root `GITHUB_RULES.md` owns GitHub execution/history/CI/safety.
 
 ## Entry boundary
 
@@ -16,6 +16,8 @@ Use only for **non-trivial Developing**.
 Do not invoke merely because code/files exist. Direct Bounded work and bounded Maintenance stay on their shorter route when wider stable context cannot materially change solution/proof.
 
 Do not invoke for normal production, authoring, or domain execution when an existing system/procedure is simply being used without changing system behavior.
+
+Do not use this skill to create a new project specialist. Specialist necessity belongs to `project-skill-planner` outside the normal bounded implementation task.
 
 ## Mandatory Developing continuity
 
@@ -28,10 +30,13 @@ AGENTS.md
 → docs/knowledge/next-action.md
 → this development-brief
 → nearest relevant AGENTS.md when one exists and matters
-→ smallest relevant foundation/source/caller/contract evidence
+→ smallest relevant Foundation / current Knowledge navigation / source / caller / contract evidence
+→ zero/one already-earned matching project specialist when useful
 ```
 
 If continuity and current source disagree, reconcile stale continuity vs stale implementation before proceeding.
+
+Knowledge is navigation/current development context only; do not use it as a substitute for Foundation requirements or direct source inspection.
 
 ## Development contract
 
@@ -39,7 +44,7 @@ Establish only fields that can change the decision:
 
 ```text
 Goal
-Actual requirement / foundation owner
+Actual requirement / Foundation owner
 Suggested method / observed reference (if material)
 Input authority
 Expected output
@@ -53,6 +58,7 @@ Open high-impact decisions
 Execution channel only when it constrains implementation/proof
 Superseded current owner/path to remove (only when replacement is involved)
 External compatibility obligation (only when real)
+Matching existing project specialist (only when useful)
 ```
 
 This is an internal contract. Do not create a per-task plan/report/version file merely to store it.
@@ -65,7 +71,9 @@ Separate current fact, approved decision, proposal/method, historical evidence, 
 
 Treat frameworks, screenshots, samples, old branches/source, reference projects, and technical suggestions as evidence/method proposals unless current requirements adopt them.
 
-Recover discoverable repository facts before asking the user. If a high-impact decision remains unresolved, return to Plan instead of inventing it.
+Recover discoverable repository facts before asking the user. For material current external API/library/platform/support facts, use current authoritative/primary evidence when available rather than guessing.
+
+If project/product meaning is materially unresolved, return to `project-definition` / Plan instead of inventing it.
 
 If the request is normal existing-system/domain execution, route to the matching domain owner/procedure.
 
@@ -73,7 +81,7 @@ If the request is normal existing-system/domain execution, route to the matching
 
 Before implementing non-trivial product/system behavior, verify that the affected project contract is sufficiently defined.
 
-Use `docs/README.md` as the canonical readiness rule. Check only the smallest applicable set:
+Use `docs/README.md` as the canonical Documentation Readiness rule. Check only the smallest applicable set:
 
 - purpose/consumer and deliverable are known;
 - relevant input/source authority is sufficient;
@@ -90,15 +98,15 @@ If a required contract is missing:
 
 ```text
 DO NOT IMPLEMENT THE UNDEFINED BEHAVIOR
-→ return to Plan / Project Definition
+→ project-definition / Plan
 → recover or decide the missing contract
-→ update the current foundation owner
+→ update the current Foundation owner
 → re-check readiness
 ```
 
-Do not create documents just to pass the gate. A missing document is a problem only when a missing **responsibility/contract** can change implementation or acceptance.
+Do not create documents merely to pass the gate. A missing document is a problem only when a missing **responsibility/contract** can change implementation or acceptance.
 
-A bounded discovery/prototype may precede readiness only when it is the minimum evidence needed to resolve a material unknown. It does not silently become product implementation; its result returns to the correct foundation owner first.
+A bounded discovery/prototype may precede readiness only when it is the minimum evidence needed to resolve a material unknown. It does not silently become product implementation; its result returns to the correct Foundation owner first.
 
 ### 3. Development necessity gate
 
@@ -107,7 +115,7 @@ current behavior already satisfies goal
 → No change required
 
 requirement materially unresolved
-→ Plan / Project Definition
+→ project-definition / Plan
 
 suggested method unsupported/disproportionate
 → Redirect / Refine
@@ -148,7 +156,7 @@ The scope describes the **final current state**, not staged accumulation of old 
 
 ### 6. Hard anti-AI-slop / complexity gate
 
-Before adding any persistent file, service, runtime, state authority, provider, router, registry, compatibility/fallback layer, cache, queue, material dependency boundary, workflow, specialist, governance owner, migration layer, feature flag, alias, or alternate path, establish:
+Before adding any persistent file, service, runtime, state authority, provider, router, registry, compatibility/fallback layer, cache, queue, material dependency boundary, workflow, governance owner, migration layer, feature flag, alias, or alternate path, establish:
 
 ```text
 current demonstrated need
@@ -175,21 +183,42 @@ Forbidden by default:
 
 Git history is sufficient for ordinary historical preservation and rollback.
 
-### 7. Select at most one useful specialist
+### 7. Existing project-specialist gate
+
+A normal Developing task may **select** an already-earned project specialist but must not invent one ad hoc.
+
+Ask:
+
+```text
+does an existing specialist own this semantic/acceptance boundary?
++ does it add reusable judgment beyond Foundation + development-brief + nearest module rules?
+```
+
+If yes, use that one specialist.
+
+If no specialist is needed, use none.
+
+If the task exposes a genuinely new **recurring** semantic responsibility whose absence will keep causing material reasoning/error, do not create a specialist inside this task. Finish/reframe the current boundary and route the capability question to `project-skill-planner`.
+
+Technology/file type alone is never a specialist trigger.
+
+### 8. Select at most one useful project specialist
 
 Normal non-trivial Developing budget:
 
 ```text
 development-brief
 +
-zero or one project specialist
+zero or one already-earned project specialist
 ```
 
 Select by recurring semantic responsibility, not programming language/framework/library name.
 
+If two independent specialist boundaries are both required, split/reframe the work by acceptance boundary instead of stacking specialists automatically.
+
 Domain execution uses an already-earned project production/authoring procedure; this skill does not invent one.
 
-### 8. Implement the final source and prove it
+### 9. Implement the final source and prove it
 
 - fix the first wrong owner;
 - preserve valid behavior outside scope;
@@ -200,7 +229,9 @@ Domain execution uses an already-earned project production/authoring procedure; 
 - follow `GITHUB_RULES.md` for atomicity/history/tool fit;
 - run only proof relevant to changed claims.
 
-### 9. Final gate
+Do not add testing merely because testing tools are available. Proof is selected by the changed claim and current risk.
+
+### 10. Final gate
 
 Before completion verify:
 
@@ -210,6 +241,8 @@ Before completion verify:
 - scope remained bounded;
 - each responsibility has one current canonical owner;
 - affected Project Definition remains current;
+- specialist usage, if any, matched one real current semantic boundary;
+- no new specialist was created outside `project-skill-planner`;
 - superseded current source/path/state is removed when no external contract requires it;
 - no speculative layer, duplicate state, ceremonial test/report, fake success, or unrelated cleanup was introduced.
 

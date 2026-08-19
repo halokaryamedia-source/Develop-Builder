@@ -23,20 +23,24 @@ The starter is domain-neutral. It does not choose a language, framework, runtime
 
 `Local` is the **single canonical template and development authority**.
 
-Required repository metadata for final template distribution:
+Current required template-distribution metadata:
 
 ```text
 default_branch = Local
 is_template     = true
 ```
 
-`main` is not an independent source owner, compatibility branch, or fallback. While GitHub repository metadata still points to `main`, it may temporarily exist only because it is the current platform default pointer. After the default branch is moved to `Local`, remove `main` when no concrete current external obligation requires it.
+A retained branch such as `main` may remain by explicit repository-owner decision. Its existence does not create a second current source when all of the following remain true:
 
-Do not create a recurring mirror/synchronization mechanism between `Local` and `main`.
+- it is not the default/template authority;
+- agents never fall back to it for current work;
+- it is not used as a compatibility/release mirror;
+- no recurring synchronization workflow is introduced;
+- divergence from `Local` is allowed and does not need repair merely for parity.
 
-The canonical consumption path is GitHub Template Repository creation from the current `Local` source. A new project must not inherit Develop-Builder project history or treat another branch as project authority.
+Branch deletion is optional owner-controlled cleanup, not a template-readiness requirement.
 
-Current repository-setting completion/blockers belong in `docs/knowledge/next-action.md`, not here.
+The canonical consumption path is GitHub Template Repository creation from the current `Local` source. A new project must not inherit Develop-Builder project history or treat a retained non-authoritative branch as project authority.
 
 ## Pre-development model
 
@@ -123,6 +127,7 @@ Each durable responsibility has one current owner.
 - No artificial owner generations or legacy/current duplicates.
 - Git history owns ordinary history.
 - Compatibility/migration exists only for a real current external contract.
+- A retained non-authoritative branch is not another current owner.
 - When a responsibility disappears, unnecessary current structure is removed or folded into the remaining owner.
 
 ## Work model
@@ -193,7 +198,7 @@ Repository/static proof establishes only repository/static claims. Repository me
 - critical project definition → `.agents/skills/project-definition/SKILL.md`
 - project-specialist planning → `.agents/skills/project-skill-planner/SKILL.md`
 - distribution contract / human entry → `README.md`
-- current distribution setting blocker → `docs/knowledge/next-action.md`
+- active continuation → `docs/knowledge/next-action.md`
 - project overview → `docs/foundation/01-project-overview.md`
 - product requirements → `docs/foundation/02-product-requirements.md`
 - non-trivial Developing → `.agents/skills/development-brief/SKILL.md`

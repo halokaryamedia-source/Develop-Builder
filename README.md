@@ -40,20 +40,19 @@ These repository settings are part of the template contract, not optional presen
 Rules:
 
 - `Local` is the only template/development authority.
-- Never silently consume the repository default when it is not `Local`.
-- `main` must not become a second current source, release mirror, fallback, or independent policy owner.
-- Do not create a recurring `Local → main` synchronization workflow.
-- After GitHub default branch is `Local`, remove `main` when no concrete current external contract requires it.
-- If repository metadata does not satisfy `default_branch=Local` and `is_template=true`, template **distribution configuration is incomplete** even when source content itself is correct.
-
-Repository settings/history must not be changed merely for aesthetics. The removal of a superseded branch happens only after the canonical default branch is established and the branch has no current external obligation.
+- GitHub Template consumption must use the current `Local` default branch.
+- Another retained branch such as `main` may remain by explicit repository-owner decision, but it is **non-authoritative**.
+- A retained non-authoritative branch is not a fallback, release mirror, compatibility owner, or second current source.
+- It does not need to remain synchronized with `Local`; divergence is acceptable because only `Local` owns current template truth.
+- Do not create a recurring `Local ↔ main` synchronization workflow.
+- Branch deletion is an optional repository-owner cleanup decision, not a condition of template readiness once `Local` is the default and Template Repository mode is enabled.
 
 ## Canonical consumption path
 
-Once the repository distribution contract is satisfied, create new projects through the GitHub template mechanism from the current `Local` source.
+Create new projects through the GitHub Template mechanism from the current `Local` source.
 
 ```text
-GitHub template repository
+GitHub Template Repository
 → current Local source
 → new project repository without Develop-Builder project history
 → establish/retain Local as project working authority
@@ -65,7 +64,7 @@ GitHub template repository
 → DEVELOPMENT READY
 ```
 
-Do not use cloning Develop-Builder history, copying an old branch, or falling back to `main` as alternate bootstrap paths.
+Do not use cloning Develop-Builder history, copying an old branch, or using a retained non-authoritative branch as alternate bootstrap paths.
 
 Normal product Developing does **not** begin merely because the repository has a name or because the user proposed an architecture.
 
@@ -122,11 +121,11 @@ These are reusable kernel procedures, not project-specific fact stores and not p
 - stable project orientation + distribution contract → `CONTEXT.md`
 - project overview scaffold/current owner → `docs/foundation/01-project-overview.md`
 - product requirements scaffold/current owner → `docs/foundation/02-product-requirements.md`
-- active continuation / distribution blocker → `docs/knowledge/next-action.md`
+- active continuation → `docs/knowledge/next-action.md`
 - non-trivial Developing front door → `.agents/skills/development-brief/SKILL.md`
 
 ## Evidence boundary
 
-Repository/source inspection proves repository/source claims. Repository metadata must be inspected to claim template-distribution readiness. External feasibility/support/compatibility facts require current authoritative evidence when material. Hosted execution proves only what it actually runs. Runtime, device, visual, audio, model, target-machine, and human-acceptance claims require matching evidence.
+Repository/source inspection proves repository/source claims. Repository metadata must confirm `default_branch=Local` and `is_template=true` to claim distribution readiness. The existence of a retained non-authoritative branch does not invalidate readiness. External feasibility/support/compatibility facts require current authoritative evidence when material. Hosted execution proves only what it actually runs. Runtime, device, visual, audio, model, target-machine, and human-acceptance claims require matching evidence.
 
 Current continuation is intentionally not duplicated here; use `docs/knowledge/next-action.md`.

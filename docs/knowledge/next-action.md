@@ -3,60 +3,59 @@
 ## Current Status
 
 ```text
-PRESET_V1_FROZEN
-CORE_BOOTSTRAP_PHASE_1_COMPLETE
-PHASE_2_TEMPLATE_VERIFIER_GATE_COMPLETE — NO AUTOMATION REQUIRED
-PHASE_3_CROSS_DOMAIN_ASSUMPTION_AUDIT_COMPLETE
-PHASE_4_COMPLEXITY_PRUNING_AUDIT_COMPLETE
-DOMAIN_EXECUTION_BOUNDARY_HARDENED
-MATERIAL_DEPENDENCY_ESCALATION_REFINED
-TEMPORARY_IMPLEMENTATION_PLAN_RETIRED
+PRESET_V1_FROZEN_AND_GITHUB_PARITY_HARDENED
+CORE_BOOTSTRAP_COMPLETE
+CROSS_DOMAIN_ROUTING_AUDIT_COMPLETE
+COMPLEXITY_PRUNING_AUDIT_COMPLETE
+GITHUB_CORE_RULES_PARITY_COMPLETE
+GITHUB_CONDITIONAL_SURFACES_RESTORED
+PRE_WRITE_TRANSACTION_GATE_ADDED
+AUTOMATED_TEMPLATE_VERIFIER_NOT_REQUIRED
 PROMOTED_GOVERNANCE_NOT_ADDED
 ```
 
 Working authority: **`Local`**.
 
-Develop-Builder Core Bootstrap **v1** is now the accepted baseline.
+Develop-Builder Core Bootstrap **v1** remains the accepted baseline. A post-freeze Maintenance audit found that the final pruning had removed several GitHub safety rules that are generic across BuildIT, TranslateIT, and PRD-Creator. Those rules have now been restored inside the existing `GITHUB_RULES.md` owner rather than by adding files, skills, workflows, or routing layers.
 
-Phase 4 removed remaining unnecessary synchronization/ownership overlap without changing the nine-file Core Bootstrap responsibility set:
+The hardened GitHub contract now preserves:
 
-- README is a human entrypoint/navigation surface and no longer duplicates the exact stable Core Bootstrap shape;
-- `CONTEXT.md` owns the stable Core Bootstrap shape and baseline identity;
-- `GITHUB_RULES.md` no longer owns architecture-addition judgment already owned by `AGENTS.md` / `development-brief`;
-- the temporary implementation-plan handoff has been retired because its live responsibilities are now fully represented by canonical owners and Git history.
+- PIN / READ MINIMUM / DIAGNOSE / TOOL FIT / WRITE COHERENTLY / VERIFY MINIMUM / STOP;
+- a pre-write transaction gate that forbids scratch/temporary repository mutations;
+- atomic multi-file preparation without moving the working ref until the logical result is ready;
+- meaningful logical commit/history discipline and default efficiency budgets;
+- retry and ambiguous-mutation handling;
+- special-file/LFS/binary/symlink/submodule handling;
+- PR/branch-protection/ruleset/review/merge-queue authority;
+- GitHub Actions least-privilege and untrusted-input security boundaries;
+- secret incident handling and release/deployment approval authority;
+- proof boundaries that do not inflate hosted/static evidence into target/runtime/human acceptance.
 
-No core owner could be removed or merged without mixing distinct human-orientation, routing, GitHub-execution, stable-context, hygiene, durable-intent, durable-requirement, continuation, or non-trivial-development responsibilities.
+These conditional surfaces apply only when the current task touches them, so they do not add routine ceremony to simple Direct Bounded work.
 
 ## Active Boundary
 
-There is **no active kernel-development milestone** after the v1 freeze.
+There is **no active kernel-development milestone** after this Maintenance correction.
 
-Reopen Develop-Builder kernel work only when there is concrete evidence of one of the following:
+Reopen the kernel only for reproduced evidence of:
 
-- a reproducible routing/continuity/ownership defect;
-- a real task that becomes unnecessarily complex because of the preset;
-- a real underdevelopment case where required safety/contract/proof is skipped;
+- a routing/continuity/ownership defect;
+- a task made unnecessarily complex by the preset;
+- underdevelopment that skips a material contract/safety/proof requirement;
+- GitHub behavior not correctly handled by the current core/conditional rules;
 - repeated template drift that makes automation simpler than manual review;
-- a demonstrated simplification that removes current complexity without losing required responsibility.
+- a demonstrated simplification that reduces current complexity without losing required responsibility.
 
-Do not add promoted governance, specialists, workflows, or runtime/domain architecture merely because a future project may need them.
+Do not add promoted governance, specialists, workflows, runtime/domain architecture, or extra safety ceremony without such evidence.
 
 ## Proof Boundary
 
-v1 is supported by static/source review, cross-domain semantic assumption audit, and complexity/pruning review of the generic kernel.
+The current kernel has been statically compared against the shared operating patterns of BuildIT, TranslateIT, and PRD-Creator.
 
-The audit covered:
+For GitHub behavior, the parity review covers the general reusable invariants represented across those repositories: authority pinning, minimum reading, first-wrong-owner diagnosis, tool fit, transaction/write discipline, history quality, minimum proof, STOP, API ambiguity, special files, PR/protection surfaces, Actions security, secrets, and release/deployment constraints.
 
-```text
-local application/runtime
-content/production system
-creative/tooling/plugin system
-```
-
-This proves the current generic routing/ownership contracts are internally coherent for those assumption classes. It does **not** prove the runtime, output quality, or project-specific behavior of a future instantiated project.
-
-Automated template verification remains intentionally absent because no recurring template-drift problem currently justifies its maintenance cost.
+This is repository/source policy proof. It does not prove behavior of a future project-specific runtime or user environment.
 
 ## Next Step
 
-**Use Develop-Builder v1 as the bootstrap source for the next real project. If a concrete kernel defect or demonstrated simplification appears during real use, reproduce that evidence and reopen only the affected Maintenance/Plan boundary; otherwise make no kernel change.**
+**Use Develop-Builder v1 as the bootstrap source for the next real project. Reopen only the exact affected Maintenance/Plan boundary when real use produces evidence of a kernel defect or a simpler complete rule; otherwise make no kernel change.**

@@ -1,46 +1,69 @@
 # Develop-Builder
 
-Develop-Builder is the source starter for a **general development governance and continuity kernel**. It exists to make project development safe and resumable without turning simple work into a complicated process.
+Develop-Builder is the source starter for a **general project-definition, development-governance, and continuity kernel**.
 
 Development authority: **`Local`**.
 
 ## Core principle
 
-> Use the shortest correct path with sufficient context and sufficient proof.
+> Use the shortest correct path with sufficient project definition, sufficient context, and sufficient proof.
 
-The starter standardizes how work is routed, grounded, owned, continued, verified, and stopped. It does not prescribe product architecture, framework, runtime, database, release model, provider system, or source-tree layout.
+The starter does not prescribe a programming language, framework, runtime, database, release model, provider system, or source-tree layout. It provides the operating structure needed to define a project before implementation, develop it without losing context, and grow documentation only when a real responsibility earns an owner.
 
 ## One current source
 
-The current repository source is the only starter baseline.
+Each responsibility has one current canonical owner.
 
-Do not create or preserve artificial generations such as `v1`, `v2`, `new`, `legacy`, `old`, `final2`, compatibility copies, parallel owner files, or replacement folders merely to avoid updating the canonical source.
+When a requirement, rule, workflow, or implementation changes:
 
-When a rule or implementation changes, update the canonical owner and remove the superseded current path/state when safe. Git history preserves history. A real externally defined product/API/schema version may exist only when the product contract itself requires that versioning; AI workflow evolution is not a reason to version current owners.
+```text
+find current owner
+→ update it in place
+→ update required dependents
+→ remove superseded current path/state when safe
+→ prove the final state
+→ STOP
+```
+
+Git history owns ordinary history. Do not preserve obsolete current source as versioned generations, legacy copies, parallel owners, or compatibility paths merely to avoid replacing it cleanly.
+
+A compatibility or migration boundary exists only when a current external contract genuinely requires coexistence.
 
 ## Use as a starter
 
-For a new project, use a **clean snapshot of the current starter tree**, not Develop-Builder Git history:
+Use a **clean snapshot of the current starter tree** in a new repository. Do not carry Develop-Builder Git history into the new project's history.
 
 ```text
 current starter tree
 → new empty repository
 → establish `Local` as working authority
-→ Bootstrap Instantiation in AGENTS.md
+→ read `docs/README.md`
+→ Bootstrap Instantiation + Project Definition
+→ Documentation Readiness gate
 → one coherent first project commit
 ```
 
-Do not clone Develop-Builder history and treat it as project history.
+Normal product Developing does **not** begin merely because the repository has a name and two short documents. The project must first define the durable truth required for the work it is about to perform.
 
-Bootstrap is complete when README/CONTEXT/foundation/next-action describe the new project, no Develop-Builder project state leaks into current truth, generic kernel files remain identity-neutral, unknowns stay explicit, and exactly one real project next step exists.
+## Documentation entrypoint
+
+`docs/README.md` is the canonical documentation-system owner. It explains:
+
+- what must be defined before Developing;
+- what belongs in `docs/foundation/` vs `docs/knowledge/`;
+- when Overview + Requirements are sufficient;
+- when another durable domain document is required;
+- when a new document would be AI-slop and must not be created;
+- the Project Definition / Documentation Readiness gate.
 
 ## Navigation
 
-- AI work routing, Bootstrap Instantiation, source finalization, and path selection → `AGENTS.md`
+- project bootstrap, work routing, source finalization → `AGENTS.md`
 - GitHub execution/history/safety → `GITHUB_RULES.md`
-- stable starter/project orientation → `CONTEXT.md`
-- durable project intent → `docs/foundation/01-project-overview.md`
-- durable intended behavior → `docs/foundation/02-product-requirements.md`
+- documentation architecture / pre-development readiness → `docs/README.md`
+- stable project orientation after definition → `CONTEXT.md`
+- project overview scaffold/current owner → `docs/foundation/01-project-overview.md`
+- product requirements scaffold/current owner → `docs/foundation/02-product-requirements.md`
 - active continuation → `docs/knowledge/next-action.md`
 - non-trivial Developing front door → `.agents/skills/development-brief/SKILL.md`
 

@@ -8,45 +8,39 @@ STARTER_READY
 
 Working authority: **`Local`**.
 
-The current source tree is the single accepted starter baseline. There is no versioned governance generation, legacy baseline, parallel compatibility baseline, or alternate current owner.
+The starter now treats **Project Definition and Documentation Readiness as prerequisites for non-trivial product/system Developing**. `docs/README.md` is the canonical documentation-system owner.
 
-The starter now includes:
+The project-definition scaffolds are:
 
-- clean-snapshot Bootstrap Instantiation;
-- one-current-source finalization rules;
-- strict anti-AI-slop and anti-overdevelopment gates;
-- Context Recovery / Plan / Direct Bounded / non-trivial Developing / Maintenance routing;
-- normal existing-system/domain execution fast path;
-- root/nearest `AGENTS.md` inheritance;
-- claim conflict reconciliation;
-- mandatory cross-session continuity where required;
-- `development-brief` for non-trivial Developing only;
-- GitHub authority/write/history/CI/API/security rules;
-- proof boundaries and terminal STOP behavior.
+- `docs/foundation/01-project-overview.md`;
+- `docs/foundation/02-product-requirements.md`.
+
+Additional foundation/knowledge docs are created only when a real responsibility passes the documented creation gate.
 
 ## Active Boundary
 
-There is **no active kernel-development milestone**.
+There is no active kernel-development milestone.
 
-Do not create another baseline/version/generation for future improvements. If real use reproduces a kernel defect, modify the affected canonical owner directly, remove superseded current behavior when safe, prove the final state, and stop.
-
-Reopen only for concrete evidence of:
-
-- a routing/continuity/ownership/conflict-resolution defect;
-- a clean bootstrap that leaks starter state or becomes unnecessarily procedural;
-- a task made unnecessarily complex by the kernel;
-- underdevelopment that skips a material contract/safety/proof requirement;
-- a real GitHub/docs/skill defect;
-- a demonstrated simplification that removes current complexity without losing responsibility.
+Future starter changes must modify the affected canonical owner directly. Do not create alternative generations, legacy/current copies, parallel documentation systems, or repeated hardening layers.
 
 ## Proof Boundary
 
-The current kernel has been statically compared against the reusable operating discipline of BuildIT, TranslateIT, and PRD-Creator.
+The documentation architecture is designed against three repository archetypes represented by the reference repositories:
 
-A disposable **unreferenced clean-bootstrap smoke tree** was also constructed from the final generic kernel. It proved that a new project can instantiate exactly the Core Bootstrap owners with new project identity/continuation while keeping the generic kernel identity-neutral and without creating versioned, legacy, or parallel current owners.
+```text
+simple application/system
+domain-heavy authoring/tool system
+multi-stage production system
+```
 
-This proves starter structure/source-policy coherence only. Runtime behavior and project-specific output quality remain the responsibility of the instantiated project and its matching proof environment.
+The required behavior is:
+
+- a simple project remains viable with Overview + Requirements when those owners are sufficient;
+- a domain-heavy project can earn workflow/quality/validation owners without making those universal;
+- a multi-stage production project can earn boundaries/flow/source-intake/stage/handoff owners without forcing that structure onto simpler projects.
+
+This is source-policy/architecture proof. A real instantiated project still must perform its own Project Definition and matching product/runtime acceptance.
 
 ## Next Step
 
-**Use the current `Local` starter tree as a clean snapshot for the next real project and run Bootstrap Instantiation. Make no starter-kernel change unless real use produces a concrete defect or a simpler complete final rule.**
+**Use the current starter tree for the next real project. During Bootstrap Instantiation, complete Project Definition through `docs/README.md`, pass Documentation Readiness, then set one real project next step. Do not start non-trivial product/system Developing before that gate passes.**

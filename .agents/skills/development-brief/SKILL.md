@@ -1,23 +1,21 @@
 ---
 name: development-brief
-description: Mandatory front door for non-trivial Developing. Recover current stable context and active continuation, ground the real goal, separate outcome from suggested method, identify the smallest coherent owner set, define 2-5 falsifiable acceptance criteria and a proportional proof budget, then use at most one useful specialist. Do not use for Direct Bounded work or normal existing-system/domain execution when wider context cannot materially change the decision.
+description: Mandatory front door for non-trivial Developing after sufficient Project Definition exists. Recover current continuity, verify the affected durable contract is defined, ground the real goal, separate outcome from suggested method, identify the smallest coherent owner set, define 2-5 falsifiable acceptance criteria and a proportional proof budget, then use at most one useful specialist. Do not use for Direct Bounded work or normal existing-system/domain execution when wider context cannot materially change the decision.
 ---
 
 # Development Brief
 
-Turn a non-trivial development request into the **smallest grounded final development contract that preserves correctness without adding ceremony or source generations**.
+Turn a non-trivial development request into the **smallest grounded final development contract** without skipping project-definition prerequisites or adding ceremony/source generations.
 
-Root `AGENTS.md` owns task class, routing, current-source finalization, existing-system/domain-execution boundary, continuity, source/claim ownership, local-rule inheritance, skill budget, and STOP behavior. Root `GITHUB_RULES.md` owns GitHub execution/history/CI/safety. Do not duplicate those owners here.
+Root `AGENTS.md` owns task class, bootstrap/readiness routing, current-source finalization, continuity, source/claim ownership, local-rule inheritance, skill budget, and STOP behavior. `docs/README.md` owns documentation architecture and Project Definition readiness. Root `GITHUB_RULES.md` owns GitHub execution/history/CI/safety.
 
 ## Entry boundary
 
-Use this skill only for **non-trivial Developing**.
+Use only for **non-trivial Developing**.
 
-Do not invoke it merely because code/files are involved. Direct Bounded work and bounded Maintenance stay on their shorter route when wider stable context cannot materially change the solution or proof.
+Do not invoke merely because code/files exist. Direct Bounded work and bounded Maintenance stay on their shorter route when wider stable context cannot materially change solution/proof.
 
-Do not invoke it for normal production, authoring, or domain execution when an existing system/procedure is simply being used to create/revise intended output without changing system behavior.
-
-Use this skill when material uncertainty, impact, risk, ownership coordination, migration, new persistent authority/material dependency boundary, difficult rollback, or target/human acceptance can change implementation or acceptance.
+Do not invoke for normal production, authoring, or domain execution when an existing system/procedure is simply being used without changing system behavior.
 
 ## Mandatory Developing continuity
 
@@ -30,23 +28,10 @@ AGENTS.md
 → docs/knowledge/next-action.md
 → this development-brief
 → nearest relevant AGENTS.md when one exists and matters
-→ smallest relevant owner/caller/contract evidence
+→ smallest relevant foundation/source/caller/contract evidence
 ```
 
-`CONTEXT.md` and `next-action.md` are mandatory so a new session does not invent project boundaries, repeat completed work, or select arbitrary TODO/history as current scope.
-
-In the same bounded task/session, already verified continuity may be reused unless relevant repository state could have changed.
-
-If `next-action.md` disagrees materially with current source/state:
-
-```text
-inspect exact current owner
-→ stale continuity vs stale implementation
-→ reconcile stale owner
-→ continue from actual current truth
-```
-
-Do not blindly replay a stale step or replace it with a nearby TODO/audit/history item.
+If continuity and current source disagree, reconcile stale continuity vs stale implementation before proceeding.
 
 ## Development contract
 
@@ -54,7 +39,7 @@ Establish only fields that can change the decision:
 
 ```text
 Goal
-Actual requirement
+Actual requirement / foundation owner
 Suggested method / observed reference (if material)
 Input authority
 Expected output
@@ -78,25 +63,51 @@ This is an internal contract. Do not create a per-task plan/report/version file 
 
 Separate current fact, approved decision, proposal/method, historical evidence, derived artifact, and unknown.
 
-Treat frameworks, screenshots, samples, old branches/source, reference projects, and technical suggestions as evidence/method proposals unless the current requirement explicitly adopts them.
+Treat frameworks, screenshots, samples, old branches/source, reference projects, and technical suggestions as evidence/method proposals unless current requirements adopt them.
 
-Recover discoverable repository facts before asking the user. If a high-impact product/architecture/privacy/data/release/acceptance decision remains unresolved, return to Plan instead of inventing it.
+Recover discoverable repository facts before asking the user. If a high-impact decision remains unresolved, return to Plan instead of inventing it.
 
-If the request is normal existing-system/domain execution, leave Developing and route to the matching domain owner/procedure.
+If the request is normal existing-system/domain execution, route to the matching domain owner/procedure.
 
-If current owners materially disagree, use root `AGENTS.md` conflict-resolution semantics. Do not create a compatibility layer merely to let contradictory owners coexist.
+### 2. Project Definition Gate
 
-### 2. Development necessity gate
+Before implementing non-trivial product/system behavior, verify that the affected project contract is sufficiently defined.
+
+Use `docs/README.md` as the canonical readiness rule. Check only the smallest applicable set:
+
+- purpose/consumer and deliverable are known;
+- relevant input/source authority is sufficient;
+- scope/non-goals are current;
+- affected observable requirements are owned;
+- any material product/domain flow is defined;
+- any domain boundary that changes ownership/correctness is owned;
+- architecture/data/security/interface decisions required **before this implementation** are resolved or explicitly blocking;
+- material quality rules are owned;
+- acceptance/proof for the changed claims is defined;
+- Foundation Expansion Gate has been applied to the affected responsibility.
+
+If a required contract is missing:
 
 ```text
-normal existing-system/domain execution
-→ matching domain owner/procedure
+DO NOT IMPLEMENT THE UNDEFINED BEHAVIOR
+→ return to Plan / Project Definition
+→ recover or decide the missing contract
+→ update the current foundation owner
+→ re-check readiness
+```
 
+Do not create documents just to pass the gate. A missing document is a problem only when a missing **responsibility/contract** can change implementation or acceptance.
+
+A bounded discovery/prototype may precede readiness only when it is the minimum evidence needed to resolve a material unknown. It does not silently become product implementation; its result returns to the correct foundation owner first.
+
+### 3. Development necessity gate
+
+```text
 current behavior already satisfies goal
 → No change required
 
 requirement materially unresolved
-→ Plan / Context Recovery
+→ Plan / Project Definition
 
 suggested method unsupported/disproportionate
 → Redirect / Refine
@@ -107,7 +118,7 @@ grounded non-trivial system change required
 
 Do not create a patch merely to create output.
 
-### 3. Find the smallest coherent owner set
+### 4. Find the smallest coherent owner set
 
 Find the current semantic owner plus callers/contracts/tests that can materially affect correctness.
 
@@ -121,23 +132,21 @@ contract
 + regression assertion
 ```
 
-Inspect relevant existing regression assertions/invariants before writing when they can constrain the change; do not use intermediary commits/pushes as avoidable regression discovery.
+Inspect relevant existing regression assertions/invariants before writing when they constrain the change.
 
-Do not create a second service/store/controller/config/authority when the existing owner can represent the responsibility correctly.
+When replacing an owner/path, identify what becomes obsolete before implementation so the final patch does not leave old/new generations behind.
 
-When replacing an owner/path, identify what becomes obsolete **before** implementation so the final patch does not leave old/new generations behind.
-
-### 4. Define minimum complete final scope
+### 5. Define minimum complete final scope
 
 Define explicit in/out scope where adjacent systems are easy to confuse.
 
-Choose 2–5 falsifiable acceptance criteria describing required observable outcomes rather than incidental implementation detail unless that detail is required.
+Choose 2–5 falsifiable acceptance criteria describing required observable outcomes.
 
 Choose the cheapest proof capable of falsifying each changed claim.
 
-The scope must describe the **final current state**, not a staged accumulation of `old + new + compatibility` unless a current external contract truly requires coexistence.
+The scope describes the **final current state**, not staged accumulation of old + new + compatibility unless a current external contract requires coexistence.
 
-### 5. Hard anti-AI-slop / complexity gate
+### 6. Hard anti-AI-slop / complexity gate
 
 Before adding any persistent file, service, runtime, state authority, provider, router, registry, compatibility/fallback layer, cache, queue, material dependency boundary, workflow, specialist, governance owner, migration layer, feature flag, alias, or alternate path, establish:
 
@@ -154,23 +163,19 @@ If an equally correct direct replacement exists, use it.
 
 Forbidden by default:
 
-- versioned owner generations (`v2`, `v3`, etc.);
-- `new`/`old`/`legacy`/backup copies;
+- version-suffixed owner generations;
+- old/new/legacy/backup copies;
 - parallel old/new runtime or state authorities;
-- compatibility aliases or fallback bridges without a current external obligation;
+- compatibility aliases/fallback bridges without current external obligation;
 - preserving superseded behavior “just in case”;
 - speculative framework/scalability layers;
-- per-task reports, migration frameworks, decision layers, or specialists created because the change feels important;
-- temporary structures promoted to permanent source without a live responsibility;
-- broad fallback/retry used to hide an unknown root cause.
+- per-task reports or decision layers created because work feels important;
+- temporary structures promoted to permanent source without live responsibility;
+- broad fallback/retry used to hide unknown root cause.
 
 Git history is sufficient for ordinary historical preservation and rollback.
 
-Every fallback/retry must handle a named expected condition or proved failure mode.
-
-A real compatibility/migration boundary is permitted only when a current external contract requires it. Record the contract; keep the boundary minimal; do not create a second product/runtime authority.
-
-### 6. Select at most one useful specialist
+### 7. Select at most one useful specialist
 
 Normal non-trivial Developing budget:
 
@@ -180,13 +185,11 @@ development-brief
 zero or one project specialist
 ```
 
-Select by recurring semantic responsibility, not programming language/framework/library name. If no specialist adds material procedure, use none.
+Select by recurring semantic responsibility, not programming language/framework/library name.
 
-If a second independent problem appears, finish/reframe the current boundary instead of stacking scopes/specialists.
+Domain execution uses an already-earned project production/authoring procedure; this skill does not invent one.
 
-Domain execution uses an already-earned project production/authoring procedure instead; this skill does not invent one.
-
-### 7. Implement the final source and prove it
+### 8. Implement the final source and prove it
 
 - fix the first wrong owner;
 - preserve valid behavior outside scope;
@@ -194,11 +197,10 @@ Domain execution uses an already-earned project production/authoring procedure i
 - update required callers/contracts/tests coherently;
 - remove superseded current source/path/state when safe;
 - do not keep old/new generations for convenience;
-- do not hide unknown root causes with arbitrary retry/delay/fallback;
 - follow `GITHUB_RULES.md` for atomicity/history/tool fit;
 - run only proof relevant to changed claims.
 
-### 8. Final gate
+### 9. Final gate
 
 Before completion verify:
 
@@ -207,14 +209,13 @@ Before completion verify:
 - acceptance criteria supported by proof actually obtained;
 - scope remained bounded;
 - each responsibility has one current canonical owner;
-- superseded current source/path/state from this change is removed when no external contract requires it;
-- no `v2`/`legacy`/old/new/backup generation was introduced as an AI development technique;
-- no placeholder/dry-run/mock/stale marker or fallback was promoted beyond the narrow claim it proves;
-- no speculative layer, duplicate state, ceremonial test/report, fake success, temporary permanentization, or unrelated cleanup was introduced.
+- affected Project Definition remains current;
+- superseded current source/path/state is removed when no external contract requires it;
+- no speculative layer, duplicate state, ceremonial test/report, fake success, or unrelated cleanup was introduced.
 
 If implementation is complete but required target/human proof is unavailable, report `Perlu pemeriksaan`, not `Selesai`.
 
-Update `next-action.md` only when active status, boundary, blocker, proof requirement, or next meaningful action actually changed.
+Update `next-action.md` only when active status, boundary, blocker, proof requirement, or next meaningful action changed.
 
 Then STOP.
 
@@ -230,7 +231,4 @@ Tidak diubah:
 Cara memastikan benar:
 ```
 
-- Do not dump the internal contract by default.
-- Trivial/unambiguous corrections do not need this meta-brief.
-- Normal domain execution should deliver requested output rather than repository-development ceremony.
-- If a material decision needs user review, surface that decision directly instead of wrapping it in generic process language.
+Do not dump the internal contract by default. Normal domain execution should deliver requested output rather than repository-development ceremony.

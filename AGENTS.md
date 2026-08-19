@@ -1,13 +1,39 @@
 # Agent Routing
 
-This repository uses a general development kernel. Current repository/project sources are authority for repository state; chat history is supporting context only.
+This repository uses a general project-definition and development kernel. Current repository/project sources are authority for repository state; chat history is supporting context only.
 
 ## Branch and safety authority
 
 - `Local` is the working/development authority.
 - Never silently fall back to another branch or repository default.
 - Material GitHub execution follows `GITHUB_RULES.md`.
-- Choose the **smallest sufficient path**. Efficiency must not remove context, contracts, safety, or proof that can change correctness.
+- Documentation architecture and Project Definition readiness follow `docs/README.md`.
+- Choose the **smallest sufficient path**. Efficiency must not remove project definition, context, contracts, safety, or proof that can change correctness.
+
+## Documentation authority
+
+Before creating, splitting, or deleting durable project documentation, use `docs/README.md`.
+
+Canonical separation:
+
+```text
+project/product durable truth
+→ docs/foundation/
+
+current repository navigation / operating memory
+→ docs/knowledge/
+
+stable cross-session projection
+→ CONTEXT.md
+
+reusable AI judgment/procedure
+→ .agents/skills/
+
+actual implementation behavior
+→ current source + matching proof
+```
+
+Do not invent a documentation structure from file-count aesthetics. A simple project may need only Overview + Requirements; a complex project must add the durable owners its real responsibilities require.
 
 ## Current-source finalization — hard anti-AI-slop invariant
 
@@ -27,35 +53,22 @@ Do **not** solve evolution by accumulating alternatives.
 
 Forbidden by default:
 
-- `v1` / `v2` / `v3` governance or implementation generations;
-- `_new`, `_old`, `_legacy`, `_backup`, `final2`, replacement-copy files/folders;
+- version-suffixed governance/implementation owner generations;
+- old/new/legacy/backup replacement copies;
 - duplicate services/controllers/configs/state stores for the same responsibility;
 - parallel old/new runtime paths kept “just in case”;
-- compatibility aliases, fallback bridges, adapters, migration layers, feature flags, or deprecated copies created only to avoid replacing the current source cleanly;
+- compatibility aliases, fallback bridges, adapters, migration layers, feature flags, or deprecated copies created only to avoid replacing current source cleanly;
 - permanent TODO/plan/status/completion/review files that duplicate a current owner;
-- “temporary” repository structures that become persistent because cleanup was deferred;
+- temporary repository structures that persist because cleanup was deferred;
 - preserving obsolete source merely because it once existed.
 
-Git history owns ordinary history. Do not keep historical code/docs alive inside current source just to preserve history.
+Git history owns ordinary history.
 
-A compatibility or migration boundary is allowed only when a **current external contract** proves it is required: persisted user data, a supported public API/protocol, deployed clients, an explicitly supported file/schema format, or another concrete compatibility obligation. Even then:
-
-```text
-name the external contract
-→ keep the compatibility boundary minimal
-→ define its owner and removal condition when removable
-→ do not create a second product/runtime authority
-```
-
-Real externally defined API/schema/product versions are allowed when the product contract itself requires versioning. AI workflow evolution is not a reason to version canonical owners.
-
-If the existing owner can be corrected directly, direct replacement is the default.
+A compatibility or migration boundary is allowed only when a **current external contract** proves coexistence is required: persisted user data, supported public API/protocol, deployed clients, explicitly supported file/schema format, or another concrete compatibility obligation. Keep it minimal and never create a second product/runtime authority.
 
 ## Rule inheritance
 
-Root `AGENTS.md` owns repository-wide invariants and task routing. A project may later add a nearer `AGENTS.md` only for a real package/domain responsibility.
-
-When work is inside a subtree with a nearer `AGENTS.md`:
+Root `AGENTS.md` owns repository-wide invariants and task routing. A project may add a nearer `AGENTS.md` only for a real package/domain responsibility.
 
 ```text
 root AGENTS.md
@@ -64,33 +77,36 @@ root AGENTS.md
 ```
 
 - Read a nearer `AGENTS.md` only when its local rules can materially change the task.
-- A nearer rule may narrow local/domain behavior; it must not weaken root branch/ref safety, current-source finalization, proof honesty, ownership integrity, or STOP boundaries.
-- For local behavior, the nearest compatible rule applies.
+- A nearer rule may narrow local/domain behavior; it must not weaken branch/ref safety, documentation readiness, current-source finalization, proof honesty, ownership integrity, or STOP boundaries.
 - Directory existence alone is not a reason to create another `AGENTS.md`.
 
-## Task class first
+# Task class first
 
-### Bootstrap Instantiation
+## Bootstrap Instantiation
 
-Use this route when starting a new project from the starter before normal project development begins.
+Use when starting a new project from the starter before normal project development begins.
 
-Use a **clean snapshot of the current starter tree in a new repository**. Do not carry the starter's Git history into the new project's history.
+Use a **clean snapshot of the current starter tree in a new repository**. Do not carry starter Git history into the new project's history.
 
-Establish `Local` as the working authority before normal project writes, unless the user explicitly requires another working-ref policy. If another policy is required, adapt the root branch rules as one coherent bootstrap decision before development begins.
+Establish `Local` as working authority before normal project writes unless the user explicitly requires another policy. If another working-ref policy is required, adapt the root branch rules as one coherent bootstrap decision before development begins.
 
-Establish only current project truth:
+Then run Project Definition, not immediate product implementation:
 
 ```text
-project name / purpose
-primary user or consumer
-current scope / explicit non-goals
-working branch/ref authority
-known material constraints
-initial proof boundary
-first real development objective
+read docs/README.md
+→ recover current user intent + approved decisions + authoritative sources
+→ complete 01-project-overview.md
+→ complete 02-product-requirements.md
+→ apply Foundation Expansion Gate
+→ create only earned durable foundation owners
+→ Documentation Readiness review
+→ derive/reconcile README.md + CONTEXT.md
+→ write next-action.md with one real step or blocker
+→ PROJECT DEFINITION READY
+→ report → STOP
 ```
 
-Adapt only project-specific owners whose state must change:
+Project-specific owners normally rewritten during bootstrap:
 
 ```text
 README.md
@@ -98,34 +114,60 @@ CONTEXT.md
 docs/foundation/01-project-overview.md
 docs/foundation/02-product-requirements.md
 docs/knowledge/next-action.md
++ only foundation/knowledge owners earned by the real project
 ```
 
-`AGENTS.md`, `GITHUB_RULES.md`, and `development-brief` are identity-neutral kernel owners. Change them during bootstrap only when the project has a real routing/authority/procedure difference.
+Generic kernel owners normally retained:
+
+```text
+AGENTS.md
+GITHUB_RULES.md
+docs/README.md
+.agents/skills/development-brief/SKILL.md
+```
+
+Change generic kernel owners during bootstrap only when the new project has a real routing/authority/procedure difference.
 
 Bootstrap rules:
 
 - unknown project facts remain unknown;
-- do not invent final architecture, source tree, database/API/release design, specialist inventory, compatibility matrix, future roadmap, or tests for nonexistent surfaces;
-- remove/replace starter-specific project identity, audit/status state, and old continuation from current project truth;
-- never create versioned starter generations or preserve old starter state beside the new project state;
-- do not copy starter Git history/status as project requirements;
-- finish with exactly one real project `Next Step`.
+- remove scaffold guidance from project-specific foundation owners before declaring readiness;
+- do not invent architecture, source tree, database/API/release design, specialist inventory, compatibility matrix, roadmap, or test matrix merely to fill documentation;
+- do not preserve starter identity/status beside the new project state;
+- do not create empty future docs;
+- finish with exactly one real current `Next Step` or blocker.
 
-Bootstrap acceptance:
+Bootstrap does not automatically start the first implementation objective unless the user also requested implementation **and** Documentation Readiness passes.
+
+## Project Definition — pre-development phase
+
+Project Definition is a bounded pre-development phase, **not another permanent work mode**.
+
+Use it when:
+
+- bootstrapping a new project;
+- a materially new product/domain is entering scope and lacks durable contracts;
+- Developing discovers that required product flow, boundary, source authority, architecture, quality, or acceptance meaning is undefined.
+
+Route:
 
 ```text
-project identity is the new project
-stable context describes the new project
-foundation describes current approved intent/requirements
-next-action describes only current project continuation
-generic kernel contains no project-specific starter leakage
-no duplicate/legacy/versioned owner exists
-unknowns remain explicit
+current intent + approved decisions + authoritative sources
+→ recover what is already known
+→ update Overview / Requirements
+→ apply docs/README.md Foundation Expansion Gate
+→ resolve only high-impact blockers
+→ Documentation Readiness review
+→ update CONTEXT only as a projection of stable truth
+→ set one next-action
+→ STOP or explicitly transition to Developing when already authorized
 ```
 
-After those conditions are true: report the bootstrap result and STOP. Bootstrap does not automatically start the first development objective unless the user also requested implementation.
+Project Definition may edit project documentation. It does **not** implement undefined product behavior.
 
-### Context Recovery
+A bounded discovery/prototype is allowed before readiness only when it is the minimum evidence needed to resolve a material unknown. It must return evidence to the correct foundation owner before normal implementation continues.
+
+## Context Recovery
 
 For read-only `amati`, inspect, understand, audit, study, or context recovery:
 
@@ -139,9 +181,9 @@ AGENTS.md
 → STOP
 ```
 
-`CONTEXT.md` and `docs/knowledge/next-action.md` are mandatory continuity for Context Recovery. Do not edit, run CI, execute the recorded next step, or promote old TODO/history merely because it was discovered.
+Do not edit, run CI, execute the recorded next step, or promote old TODO/history merely because it was discovered.
 
-### Plan
+## Plan
 
 Use when a material product, architecture, ownership, risk, or acceptance decision remains unresolved.
 
@@ -158,12 +200,12 @@ Before asking the user, recover facts current owners/source can answer. Ask only
 Plan transition:
 
 - Plan-only request → NO IMPLEMENTATION → report → STOP.
-- Explicit plan + implementation request → if no material user decision remains, state the transition and continue into the appropriate Developing path.
+- Explicit plan + implementation request → if no material user decision remains, ensure affected Project Definition is sufficient, state the transition, then enter the appropriate Developing path.
 - Material user decision still required → STOP and ask; do not invent it.
 
 Plan must never silently become Developing.
 
-### Existing-system / Domain Execution
+## Existing-system / Domain Execution
 
 Using an existing system to create or revise its normal domain output is **not automatically Developing** merely because files/artifacts are created.
 
@@ -175,13 +217,13 @@ current request + current project/domain state
 → STOP
 ```
 
-Do not invoke `development-brief` when repository/system behavior is unchanged. A named Production/Authoring mode or specialist appears only when a real repeated workflow earns it.
+A domain execution route/procedure must already have an earned current owner. If the required domain workflow/quality/acceptance contract does not exist and can materially change output, return to Project Definition instead of improvising it inside production work.
 
-If normal execution exposes a defect or requires changing how the system works, route that defect/change to Maintenance or Developing.
+Do not invoke `development-brief` when repository/system behavior is unchanged.
 
-### Developing
+## Developing
 
-#### Direct Bounded Path
+### Direct Bounded Path
 
 Use when all material conditions are true:
 
@@ -205,9 +247,9 @@ pin repo/ref + inherit root safety rules
 → STOP
 ```
 
-Direct means fewer unnecessary decision hops, not less correctness or safety.
+Direct means fewer unnecessary decision hops, not less correctness or safety. It is not a bypass for undefined new product behavior.
 
-#### Non-trivial Developing
+### Non-trivial Developing
 
 Escalate when uncertainty, semantic impact, blast radius, risk, ownership coordination, migration, new persistent authority, material dependency change, hard rollback, or target/human acceptance can materially change implementation or acceptance.
 
@@ -217,8 +259,9 @@ AGENTS.md
 → CONTEXT.md
 → docs/knowledge/next-action.md
 → .agents/skills/development-brief/SKILL.md
+→ Project Definition Gate for affected contract
 → nearest relevant AGENTS.md when one exists and matters
-→ smallest relevant owner/caller/contract set
+→ smallest relevant foundation/source/caller/contract set
 → zero/one useful specialist
 → coherent final implementation
 → minimum honest proof
@@ -226,11 +269,13 @@ AGENTS.md
 → STOP
 ```
 
-`CONTEXT.md` and `next-action.md` are mandatory continuity here. `Non-trivial` is determined by impact/uncertainty/risk/coordination, not code/file/line count.
+If the Project Definition Gate fails, leave implementation and return to Plan / Project Definition.
 
-### Maintenance
+`Non-trivial` is determined by impact/uncertainty/risk/coordination, not code/file/line count.
 
-A concrete defect, regression, stale rule, or behavior-preserving cleanup should use the Direct Bounded Path by default when wider context cannot change the decision.
+## Maintenance
+
+A concrete defect, regression, stale rule, or behavior-preserving cleanup should use the Direct Bounded Path by default when wider project definition cannot change the decision.
 
 ```text
 exact defect
@@ -241,17 +286,18 @@ exact defect
 → STOP
 ```
 
-If diagnosis exposes an unresolved product/architecture decision, return to Plan.
+If diagnosis exposes an unresolved product/architecture decision, return to Plan / Project Definition.
 
-## Claim ownership and conflict resolution
+# Claim ownership and conflict resolution
 
 Use the nearest authoritative owner for each claim type:
 
 - current task intent/new explicit product decision → current user instruction;
 - GitHub/ref/write/history/CI/security discipline → `GITHUB_RULES.md`;
+- documentation architecture / doc creation thresholds → `docs/README.md`;
 - work mode/path/skill budget → root/nearest applicable `AGENTS.md`;
 - stable project orientation → `CONTEXT.md`;
-- durable intended behavior/non-goals → `docs/foundation/`;
+- durable product/project behavior/non-goals → `docs/foundation/`;
 - active continuation/status/boundary/blocker/one next step → `docs/knowledge/next-action.md`;
 - actual behavior → current source + relevant proof;
 - generated/derived output → upstream canonical source/generator;
@@ -285,7 +331,7 @@ material current conflict cannot be resolved responsibly
 
 Never create a compatibility/legacy path merely to avoid reconciling conflicting current owners.
 
-## Requirement and method discipline
+# Requirement and method discipline
 
 The user owns intended outcome and high-impact product decisions. The agent owns repository discovery, owner discovery, implementation detail/method quality, scope discipline, and evidence quality.
 
@@ -300,11 +346,9 @@ REDIRECT
 STOP / DECISION REQUIRED
 ```
 
-Redirect methods that create duplicate ownership/runtime, preserve obsolete paths without a current contract, repeat disproven work, inflate proof, or add disproportionate abstraction/compatibility/fallback.
-
 `No change required` is valid.
 
-## Root-cause and edit gate
+# Root-cause, documentation, and edit gates
 
 Before a non-trivial behavior edit establish:
 
@@ -314,37 +358,48 @@ Before a non-trivial behavior edit establish:
 4. why the proposed final change addresses that cause;
 5. what proof can falsify the result.
 
-Before creating any persistent file/module/owner/layer, establish why the current canonical owner cannot represent the responsibility and why the addition is required **now**.
+Before creating any persistent file/module/owner/layer:
+
+```text
+what distinct live responsibility needs an owner?
+why cannot an existing owner represent it cleanly?
+who consumes it now?
+what error/decision/acceptance problem does it solve?
+```
+
+For documentation specifically, follow `docs/README.md` creation and rejection gates.
 
 Do not hide unknown causes with blind retry, arbitrary delay, broad fallback, compatibility aliases, duplicate state, parallel services, or generic frameworks.
 
 If the same correction direction fails twice without materially new evidence, stop that direction and reassess.
 
-## Minimum complete solution
+# Minimum complete solution
 
-Every material file, dependency, abstraction, config, compatibility boundary, cache, state, workflow, or persistent side effect must trace to the current goal, acceptance criterion, required contract, proved cause, or required proof.
+Every material file, dependency, abstraction, config, compatibility boundary, cache, state, workflow, document, or persistent side effect must trace to the current goal, acceptance criterion, required contract, proved cause, or required proof.
 
 The final solution replaces superseded current behavior rather than accumulating generations around it.
 
-Do not add unrelated cleanup, speculative future architecture, duplicate owners, placeholder success, ceremonial tests, broad hardening, framework work, versioned rewrites, or “temporary” compatibility paths by default.
+Do not add unrelated cleanup, speculative future architecture, duplicate owners, placeholder success, ceremonial tests, broad hardening, framework work, versioned rewrites, empty documentation scaffolds beyond the starter's two required Project Definition owners, or temporary compatibility paths by default.
 
-## Skill budget
+# Skill budget
 
 - Direct Bounded Path → no specialist by default.
 - Non-trivial Developing → mandatory `development-brief` + zero/one useful project specialist.
 - Maintenance → zero/one specialist only when the diagnosed semantic boundary needs it.
-- Plan / Context Recovery → no project specialist by default.
+- Plan / Context Recovery / Project Definition → no specialist by default.
 - Existing-system/domain execution → use only an already-earned project domain procedure/specialist when it adds material value.
 
 Choose specialists by recurring semantic responsibility, not programming language/framework/library names.
 
-## Evidence boundary
+Project facts/requirements belong in foundation/project owners, not skills.
+
+# Evidence boundary
 
 Use the cheapest proof capable of falsifying the changed claim.
 
 Repository/static/hosted evidence proves only what it actually exercises. It does not prove runtime/device/visual/audio/model/target-machine/human acceptance without matching execution.
 
-## Completion
+# Completion
 
 When current scope and required proof are satisfied: STOP.
 

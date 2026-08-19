@@ -1,84 +1,81 @@
 # Project Overview
 
+> **Starter scaffold:** during Project Definition, replace this guidance with current project truth. Remove optional sections that do not apply. This file is not accepted project policy while scaffold guidance remains unresolved.
+
 ## Purpose
 
-Develop-Builder provides a reusable development bootstrap preset so a new project can begin with clear authority, cross-session continuity, proportional process, and honest proof without inheriting unnecessary architecture.
+State what the project/product/system is in one concise definition.
 
-## Primary user / consumer
+## Primary User / Consumer
 
-The primary consumer is an AI-assisted development workflow working with a human project owner through a repository.
+Identify the primary human, system, team, runtime, or downstream consumer whose need determines success.
 
-The human owns intended outcomes and high-impact product decisions. The development agent is expected to recover repository facts, find the correct owner, choose an appropriate implementation path, keep scope bounded, and obtain evidence proportional to the claim.
+## Problem / Need
 
-## Problem to solve
+Describe the concrete need being solved. Avoid generic goals such as “modern,” “scalable,” or “robust” unless they have a defined current meaning.
 
-New projects often fail in predictable ways before the product itself is difficult:
+## Goals / Intended Outcomes
 
-- context is lost between sessions;
-- chat/history becomes mistaken for current authority;
-- suggested methods are treated as requirements;
-- simple work is made unnecessarily procedural;
-- complex work is oversimplified without sufficient contracts/proof;
-- duplicate state/documentation owners appear;
-- speculative architecture is created before responsibility exists;
-- static/build success is overstated as runtime or user acceptance;
-- work continues after the requested boundary is already complete.
+Define the material outcomes the project must achieve.
 
-Develop-Builder provides the minimum operating kernel needed to prevent those failures.
+## Inputs / Source Authority
 
-## In scope
+List the inputs or source classes that may establish project truth.
 
-- working/ref authority;
-- AI task-class and path selection;
-- Direct Bounded and non-trivial Developing routes;
-- stable cross-session project orientation;
-- active continuation with one meaningful next step;
-- durable project intent and requirements;
-- requirement vs suggested-method separation;
-- one canonical owner per responsibility;
-- smallest coherent owner-set changes;
-- anti-overdevelopment and anti-AI-slop discipline;
-- evidence proportional to changed claims;
-- growth only when real complexity earns it;
-- retirement/pruning when responsibility disappears;
-- STOP behavior.
+Examples only when applicable:
 
-## Explicit non-goals
+- explicit user/project-owner decisions;
+- authoritative source documents/data;
+- approved references/specifications;
+- external standards/contracts.
 
-Develop-Builder does not provide or require:
+State important authority limits or conflict rules when needed.
 
-- a universal source tree;
-- frontend/backend/database architecture;
-- a monorepo structure;
-- a programming-language or framework standard;
-- provider/router/registry infrastructure;
-- compatibility or fallback systems;
-- a release/deployment architecture;
-- a generic CI/test matrix;
-- a library of placeholder specialists;
-- an autonomous roadmap/project-management system;
-- a mandatory migration format for mature repositories.
+## Outputs / Deliverables
 
-## Material constraints
+Define the expected primary outputs/deliverables. Distinguish canonical authored output from generated/derived projections when relevant.
 
-- `Local` is the current working/development authority for this repository.
-- Simple bounded work must remain capable of taking a direct path.
-- Root branch/ref/safety and honest-proof rules remain mandatory even on the direct path.
-- Non-trivial work must remain resumable across sessions without requiring chat-history reconstruction.
-- Unknown product facts must remain unknown rather than being invented to make the project look complete.
-- Optional governance/runtime structures are absent until a demonstrated responsibility earns them.
+## In Scope
 
-## Success boundary
+List the current accepted boundary.
 
-The preset succeeds when:
+## Explicit Non-goals
 
-1. a fresh session can recover stable project truth and current continuation;
-2. a trivial change can reach its exact owner and proof without full development ceremony;
-3. a materially uncertain/risky/cross-owner change escalates enough to remain complete and safe;
-4. new abstractions/layers are required to justify their current value or net simplification;
-5. evidence claims never exceed the environment actually exercised;
-6. mature structure can grow and later shrink without duplicate authority.
+List material exclusions that prevent adjacent work or historical ideas from silently entering scope.
 
-## Known high-impact unknowns
+## High-level Product / Domain Boundaries
 
-No runtime/product architecture is intentionally selected by the general preset. Those decisions belong to the project instantiated from it when real requirements exist.
+Describe only boundaries that materially affect responsibility, source authority, or downstream behavior.
+
+If several domains have independent rules/ownership, apply the Foundation Expansion Gate in `../README.md` and create a dedicated boundary owner only when needed.
+
+## Material Constraints
+
+Record constraints that can change design, implementation, or acceptance.
+
+Examples when material:
+
+- target platform/environment;
+- performance/resource limits;
+- privacy/security/data rules;
+- compatibility obligations;
+- delivery/handoff constraints;
+- required tools/runtime/hardware.
+
+Do not invent constraints merely to make this section look complete.
+
+## Success Boundary
+
+State what must be true for the project to satisfy its intended outcome at the current scope.
+
+## High-impact Unknowns
+
+Record only unresolved decisions that can materially change scope, architecture, ownership, risk, or acceptance.
+
+Unknown remains unknown until resolved. Do not fill gaps with assumptions.
+
+## Related Foundation Owners
+
+After the Foundation Expansion Gate, link only the additional durable owners that actually exist.
+
+Do not pre-list placeholder documents.

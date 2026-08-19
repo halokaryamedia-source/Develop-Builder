@@ -1,6 +1,6 @@
 ---
 name: development-brief
-description: Mandatory front door for non-trivial Developing. Recover sufficient current context, ground the real goal, separate outcome from suggested method, identify the smallest coherent owner set, define 2-5 falsifiable acceptance criteria and a proportional proof budget, then use at most one useful specialist. Do not use for Direct Bounded work or normal existing-system/domain execution when wider context cannot materially change the decision.
+description: Mandatory front door for non-trivial Developing. Recover current stable context and active continuation, ground the real goal, separate outcome from suggested method, identify the smallest coherent owner set, define 2-5 falsifiable acceptance criteria and a proportional proof budget, then use at most one useful specialist. Do not use for Direct Bounded work or normal existing-system/domain execution when wider context cannot materially change the decision.
 ---
 
 # Development Brief
@@ -19,20 +19,22 @@ Do not invoke it for normal production, authoring, or domain execution when an e
 
 Use this skill when material uncertainty, impact, risk, ownership coordination, migration, new persistent authority/material dependency boundary, difficult rollback, or target/human acceptance can change the implementation or acceptance.
 
-## Sufficient continuity
+## Mandatory Developing continuity
 
-Before implementation, recover only the current context that can materially change the decision:
+Before implementation, recover:
 
 ```text
 AGENTS.md
 → GITHUB_RULES.md Core Rules when material
 → CONTEXT.md
-→ docs/knowledge/next-action.md when active continuation matters
+→ docs/knowledge/next-action.md
 → this development-brief
 → smallest relevant owner/caller/contract evidence
 ```
 
-In the same bounded task/session, already verified context may be reused unless relevant repository state could have changed.
+`CONTEXT.md` and `docs/knowledge/next-action.md` are mandatory for non-trivial Developing so a new session does not invent project boundaries, repeat completed work, or select arbitrary TODO/history as current scope.
+
+In the same bounded task/session, already verified continuity may be reused unless relevant repository state could have changed.
 
 If `next-action.md` materially disagrees with current source/state:
 
@@ -42,6 +44,8 @@ inspect exact current owner
 → reconcile stale owner
 → continue from actual truth
 ```
+
+Do not blindly replay a stale next step or replace it with a nearby TODO/audit/history item.
 
 ## Development contract
 
@@ -112,6 +116,8 @@ contract
 + regression assertion
 ```
 
+Inspect existing relevant regression assertions/invariants before writing when they can constrain the change; do not use intermediary commits or pushes as avoidable regression discovery.
+
 Do not create a second service/store/controller/config/authority when the existing owner can represent the responsibility correctly.
 
 ### 4. Define minimum complete scope
@@ -138,6 +144,8 @@ whether an equally correct smaller solution exists
 If an equally correct smaller solution exists, use it.
 
 Do not add architecture for “best practice”, “clean architecture”, future scalability, or possible future use alone.
+
+Every fallback/retry must handle a named expected condition or proved failure mode; do not use broad fallback/retry to hide an unknown root cause.
 
 ### 6. Select at most one useful specialist
 
@@ -173,6 +181,7 @@ Before completion verify:
 - acceptance criteria supported by proof actually obtained;
 - scope remained bounded;
 - each responsibility still has one canonical owner;
+- no placeholder/dry-run/mock/stale marker or fallback was promoted beyond the narrow claim it actually proves;
 - no speculative layer, duplicate state, ceremonial test/report, fake success, or unrelated cleanup was introduced.
 
 If implementation is complete but required target/human proof is unavailable, report `Perlu pemeriksaan`, not `Selesai`.

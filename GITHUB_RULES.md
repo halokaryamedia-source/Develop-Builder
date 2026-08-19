@@ -1,10 +1,10 @@
-# GitHub Rules — Develop-Builder
+# GitHub Rules
 
-Canonical GitHub execution policy for this repository and the generic preset baseline.
+Canonical GitHub execution policy for this repository and reusable starter kernel.
 
-Root `AGENTS.md` owns task class, direct/escalated routing, continuity, semantic scope, and architecture-addition judgment. This file owns GitHub/ref/write/history/CI/security mechanics. Domain rules may narrow these rules but must not weaken integrity, proof, history, security, or STOP boundaries.
+Root `AGENTS.md` owns task class, routing, continuity, semantic scope, current-source finalization, and architecture-addition judgment. This file owns GitHub/ref/write/history/CI/API/security mechanics. Nearer repository rules may narrow local behavior but must not weaken integrity, proof, history, security, single-source ownership, or STOP boundaries.
 
-For normal repository work apply **Core Rules 1–7**. Read a **Conditional GitHub Surface** only when the current task actually touches that surface; PR, release, Actions, LFS, or deployment rules are not extra boot requirements for a bounded text edit.
+For normal repository work apply **Core Rules 1–7**. Read a **Conditional GitHub Surface** only when the current task touches it; PR, release, Actions, LFS, or deployment rules are not extra boot requirements for a bounded text edit.
 
 ```text
 PIN
@@ -49,6 +49,7 @@ broad scans          0 by default
 - Partial, truncated, paginated, or capped output is incomplete evidence, not proof of absence.
 - Continue pagination or narrow a query only when unseen data can materially change the decision.
 - A missing result may mean missing, inaccessible, stale ref, or unindexed. Verify the exact repository/ref/access once before concluding absence; do not guess alternate branches or paths.
+- Old commits/branches/files are historical evidence only. Do not promote them into current source unless the current task explicitly requires bounded recovery/reconciliation.
 
 ## 3. DIAGNOSE — fix the first wrong owner
 
@@ -88,6 +89,7 @@ historical failure not reproduced or currently required
 - Do not perform unrelated cleanup, refactors, compatibility work, dependency upgrades, documentation synchronization, or framework creation unless they block current acceptance.
 - CI failure is evidence to diagnose, not permission to mutate unrelated product code.
 - Historical TODOs/audits/failures are not active work unless reproduced or explicitly promoted by current intent.
+- Do not create old/new parallel paths merely because replacement feels risky; identify the real current contract and make the minimum complete final change.
 - `No change required` is valid.
 
 ## 4. TOOL FIT — match repository semantics to the operation
@@ -144,7 +146,7 @@ Hard stops:
 - Do not change repository structure merely to make a connector/tool easier to use.
 - If the active channel cannot perform the change safely or preserve required history quality, use or report the suitable channel instead of forcing completion.
 
-## 5. WRITE COHERENTLY — one logical result
+## 5. WRITE COHERENTLY — one logical final result
 
 Before the **first working-ref mutation**, pass this transaction gate:
 
@@ -152,6 +154,7 @@ Before the **first working-ref mutation**, pass this transaction gate:
 repo / intended ref / current HEAD pinned
 scope + smallest coherent owner set ready
 complete intended file contents / patch state ready
+superseded current paths identified
 mutation channel matches delivery shape
 no scratch / temporary repository path required
 expected proof known
@@ -162,7 +165,7 @@ any NO
 
 Prepare the complete logical result before committing when practical.
 
-- One intentional write per file is the default, but **one write does not mean one commit per file**.
+- One intentional write per file is the default, but one write does not mean one commit per file.
 - Same-file and overlapping mutations are serial, never parallel.
 - Reuse successful mutation responses and returned identifiers as current state; do not immediately refetch for reassurance unless concurrency or proof requires it.
 - For coordinated atomic work, keep the working ref unchanged while candidate blobs/tree are prepared. If HEAD moves materially before the ref update, rebuild from current state rather than layering a stale result on top.
@@ -173,16 +176,31 @@ Prepare the complete logical result before committing when practical.
 - New files, workflows, abstractions, compatibility layers, fixtures, reports, branches, PRs, issues, comments, labels, releases, and other persistent side effects default to zero unless current scope proves a real need.
 - Architecture/governance additions are justified by `AGENTS.md` / `development-brief`; this file governs safe repository execution after that decision.
 
+### Single-source replacement rule
+
+When replacing current behavior or policy:
+
+```text
+canonical owner updated
++ required callers/contracts/tests updated
++ obsolete current path/state removed when safe
+= one logical delivery
+```
+
+Do not leave `_old`, `_new`, `_legacy`, `v2`, backup copies, duplicate config/state, alternate service paths, or compatibility aliases merely to make the change feel reversible. Git history is the normal rollback/history mechanism.
+
+A retained compatibility/migration path requires a named current external contract. Without that contract, remove the superseded path in the same coherent delivery when safe.
+
 ### Commit discipline — history must remain meaningful
 
-A commit is a **categorized logical delivery**, not a save point, reasoning checkpoint, tool call, scratch experiment, CI trigger, or proof marker.
+A commit is a **categorized logical delivery**, not a save point, reasoning checkpoint, tool call, scratch experiment, CI trigger, proof marker, or artificial version boundary.
 
 Default delivery:
 
 ```text
 prepare complete logical change
 → cheapest relevant pre-commit proof available
-→ review intended diff/state
+→ review intended final diff/state
 → one categorized logical commit
 → one push/ref update
 → only relevant CI
@@ -195,6 +213,7 @@ Commit gate:
 one coherent outcome?
 primary category clear?
 intended file set complete?
+superseded current paths handled?
 message explains repository outcome?
 reviewable / revertable as one unit?
 
@@ -224,9 +243,9 @@ chore     bounded maintenance only when no clearer category fits
 
 - A fix may include its tests/supporting docs when they prove/document the same outcome.
 - Split commits only for genuinely independent logical deliveries that can be reviewed/reverted separately.
-- Do not split by file, directory, technical layer, tool call, work order, or discovery order.
+- Do not split by file, directory, technical layer, tool call, work order, discovery order, or “old vs new” generation.
 - More than one commit for one requested task requires a concrete logical boundary.
-- Avoid vague history such as `update`, `changes`, `fix again`, `sync`, `final`, `try`, `rerun`, `proof`, `noop`, or `misc`.
+- Avoid vague history such as `update`, `changes`, `fix again`, `sync`, `final`, `try`, `rerun`, `proof`, `noop`, `v2`, or `misc`.
 - Do not create checkpoint/cleanup commits to compensate for avoidable intermediate repository mutations.
 - Never rewrite published/shared history merely for aesthetics without explicit authority.
 - When the active tool would create commit spam for one coherent result, use a known-safe atomic channel or report the required channel.
@@ -263,6 +282,7 @@ Do not automatically:
 - fix adjacent non-blocking issues;
 - create branches/PRs/issues/comments/releases for ceremony;
 - reopen historical TODOs/audits;
+- create a new version/generation of a solved owner;
 - start the next milestone;
 - continue because more tooling is available.
 
@@ -275,6 +295,8 @@ broad scans               0
 new files                 0 unless required
 new workflows             0 unless required
 new abstractions          0 unless required
+versioned replacement     0 unless external contract requires it
+legacy/parallel owners    0
 intentional writes/file   1 by default
 logical commits/task      1 by default
 uncategorized commits     0

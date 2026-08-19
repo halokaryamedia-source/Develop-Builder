@@ -3,16 +3,19 @@
 ## Current Status
 
 ```text
-TEMPLATE_DESIGN_STABILIZATION
+TEMPLATE_DESIGN_STATICALLY_STABLE
 ```
 
 Working authority: **`Local`**.
 
-The starter's pre-development design now includes the intended core responsibility chain:
+The full static template-completeness audit has now covered the current core owners against the reusable operating discipline demonstrated by BuildIT, TranslateIT, and PRD-Creator.
+
+The current pre-development chain is:
 
 ```text
 project-definition
-→ Foundation / Documentation Readiness
+→ evidence-grounded Foundation
+→ Documentation Readiness
 → project-skill-planner
 → zero or more justified project specialists
 → CONTEXT + only earned Knowledge navigation
@@ -20,41 +23,41 @@ project-definition
 → development-brief for non-trivial Developing
 ```
 
-`project-definition` owns critical evidence-backed project-meaning formation and may `FOLLOW`, `REFINE`, `REDIRECT`, `REJECT`, or `BLOCKED` rather than defaulting to user agreement.
-
-`project-skill-planner` owns reusable project-specialist necessity/creation/pruning. Zero project specialists is a valid outcome; technology/file names are not skill boundaries.
-
 ## Active Boundary
 
-The template is **still in design stabilization**.
+There is **no active template-design implementation milestone**.
 
-Do not start real project-instantiation testing, smoke testing, CI/verifier creation, sample-project creation, or repeated execution testing merely to seek confidence while core template responsibilities are still being audited.
+The final material gap found by the static audit was evidence lifecycle inside Project Definition/Foundation. Current rules now require:
+
+- sufficient coverage of known material authority for the current scope;
+- traceable provenance for material source-backed premises;
+- revalidation of change-prone external facts when later work materially depends on them and staleness is plausible;
+- first-class preservation of negative/removal requirements;
+- coherent propagation of approved meaning across every affected Foundation owner.
+
+No new testing, verifier, registry, sample project, skill matrix, architecture layer, or compatibility path was justified by this audit.
 
 Do not create another baseline/version/generation. Future corrections modify the exact current canonical owner.
-
-Current stabilization questions are limited to whether the starter still has:
-
-- a missing required project-definition/documentation/continuity/development responsibility;
-- a responsibility duplicated across core skills/docs/routing;
-- a rule conflict that could cause wrong project definition or wrong implementation routing;
-- an assumption path that can promote unsupported facts/proposals;
-- an underdefined specialist-selection/creation boundary;
-- an overdeveloped owner/layer that can be removed without losing a real responsibility.
 
 ## Proof Boundary
 
 Current proof is **static source-policy/design evidence only**.
 
-The two new core capabilities are grounded in reusable patterns already present in the reference repositories:
+The audit establishes that the current template has explicit owners/procedures for:
 
-- source/requirement recovery that distinguishes authority, completion, proposal, and blocker;
-- independent judgment that can redirect unsupported methods;
-- semantic specialist selection rather than technology-based routing;
-- zero/one specialist per bounded Developing task;
-- new-skill creation only for a distinct reusable semantic procedure gap.
+- critical evidence-backed project definition;
+- durable Foundation specification and documentation readiness;
+- current Knowledge navigation/context;
+- stable cross-session CONTEXT;
+- project-specialist necessity/creation/pruning;
+- non-trivial development contracts;
+- GitHub execution/history/CI/security;
+- single-current-source and anti-AI-slop behavior.
 
-No execution/runtime/template-instantiation claim is made here.
+It does **not** claim real project-instantiation, runtime, device, visual, or user-acceptance proof.
+
+Testing/instantiation remains intentionally deferred. Do not start it merely to seek reassurance.
 
 ## Next Step
 
-**Perform one full static template-completeness audit across all current core owners and the reusable rules demonstrated by BuildIT, TranslateIT, and PRD-Creator. Resolve only material ownership/routing/definition gaps. Do not begin testing until that audit finds no material design issue.**
+**Do not automatically test or instantiate the template. Keep the design frozen at the current owners and reopen only for a concrete static design defect or an explicit user-selected next phase.**

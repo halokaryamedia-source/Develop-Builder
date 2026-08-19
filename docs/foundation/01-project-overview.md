@@ -12,7 +12,9 @@ Identify the primary human, system, team, runtime, or downstream consumer whose 
 
 ## Problem / Need
 
-Describe the concrete need being solved. Avoid generic goals such as “modern,” “scalable,” or “robust” unless they have a defined current meaning.
+Describe the concrete need being solved. A personal/creative/learning goal may be sufficient; do not invent a market/business problem the user did not claim.
+
+Avoid generic goals such as “modern,” “scalable,” or “robust” unless they have a defined current meaning.
 
 ## Goals / Intended Outcomes
 
@@ -26,10 +28,16 @@ Examples only when applicable:
 
 - explicit user/project-owner decisions;
 - authoritative source documents/data;
+- current repository/source;
 - approved references/specifications;
-- external standards/contracts.
+- external standards/contracts;
+- current official/primary technical documentation for material external claims.
 
 State important authority limits or conflict rules when needed.
+
+For a material source-backed fact that changes scope, feasibility, risk, compatibility, or acceptance, retain enough source identity to re-open/revalidate it later. Use the smallest useful provenance such as repository path/revision, source title/section, official URL/standard identifier, relevant version/platform, and verification date when the fact is change-prone.
+
+Do not create a source inventory when a few direct references are sufficient.
 
 ## Outputs / Deliverables
 
@@ -39,9 +47,11 @@ Define the expected primary outputs/deliverables. Distinguish canonical authored
 
 List the current accepted boundary.
 
-## Explicit Non-goals
+## Explicit Non-goals / Removals
 
-List material exclusions that prevent adjacent work or historical ideas from silently entering scope.
+List material exclusions, removals, replacements, and forbidden adjacent behavior that prevent historical/default features from silently re-entering scope.
+
+Statements such as `remove`, `no longer use`, `do not use`, `must not`, `only`, and `replaced by` are first-class when material. Preserve their actual scope; do not broaden them beyond what was decided.
 
 ## High-level Product / Domain Boundaries
 
@@ -62,7 +72,7 @@ Examples when material:
 - delivery/handoff constraints;
 - required tools/runtime/hardware.
 
-Do not invent constraints merely to make this section look complete.
+Do not invent constraints merely to make this section look complete. If a constraint depends on a change-prone external fact, keep its evidence basis traceable and revalidate later when material work depends on it and staleness is plausible.
 
 ## Success Boundary
 
@@ -70,12 +80,12 @@ State what must be true for the project to satisfy its intended outcome at the c
 
 ## High-impact Unknowns
 
-Record only unresolved decisions that can materially change scope, architecture, ownership, risk, or acceptance.
+Record only unresolved decisions/facts that can materially change scope, architecture, ownership, risk, feasibility, or acceptance.
 
 Unknown remains unknown until resolved. Do not fill gaps with assumptions.
 
 ## Related Foundation Owners
 
-After the Foundation Expansion Gate, link only the additional durable owners that actually exist.
+After the Foundation Expansion Gate, link only additional durable owners that actually exist.
 
 Do not pre-list placeholder documents.

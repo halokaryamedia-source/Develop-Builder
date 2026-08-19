@@ -21,6 +21,8 @@ Define what inputs are required for the product/system to operate or for work to
 
 State which current sources/decisions are authoritative where ambiguity is material.
 
+For any material requirement that depends on a source-backed external fact, retain enough source basis to re-open/revalidate the premise later. Do not treat an old external verification as permanent proof when the fact is change-prone.
+
 ## Expected Outputs / Deliverables
 
 Define observable outputs and required deliverable qualities.
@@ -31,7 +33,13 @@ Distinguish canonical source/output from generated/derived artifacts when applic
 
 Define what the system/product **must**, **must not**, and where useful **should** do.
 
-Use requirement IDs only when cross-reference complexity actually benefits from them. Do not create numbering ceremony for a small project.
+Use requirement IDs only when cross-reference complexity benefits from them. Do not create numbering ceremony for a small project.
+
+### Negative requirements are first-class
+
+Preserve material removals, exclusions, replacements, `only`, and `must not` rules. Existing source, historical features, reference architectures, or compatibility instincts do not silently restore behavior current authority removed.
+
+Do not broaden a negative requirement beyond its stated scope.
 
 ## Product / User / Operational Flow
 
@@ -49,7 +57,7 @@ Existing source, historical plans, examples, or old features do not remain curre
 
 Use only when states/transitions materially affect behavior.
 
-Examples:
+Example only when real:
 
 ```text
 Ready → Running → Completed
@@ -59,16 +67,9 @@ Do not invent state machines for simple request/response behavior.
 
 ## Quality Requirements
 
-Define only quality dimensions that materially control acceptance, such as:
+Define only quality dimensions that materially control acceptance, such as visual fidelity/readability, correctness/completeness, latency/performance, reliability/recovery, editability when it is an observable need, or content/craft quality.
 
-- visual fidelity/readability;
-- correctness/completeness;
-- latency/performance;
-- reliability/recovery;
-- editability/maintainability as an observable project need;
-- content/craft quality.
-
-When a domain has recurring quality rules used across many tasks/owners, create a dedicated `<domain>-standard.md` instead of burying a second job here.
+When a domain has recurring quality rules used across several tasks/owners, create a dedicated `<domain>-standard.md` instead of burying a second job here.
 
 ## Data / Privacy / Security
 
@@ -83,6 +84,8 @@ If this becomes a substantial cross-cutting contract, split it through the Found
 Use when material.
 
 Define external/public contracts that constrain behavior, compatibility, ownership, or acceptance.
+
+When compatibility/support depends on a change-prone external platform/library/provider fact, reference the current evidence basis and revalidate later when material work relies on it and staleness is plausible.
 
 Local internal implementation details belong in source unless a durable architecture/interface contract is actually needed.
 
@@ -102,7 +105,7 @@ Do not invent persistence simply because many applications have it.
 
 ## Acceptance / Proof Requirements
 
-Define what evidence can establish the material product claims.
+Define what evidence can establish material product claims.
 
 Examples:
 
@@ -111,13 +114,14 @@ source/static contract → source/static proof
 build behavior          → relevant build/test
 runtime/device behavior → matching runtime/device proof
 visual/audio/content    → matching inspection/human acceptance
+external current fact   → current authoritative/primary evidence
 ```
 
 Do not upgrade one evidence class into another.
 
 ## Blocking Decisions / High-impact Unknowns
 
-List only unresolved choices that must be decided before the affected behavior can be implemented responsibly.
+List only unresolved choices/facts that must be decided or verified before affected behavior can be implemented responsibly.
 
 If none remain, say so briefly or remove this section.
 

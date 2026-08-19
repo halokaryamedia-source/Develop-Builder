@@ -1,10 +1,10 @@
 # Documentation Architecture
 
-This file is the canonical documentation-system owner for projects created from this starter.
+This file is the canonical documentation-system and Documentation Readiness owner for projects created from this starter.
 
-Its job is to ensure the project has **enough durable truth to develop correctly**, **enough traceable evidence to know why that truth is trusted**, and **enough current navigation/context to continue development safely**—without duplicate, speculative, ceremonial, historical, or versioned documentation.
+Its job is to ensure **enough durable truth, enough traceable evidence, and enough current navigation** to develop correctly—without speculative, duplicate, ceremonial, historical, or versioned documentation.
 
-Detailed critical project-definition judgment lives in `.agents/skills/project-definition/SKILL.md`. Project-specialist planning lives in `.agents/skills/project-skill-planner/SKILL.md`.
+Critical project-definition judgment belongs to `.agents/skills/project-definition/SKILL.md`. Work-mode and specialist-necessity routing belongs to `AGENTS.md`. Specialist creation/pruning belongs to `.agents/skills/project-skill-planner/SKILL.md` when triggered.
 
 ## 1. Documentation principle
 
@@ -16,40 +16,34 @@ no current responsibility
 → no file
 ```
 
-Documentation exists because a decision, requirement, workflow, quality boundary, source authority, evidence basis, navigation need, or acceptance rule must survive across tasks/sessions—not because a template looks incomplete without another document.
-
 Git history owns ordinary historical versions. Current docs describe current truth.
+
+A persistent document must materially define a current contract/decision, preserve a material evidence basis, prevent a realistic recurring error, establish authority/ownership, define a required workflow/quality/acceptance rule, or reduce current navigation complexity. Otherwise, do not create it.
 
 ## 2. Documentation layers
 
-| Layer | Question it answers |
+| Layer | Responsibility |
 |---|---|
-| root `README.md` | What is this project and where do humans start? |
-| `CONTEXT.md` | What stable project/repository facts must a fresh session know? |
-| `docs/foundation/` | What durable project/product truth must remain correct, and what material evidence/authority supports factual premises? |
-| `docs/knowledge/` | How does an AI/developer navigate and resume the project currently being developed? |
-| `.agents/skills/` | What reusable AI judgment/procedure is needed repeatedly? |
-| implementation/source | What actually exists/behaves now? |
-
-### Foundation vs Knowledge
+| root `README.md` | human/template entrypoint |
+| `CONTEXT.md` | compact stable cross-session orientation |
+| `docs/foundation/` | durable project/product definition and material evidence basis |
+| `docs/knowledge/` | current development navigation/context |
+| `.agents/skills/` | reusable AI judgment/procedure |
+| implementation/source | actual current behavior |
 
 ```text
 FOUNDATION
-= durable specification / definition
 = what the project must remain or become
 
 KNOWLEDGE
-= navigation + current development context
 = how to find, understand, and resume what is being developed now
 ```
 
-`docs/knowledge/` is **not a generic project-management archive**. Historical rationale, old reviews, completed work, inactive plans, and arbitrary backlog do not belong there merely because they may be useful someday.
+Knowledge is not a generic project-management archive. Historical rationale, completed reviews, inactive plans, meeting notes, and arbitrary backlog do not belong there merely because they may be useful someday.
 
 Do not use a lower-authority or derived layer to repair missing upstream meaning.
 
-## 3. Pre-development lifecycle
-
-A fresh project does not enter normal product Developing merely because repository bootstrap is complete.
+## 3. Project-definition documentation lifecycle
 
 ```text
 CURRENT USER INTENT
@@ -57,7 +51,6 @@ CURRENT USER INTENT
 + AUTHORITATIVE SOURCES
         ↓
 project-definition
-critical evidence recovery + direction judgment
         ↓
 01 PROJECT OVERVIEW
         ↓
@@ -65,47 +58,39 @@ critical evidence recovery + direction judgment
         ↓
 FOUNDATION EXPANSION GATE
         ↓
-only required durable domain owners
+only earned durable Foundation owners
         ↓
 EVIDENCE / COHERENCE READINESS
         ↓
 DOCUMENTATION READINESS
         ↓
-project-skill-planner
-zero or more justified project specialists
+return to AGENTS specialist-necessity routing
         ↓
-CONTEXT.md
-stable projection/navigation
+CONTEXT projection
         ↓
-KNOWLEDGE NAVIGATION GATE
-only current navigation actually needed
+KNOWLEDGE NAVIGATION GATE when needed
         ↓
-next-action.md
-one real next step / blocker
+next-action
         ↓
 DEVELOPMENT READY
 ```
 
-`project-definition` is the semantic procedure; it does not replace Foundation. Approved current meaning is persisted in Foundation.
+Documentation Readiness does **not** imply that `project-skill-planner` must be loaded. After readiness, `AGENTS.md` decides whether specialist planning is unnecessary or actually triggered.
 
-`project-skill-planner` does not change project requirements and does not create documentation merely to describe skills.
+`CONTEXT.md` summarizes stable truth after the durable definition is coherent. `next-action.md` owns one active continuation point; neither replaces Foundation.
 
-`CONTEXT.md` is reconciled after durable project truth and required initial capability planning are established. It summarizes/navigates; it does not become a second requirements owner.
-
-`next-action.md` is the final active-continuation result, not a substitute for Project Definition.
-
-## 4. Mandatory project-definition owners
+## 4. Mandatory Foundation owners
 
 ### `docs/foundation/01-project-overview.md`
 
-Owns the durable answer to:
+Owns the durable high-level answer to:
 
 - what the project is;
 - who/what consumes it;
-- what problem/need it addresses;
-- what outcomes/deliverables matter;
-- what source classes/decisions may establish project truth;
-- what is in scope and explicitly out of scope;
+- the real problem/need or user-owned goal;
+- intended outcomes/deliverables;
+- source classes/decisions that may establish truth;
+- current scope and explicit non-goals/removals;
 - high-level product/domain boundaries;
 - material constraints;
 - success boundary;
@@ -115,289 +100,202 @@ Do not turn Overview into implementation architecture, task history, or a detail
 
 ### `docs/foundation/02-product-requirements.md`
 
-Owns durable observable requirements needed to build and accept the product/system, including material exclusions/removals.
+Owns durable observable requirements needed to build and accept the current product/system, including material exclusions/removals.
 
-Depending on the project, it may own priorities, required inputs, outputs, core behavior, simple flow, lifecycle/state, quality, data/privacy/security, interfaces, failure/recovery, persistence, acceptance/proof, and current blocking decisions.
+Depending on the project it may contain priorities, inputs, outputs, core behavior, simple flow, lifecycle/state, quality, data/privacy/security, external interfaces, failure/recovery, persistence, acceptance/proof, and current blocking decisions.
 
-Keep a responsibility here when it remains part of the same product-requirement job. Split only when another durable owner is genuinely needed.
+Keep these together while they remain one product-requirement responsibility. Split only when another durable responsibility earns its own owner.
 
 ## 5. Evidence traceability and source coverage
 
-Foundation is authoritative project meaning, but **source-backed factual premises must remain traceable enough to audit/revalidate**.
+Foundation is authoritative project meaning, but material **source-backed factual premises must remain traceable enough to audit or revalidate**.
 
-### Source-coverage rule
-
-Before treating a material project direction as grounded:
+### Source coverage
 
 ```text
 known potentially authoritative sources for current scope identified
 → each inspected to the depth that can change current decisions
-→ unavailable/unread material authority identified
+→ unread/unavailable material authority identified
 → partial coverage never presented as complete evidence
 ```
 
-Targeted inspection is valid for a targeted boundary. A full-source read is unnecessary when unseen portions cannot reasonably change the decision.
+Targeted inspection is valid for a targeted boundary. Do not full-read unrelated material for ceremony.
 
-If a known unread/unavailable source could materially change scope, feasibility, requirement meaning, risk, compatibility, or acceptance, the affected claim remains `UNKNOWN` or explicitly blocked.
+If a known unread/unavailable source could materially change scope, feasibility, requirement meaning, risk, compatibility, or acceptance, the affected claim remains `UNKNOWN` or blocked.
 
-### Provenance rule
+### Provenance
 
-When a material source-backed fact shapes Foundation, retain the **smallest useful source identity** in the affected Foundation owner, for example:
+When a material source-backed fact shapes Foundation, retain the smallest useful identity needed to reopen the basis later, such as repository path/revision, source title/section, official source/standard identifier, relevant version/platform/model, and verification date when change-prone.
 
-```text
-repository path / commit / revision
-source title / relevant section
-official URL / standard identifier
-version / platform / model when material
-verification/access date when change-prone
-```
+Do not create a source inventory for a few direct references. If source intake/reconciliation becomes a distinct durable responsibility, use the Foundation Expansion Gate.
 
-Do not create a source inventory for a few simple references. If source intake/reconciliation itself becomes a distinct durable responsibility, use the Foundation Expansion Gate.
+### Freshness
 
-### Freshness rule
+Foundation records accepted meaning; it is not perpetual proof that a change-prone external fact remains current. Revalidate unstable external premises only when later work materially depends on them and staleness is plausible.
 
-Foundation records accepted project meaning. It does **not** permanently prove that a change-prone external fact remains current.
+### Negative requirements
 
-For facts such as current platform/library/provider support, pricing, regulation, compatibility, limits, or another unstable premise:
-
-- record enough version/date/source context to know what was verified when material;
-- revalidate current authoritative evidence when later work materially depends on the premise and staleness is plausible;
-- do not repeatedly re-research stable facts for ceremony.
-
-### Negative-requirement rule
-
-Explicit `remove`, `no longer use`, `do not use`, `must not`, `only`, `replaced by`, and scoped exclusions are first-class project meaning.
-
-Do not reintroduce them because an old implementation, reference project, framework convention, or compatibility instinct contains them. Do not broaden a negative statement beyond its actual scope.
+Explicit `remove`, `no longer use`, `do not use`, `must not`, `only`, `replaced by`, and scoped exclusions are first-class project meaning. Do not silently reintroduce them from old source, references, framework convention, or compatibility instinct.
 
 ## 6. Foundation Expansion Gate
 
-After Overview + Requirements, ask:
+After Overview + Requirements ask:
 
-> Is any durable responsibility important enough that keeping it only as a subsection would mix distinct jobs, hide acceptance rules, or make multiple project areas depend on an unclear contract?
+> Would keeping this durable responsibility as a subsection mix distinct jobs, hide acceptance rules, or leave several project areas dependent on an unclear contract?
 
-Create an additional Foundation owner **only** when yes.
+Create a dedicated Foundation owner only when yes.
 
 | Responsibility | Dedicated owner is justified when... | Typical name |
 |---|---|---|
-| Product/domain boundaries | multiple semantic domains have materially different ownership or forbidden cross-repair rules | `product-boundaries.md` |
+| Product/domain boundaries | several semantic domains have materially different ownership or forbidden cross-repair rules | `product-boundaries.md` |
 | Product/production workflow | multi-stage order materially controls correctness/handoff/eligibility | `product-flow.md` / `production-flow.md` |
-| Source intake / authority | recovering/classifying/reconciling multiple sources is itself a durable contract | `source-intake.md` / `source-authority-policy.md` |
-| System architecture | architecture decisions materially constrain ownership/runtime/acceptance | `system-architecture.md` |
-| Data/state/storage | state ownership/lifecycle/persistence/migration/destructive behavior is materially complex | `data-state.md` |
+| Source intake/authority | source recovery/classification/reconciliation is itself a durable contract | `source-intake.md` |
+| System architecture | architecture decisions materially constrain runtime/ownership/acceptance | `system-architecture.md` |
+| Data/state/storage | state lifecycle/persistence/migration/destructive behavior is materially complex | `data-state.md` |
 | External interface | public/external contract has independent semantics/compatibility/acceptance | `interface-contract.md` |
 | Security/privacy | cross-cutting security/privacy contract has independent risk/acceptance | `security-privacy.md` |
 | Domain quality standard | recurring quality rules control several tasks/components | `<domain>-standard.md` |
-| Validation/acceptance | validation has a distinct procedure/evidence model | `validation.md` |
-| Handoff/delivery/release | downstream handoff/delivery has material independent requirements | `handoff-delivery.md` / `release-policy.md` |
+| Validation/acceptance | validation has an independent procedure/evidence model | `validation.md` |
+| Handoff/delivery/release | downstream handoff has material independent requirements | `handoff-delivery.md` |
 
-Reject a new Foundation file when it merely makes the folder look complete, repeats an existing owner, describes possible future work, contains placeholders, copies another repo's shape, stores temporary task state, or belongs in implementation/source.
+Reject a new Foundation file when it only makes the folder look complete, repeats an existing owner, describes possible future work, contains placeholders, copies another repository's shape, stores temporary task state, or belongs in implementation/source.
 
-## 7. Split vs keep in the same owner
+### Split vs keep
 
-Keep information together when:
+Keep together when:
 
 ```text
 same semantic responsibility
 + same primary consumer
 + changes usually move together
-+ one file remains understandable
++ one owner remains understandable
 ```
 
-Create a new owner when:
-
-```text
-distinct semantic responsibility
-+ can change independently
-+ has its own consumer/acceptance
-+ several project areas depend on it
-+ keeping it together would mix jobs or hide contracts
-```
+Split when a distinct semantic responsibility changes independently, has its own consumer/acceptance, affects several areas, and would otherwise mix jobs or hide a contract.
 
 File length or importance alone is not a reason to split.
 
-## 8. Foundation coherence rule
+## 7. Foundation coherence
 
-One approved/recovered decision may affect several Foundation owners.
+One recovered/approved decision may affect several Foundation owners.
 
 ```text
-identify every affected current Foundation owner
-→ update them coherently
-→ remove/replace superseded conflicting meaning
-→ leave no pending old/new alternatives
+identify every affected current owner
+→ update coherently
+→ remove superseded conflicting meaning
+→ leave no old/new alternatives
 ```
 
-A contradiction between current Foundation owners is a **Documentation Readiness defect**.
+Contradiction between current Foundation owners is a Documentation Readiness defect. Git history owns retired meaning.
 
-Do not preserve contradictory current meaning through compatibility notes, duplicate requirements, or “old/new” docs. Git history owns retired meaning.
-
-## 9. Knowledge Navigation Gate
+## 8. Knowledge Navigation Gate
 
 `docs/knowledge/next-action.md` is the only baseline Knowledge owner.
 
-Knowledge grows only to make the **currently developing repository** easier and safer to navigate, understand, or resume.
-
-Before adding a Knowledge owner require:
+Add another Knowledge owner only when:
 
 ```text
 current navigation/context problem exists
-+ existing root/Foundation/source/next-action owner does not answer it cleanly
-+ information must survive across tasks/sessions
++ root/Foundation/source/next-action does not answer it cleanly
++ information must survive across sessions
 + new owner reduces repeated search, ambiguity, or resume error
 ```
 
-Potential earned owners include current implementation-flow maps, ownership/implementation maps, current source-precedence navigation, proof-surface navigation, risky repeatable runbooks, or a skill activation map when multiple earned specialists make selection genuinely ambiguous.
+Possible earned owners include implementation-flow maps, current ownership maps, source-precedence navigation, proof-surface navigation, risky repeatable runbooks, or a skill activation map when several earned specialists make selection genuinely ambiguous.
 
-Decision/review/backlog files are not Knowledge merely because they contain information. They require a live current-navigation responsibility.
-
-### Knowledge separation
+Decision/review/backlog files are not Knowledge merely because they contain information.
 
 ```text
 active resume point
 → next-action.md
 
-current development navigation / owner map / source map / implementation flow
+current development navigation/context
 → earned Knowledge owner
 
 durable project meaning
 → Foundation
 
-reusable semantic procedure
+reusable procedure
 → Skill
 
 actual behavior
 → source + proof
 
-ordinary completed history / retired rationale
+ordinary completed history
 → Git history / issues / PRs
 ```
 
-Never create all possible Knowledge owners during bootstrap. Never broad-read all Knowledge owners during normal work.
+Never pre-create the full Knowledge set during bootstrap and never broad-read all Knowledge owners during normal work.
 
-## 10. Documentation Readiness Gate
+## 9. Documentation Readiness Gate
 
-Before **non-trivial product/system Developing** begins for a fresh project or materially new domain, verify the smallest applicable set:
+Before non-trivial Developing for a fresh project or materially new domain, verify the smallest applicable set:
 
-- purpose and primary consumer are known;
-- expected outputs/deliverables are known;
-- relevant input/source authority is sufficient;
-- known material authority has been inspected to sufficient depth for current scope;
-- material source-backed premises are traceable enough to re-open/revalidate;
-- scope, explicit non-goals, negative/removal requirements are current;
+- purpose, primary consumer, and expected deliverable are known;
+- source authority is sufficient and known material authority has been inspected deeply enough for current scope;
+- material source-backed premises are traceable enough to reopen/revalidate;
+- scope, non-goals, removals, and negative requirements are current;
 - observable requirements are current;
-- any material product/domain flow is defined;
-- any domain boundary affecting ownership/correctness has an owner;
-- material architecture/data/security/interface decisions needed before implementation are resolved or explicitly blocking;
-- quality rules materially controlling output are owned;
-- acceptance/proof requirements are defined;
+- material flow and domain boundaries are owned when they affect correctness;
+- architecture/data/security/interface decisions required **before implementation** are resolved or explicitly blocking;
+- material quality rules and acceptance/proof requirements are owned;
 - unresolved high-impact decisions remain visible rather than invented;
-- affected Foundation owners are mutually coherent;
+- affected Foundation owners are coherent;
 - Foundation Expansion Gate has been applied.
 
-If a required item is missing:
+If a required responsibility/evidence basis is missing:
 
 ```text
 DO NOT IMPLEMENT THE UNDEFINED BEHAVIOR
 → project-definition / Plan
-→ recover or decide the missing contract/evidence basis
-→ update canonical Foundation owner(s)
+→ recover or decide missing meaning/evidence
+→ update current Foundation owner(s)
 → re-check readiness
 ```
 
-A bounded discovery/prototype may occur before readiness **only** when it is the minimum way to resolve a material unknown. It must not become product implementation by stealth.
-
-Documentation Readiness does not require project specialists. After it passes, `project-skill-planner` separately determines whether zero or more project specialists are justified.
+A bounded discovery/prototype before readiness is allowed only when it is the minimum evidence needed to resolve a material unknown; it must not become implementation by stealth.
 
 Direct Bounded Maintenance on an already understood local defect does not replay the full gate when wider definition cannot change the fix.
 
-## 11. Skill/document separation
-
-```text
-project/product fact or durable requirement
-→ Foundation
-
-current repository navigation + development context
-→ Knowledge
-
-compact stable cross-session projection
-→ CONTEXT.md
-
-reusable AI judgment/procedure
-→ Skill
-
-actual implementation behavior
-→ source + matching proof
-```
-
-Core workflow skills are `project-definition`, `project-skill-planner`, and `development-brief`.
-
-Project specialists are earned reusable semantic procedures governed by `project-skill-planner`. Skills must not become storage for project-specific facts, source inventories, or current implementation maps.
-
-If multiple earned specialists later make selection genuinely ambiguous, Knowledge may earn a compact activation/navigation map. Do not pre-create one.
-
-## 12. Documentation anti-AI-slop — hard rules
+## 10. Documentation anti-slop
 
 Do not:
 
 - create one document per feature by default;
-- create empty/placeholder files for possible future needs;
-- create version-suffixed or old/legacy/new/backup replacement docs;
+- create empty/future placeholder files;
+- create versioned/old/legacy/new/backup replacement docs;
 - duplicate Overview, Requirements, CONTEXT, README, routing, ownership, status, or next-step truth;
-- copy the same contract into several files instead of linking to its owner;
-- create per-task completion reports/worklogs;
+- copy the same detailed contract into several owners instead of linking to its canonical owner;
+- create per-task completion/worklog docs;
 - create decision records for trivial decisions;
-- create an ownership map before ownership is materially difficult;
-- create architecture/validation/source-inventory docs before their responsibility is real;
-- create a specialist because a technology/file type exists;
+- create architecture/source-inventory/validation/ownership docs before their responsibility is real;
 - create skill-planning reports/registries during bootstrap;
-- retain obsolete docs merely because they once existed;
 - turn Knowledge into a generic archive;
-- lose material evidence provenance while claiming a Foundation fact is source-backed;
-- interpret “professional documentation” as “more documentation.”
+- preserve obsolete docs merely because they once existed.
 
 Do:
 
 ```text
-use existing owner when responsibility fits
-→ link instead of copy
-→ split only for distinct durable responsibility or real current-navigation need
-→ update all affected current owners coherently
-→ merge/remove when responsibility disappears
+use current owner when responsibility fits
+→ link/reference rather than duplicate detail
+→ split only for distinct durable responsibility or real navigation need
+→ update every affected current owner coherently
+→ remove/fold when responsibility disappears
 → let Git history preserve history
 ```
 
-Every persistent document must materially define a current contract/decision, prevent a realistic recurring error, establish authority/ownership, define a required workflow/quality/acceptance rule, reduce current navigation complexity, or preserve current state/evidence basis that must survive sessions. Otherwise, do not create it.
-
-## 13. Authority rules
+## 11. Authority and pruning
 
 - Foundation is not derived from Knowledge.
 - Knowledge does not define product requirements.
-- `CONTEXT.md` summarizes/navigates stable truth and must not become a second Foundation or Knowledge dump.
-- Skills must not store project-specific facts.
-- Source owns actual implementation behavior but does not silently redefine Foundation meaning.
+- `CONTEXT.md` is a compact projection, not another policy/index dump.
+- Skills do not store project-specific facts.
+- Source owns actual behavior but does not silently redefine approved Foundation meaning.
 - AI proposals become durable truth only after current authority approves/corrects them where material.
-- Foundation requirements backed by unstable external facts may require later factual revalidation; the old source reference does not become permanent proof.
 - Skill planning never repairs missing Project Definition inside a specialist file.
 
-## 14. Archetype rule
+A simple project may legitimately need only Overview + Requirements and zero project specialists. Complex projects earn more structure only when real responsibilities require it.
 
-These are decision outcomes, not fixed file sets:
+When a documentation responsibility disappears, remove or fold its owner, update navigation, keep no current compatibility copy unless externally required, and let Git history retain retired rationale.
 
-- a simple application may need only Overview + Requirements and zero project specialists;
-- a domain-heavy tool may earn workflow/quality/validation owners and specialists only for recurring semantic judgment;
-- a multi-stage production system may earn boundaries/flow/source-intake/stage/handoff owners.
-
-Do not force complex structure onto simple projects or omit distinct responsibilities from complex projects.
-
-## 15. Update and pruning
-
-When current truth changes, update the current canonical owner. When a responsibility disappears:
-
-```text
-remove or fold obsolete owner
-→ update navigation/routing
-→ keep no compatibility copy unless externally required
-→ Git history retains retired rationale
-```
-
-Documentation quality is measured by **clarity of current authority, traceable evidence basis, development readiness, and current development navigation**, not document count.
+Documentation quality is measured by **clarity of current authority, evidence traceability, readiness, and navigation utility—not document count**.

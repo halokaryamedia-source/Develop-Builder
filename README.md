@@ -1,131 +1,116 @@
 # Develop-Builder
 
-Develop-Builder is the source starter for a **general project-definition, critical design, capability-planning, development-governance, and continuity kernel**.
+Develop-Builder is a GitHub Template Repository for a **general project-definition, critical-design, development-governance, and continuity kernel**.
 
 Canonical template and development authority: **`Local`**.
 
 ## Core principle
 
-> Use the shortest correct path with sufficient project definition, sufficient evidence, sufficient context, and sufficient proof.
+> Use the shortest correct path with sufficient project definition, sufficient evidence, sufficient current context, and sufficient proof.
 
-The starter does not prescribe a programming language, framework, runtime, database, release model, provider system, or source-tree layout. It provides the operating structure needed to define **what is worth building**, challenge unsupported/disproportionate direction, determine what reusable development judgment is actually needed, and then develop the project without losing context.
+The starter does not prescribe a programming language, framework, runtime, database, provider system, source-tree layout, release model, production workflow, or project-specialist inventory.
 
-## One current source
+Its job is to help an AI-assisted project:
 
-Each responsibility has one current canonical owner.
-
-```text
-find current owner
-→ update it in place
-→ update required dependents
-→ remove superseded current path/state when safe
-→ prove only the claims actually exercised
-→ STOP
-```
-
-Git history owns ordinary history. Do not preserve obsolete current source as versioned generations, legacy copies, parallel owners, or compatibility paths merely to avoid replacing it cleanly.
+- determine what is actually worth building;
+- challenge unsupported or disproportionate methods instead of defaulting to agreement;
+- preserve durable project truth before implementation;
+- create only development procedures/owners that real responsibilities require;
+- continue across sessions without turning the repository into a documentation archive.
 
 ## Repository distribution contract
 
-The reusable starter has one canonical repository source:
-
 ```text
-canonical branch      = Local
-GitHub default branch = Local
-GitHub template flag  = enabled
+canonical/default branch = Local
+GitHub template mode     = enabled
 ```
 
-These repository settings are part of the template contract, not optional presentation settings.
+`Local` is the only current template/development authority.
 
-Rules:
+A retained branch such as `main` may remain by repository-owner decision, but it is non-authoritative: it is not a fallback, release/compatibility mirror, second current source, or synchronization target. It may diverge from `Local` without creating a parity repair task.
 
-- `Local` is the only template/development authority.
-- GitHub Template consumption must use the current `Local` default branch.
-- Another retained branch such as `main` may remain by explicit repository-owner decision, but it is **non-authoritative**.
-- A retained non-authoritative branch is not a fallback, release mirror, compatibility owner, or second current source.
-- It does not need to remain synchronized with `Local`; divergence is acceptable because only `Local` owns current template truth.
-- Do not create a recurring `Local ↔ main` synchronization workflow.
-- Branch deletion is an optional repository-owner cleanup decision, not a condition of template readiness once `Local` is the default and Template Repository mode is enabled.
+## Use as a starter
 
-## Canonical consumption path
+Create a new repository through GitHub's Template mechanism using current `Local`. Do not clone Develop-Builder history or use a retained non-authoritative branch as an alternate bootstrap source.
 
-Create new projects through the GitHub Template mechanism from the current `Local` source.
+Canonical pre-development path:
 
 ```text
 GitHub Template Repository
 → current Local source
-→ new project repository without Develop-Builder project history
-→ establish/retain Local as project working authority
+→ new project repository
 → project-definition
 → Foundation + Documentation Readiness
-→ project-skill-planner
+→ AGENTS specialist-necessity gate
+   ├─ no plausible recurring specialist need → zero project specialists
+   └─ plausible/ambiguous need or existing specialist review → project-skill-planner
 → CONTEXT + only earned Knowledge navigation
 → one next-action
 → DEVELOPMENT READY
 ```
 
-Do not use cloning Develop-Builder history, copying an old branch, or using a retained non-authoritative branch as alternate bootstrap paths.
+Normal product Developing does **not** begin merely because the repository has a name, an architecture was suggested, or a framework was selected.
 
-Normal product Developing does **not** begin merely because the repository has a name or because the user proposed an architecture.
+## Core workflow capabilities
 
-## Critical project design
+### Project Definition
 
-`.agents/skills/project-definition/SKILL.md` is the critical semantic front door for new/materially redefined projects.
+`.agents/skills/project-definition/SKILL.md` is the critical semantic front door for new/materially undefined project meaning.
 
-It must:
+It recovers current evidence, separates facts/decisions/proposals/unknowns, challenges weak direction, guides the user through only material decisions, and persists accepted truth in Foundation.
 
-- recover current evidence before asking for discoverable facts;
-- separate source-backed facts, approved decisions, necessary implications, AI proposals, and unknowns;
-- challenge unsupported assumptions and disproportionate architecture/features;
-- `FOLLOW`, `REFINE`, `REDIRECT`, `REJECT`, or `BLOCKED` honestly rather than defaulting to agreement;
-- recommend the smallest responsible direction supported by current evidence;
-- persist accepted project meaning in Foundation instead of creating parallel planning artifacts.
+### Project Skill Planning
 
-## Development capability planning
+`.agents/skills/project-skill-planner/SKILL.md` exists for cases where reusable specialized semantic judgment is plausibly needed or an existing specialist set needs review.
 
-After Documentation Readiness, `.agents/skills/project-skill-planner/SKILL.md` determines whether the project needs any reusable project specialists.
+It is **not a mandatory bootstrap step**. `No project specialist required` is a normal result, and simple projects should skip the planner when the need is obviously absent.
 
-`No project specialist required` is valid.
+### Non-trivial Developing
 
-Project specialists are created only for distinct recurring semantic development responsibilities. They are not created from programming languages, frameworks, directories, testing tools, research techniques, or difficult one-off tasks.
+`.agents/skills/development-brief/SKILL.md` is the front door for non-trivial implementation after the affected Project Definition is ready. It defines the bounded implementation contract, owner set, acceptance criteria, proof budget, and zero/one matching already-earned project specialist.
 
-## Documentation entrypoint
+## Documentation model
 
-`docs/README.md` is the canonical documentation-system owner. It explains:
-
-- what must be defined before Developing;
-- what belongs in Foundation vs Knowledge vs CONTEXT vs Skill;
-- when Overview + Requirements are sufficient;
-- when another durable domain document is required;
-- when another Knowledge navigation owner is required;
-- when a new document would be AI-slop and must not be created;
-- the Documentation Readiness gate.
-
-## Core workflow skills
+`docs/README.md` is the canonical documentation-system and Documentation Readiness owner.
 
 ```text
-project-definition
-project-skill-planner
-development-brief
+Foundation
+→ durable project/product truth
+
+Knowledge
+→ current development navigation/context
+
+CONTEXT
+→ compact stable cross-session orientation
+
+Skill
+→ reusable AI judgment/procedure
+
+Source
+→ actual implementation behavior
 ```
 
-These are reusable kernel procedures, not project-specific fact stores and not project specialists.
+A simple project may legitimately need only Overview + Requirements and zero project specialists. Additional structure is earned by real responsibility, not template aesthetics.
+
+## One current source
+
+Each responsibility has one current canonical owner. Update the current owner directly; do not accumulate `v2`, `_old`, `_new`, `_legacy`, backup, parallel service/state, duplicate docs, or compatibility layers merely to preserve ordinary history. Git history owns ordinary historical versions.
 
 ## Navigation
 
-- project bootstrap, work routing, source finalization, skill budget → `AGENTS.md`
-- GitHub execution/history/safety → `GITHUB_RULES.md`
-- documentation architecture / pre-development readiness → `docs/README.md`
+- human/template entry and distribution → `README.md`
+- work routing, cross-cutting invariants, skill budget → `AGENTS.md`
+- GitHub execution/history/CI/security → `GITHUB_RULES.md`
+- stable cross-session orientation → `CONTEXT.md`
+- documentation architecture/readiness → `docs/README.md`
 - critical Project Definition → `.agents/skills/project-definition/SKILL.md`
-- project-specialist planning/creation → `.agents/skills/project-skill-planner/SKILL.md`
-- stable project orientation + distribution contract → `CONTEXT.md`
-- project overview scaffold/current owner → `docs/foundation/01-project-overview.md`
-- product requirements scaffold/current owner → `docs/foundation/02-product-requirements.md`
+- project-specialist planning when triggered → `.agents/skills/project-skill-planner/SKILL.md`
+- non-trivial Developing → `.agents/skills/development-brief/SKILL.md`
+- project definition scaffolds/current durable project truth → `docs/foundation/`
 - active continuation → `docs/knowledge/next-action.md`
-- non-trivial Developing front door → `.agents/skills/development-brief/SKILL.md`
 
 ## Evidence boundary
 
-Repository/source inspection proves repository/source claims. Repository metadata must confirm `default_branch=Local` and `is_template=true` to claim distribution readiness. The existence of a retained non-authoritative branch does not invalidate readiness. External feasibility/support/compatibility facts require current authoritative evidence when material. Hosted execution proves only what it actually runs. Runtime, device, visual, audio, model, target-machine, and human-acceptance claims require matching evidence.
+Repository/source inspection proves repository/source claims. Change-prone external premises require current authoritative evidence when material. Runtime/device/visual/audio/model/target-machine/human-acceptance claims require matching execution or inspection.
 
 Current continuation is intentionally not duplicated here; use `docs/knowledge/next-action.md`.

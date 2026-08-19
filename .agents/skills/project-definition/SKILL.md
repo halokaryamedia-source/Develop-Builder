@@ -1,43 +1,39 @@
 ---
 name: project-definition
-description: Mandatory critical semantic front door for creating or materially redefining a project before normal Developing. Recover sufficiently complete current evidence, distinguish facts/approved decisions/derived implications/AI proposals/unknowns, challenge unsupported or disproportionate user methods, preserve negative requirements, keep material evidence traceable, form the smallest coherent project model, disclose material AI proposals honestly, and reconcile approved meaning into Foundation. Do not implement product behavior or create project specialists.
+description: Critical semantic front door for creating or materially redefining a project before normal Developing. Recover sufficiently complete current evidence, distinguish source-backed facts/approved decisions/derived implications/AI proposals/unknowns, challenge unsupported or disproportionate methods, guide the user through only material decisions, preserve negative requirements and provenance, and reconcile approved meaning into Foundation. Do not implement product behavior or create project specialists.
 ---
 
 # Project Definition
 
-Turn a user's intent and available evidence into the **smallest coherent, evidence-grounded Project Definition worth developing for the user's actual goal**.
+Turn user intent and available evidence into the **smallest coherent, evidence-grounded Project Definition worth developing for the user's actual goal**.
 
-This skill is not a form filler and not a yes-man. Root `AGENTS.md` owns top-level routing, `docs/README.md` owns documentation architecture/readiness, and `GITHUB_RULES.md` owns GitHub execution. Durable approved project meaning belongs in `docs/foundation/`; this skill owns the reusable judgment used to form that meaning.
+This skill is not a form filler and not a yes-man. `AGENTS.md` owns routing, `docs/README.md` owns documentation/readiness, and `GITHUB_RULES.md` owns GitHub execution. Durable approved project meaning belongs in Foundation; this skill owns the reusable critical judgment used to form that meaning.
 
 ## Entry boundary
 
-Use this skill when:
+Use this skill for:
 
-- bootstrapping a new project from the starter;
-- materially redefining project purpose/scope/outputs;
-- adding a materially new domain whose product meaning is not yet owned;
-- Developing discovers that required product flow, boundary, source authority, quality, architecture, risk, feasibility, or acceptance meaning is undefined.
+- bootstrap of a new project;
+- material redefinition of purpose/scope/output;
+- a materially new domain whose project meaning is undefined;
+- Developing that discovers undefined product flow, boundary, source authority, feasibility, quality, architecture, risk, or acceptance meaning.
 
-Do not use it for routine implementation of already-defined behavior, bounded Maintenance where wider definition cannot change the fix, normal domain execution with an existing contract, or project-specialist selection/creation.
+Do not use it for routine implementation of already-defined behavior, bounded Maintenance where wider definition cannot change the fix, normal domain execution with an existing contract, or project-specialist creation.
 
 ## Truth before agreement
 
-The objective is not to maximize user approval. The objective is the best responsible current definition supported by evidence and explicit decisions.
+The objective is the best responsible current definition supported by evidence and explicit decisions—not maximum user agreement.
 
 - Challenge unsupported assumptions and unnecessary complexity.
-- Redirect/reject a proposed method when evidence shows it is contradictory, infeasible, unsafe, or materially disproportionate to the actual goal.
+- Redirect/reject a proposed method when evidence shows contradiction, infeasibility, unsafe consequences, or material disproportionality to the actual goal.
 - Preserve the user's intended outcome where possible even when redirecting the method.
-- Do not hide uncertainty, cost, risk, missing capability, or weak evidence to make a proposal sound attractive.
+- Do not hide uncertainty, cost, risk, missing capability, or weak evidence to make a direction sound attractive.
 
 A respectful `REJECT` or `BLOCKED` result is valid.
 
-### User-owned goals vs external claims
+A personal, creative, learning, experimental, internal, or preference-driven goal does **not** need market proof merely to be legitimate. Do not invent a business problem the user did not claim.
 
-A personal, creative, learning, experimental, internal, or preference-driven goal does **not** need market proof merely to be legitimate. Do not invent an external problem/business case the user did not claim.
-
-External evidence becomes mandatory when project direction materially relies on an external factual claim such as market/business viability, cost/supply, platform/library/provider capability, performance/resource feasibility, regulation/compliance, security/privacy properties, compatibility/interoperability, or another unstable/niche premise.
-
-Critique method, scope, assumptions, and feasibility relative to the user's real goal. Do not reject a harmless user-owned goal solely because it lacks external commercial justification.
+External evidence is required when the project materially relies on an external factual premise such as market/business viability, cost/supply, platform/library/provider capability, performance/resource feasibility, regulation/compliance, security/privacy properties, compatibility/interoperability, or another unstable/niche fact.
 
 ## Evidence classes
 
@@ -60,50 +56,30 @@ UNKNOWN
 → current evidence insufficient for a responsible conclusion
 ```
 
-Never present `DERIVED` or `PROPOSAL` as source-backed fact. Polished references, old implementations, generated output, example repositories, or common patterns remain evidence/method input unless current authority adopts their meaning.
+Never present `DERIVED` or `PROPOSAL` as source-backed fact. References, old implementations, generated output, example repositories, and common patterns are evidence/method inputs unless current authority adopts their meaning.
 
 ## Evidence recovery and sufficiency
 
-Recover discoverable facts before asking the user to repeat them or decide them.
+Recover discoverable facts before asking the user to repeat or decide them. Read by **material relevance**, not quantity.
 
-Read by **material relevance**, not quantity. Potential authority may include current user/project-owner instruction, supplied authoritative documents/data, current repository/Foundation/source, approved specifications/references, external standards/contracts, and current official/primary documentation for material external technical claims.
+Potential authority may include current user/project-owner instruction, supplied documents/data, current repository/Foundation/source, approved specifications/references, external standards/contracts, and current official/primary documentation for material external claims.
 
-### Source-coverage rule
-
-Before declaring a material project direction grounded:
+### Source coverage
 
 ```text
 identify known potentially authoritative sources for current scope
-→ inspect each to the depth that can change current decisions
-→ distinguish inspected vs unavailable/unread material authority
-→ do not treat partial coverage as complete evidence
+→ inspect each only to the depth that can change current decisions
+→ distinguish inspected vs unread/unavailable material authority
+→ never present partial coverage as complete evidence
 ```
 
-Targeted inspection is valid when the current boundary is targeted. A full-source read is not required when unseen portions cannot reasonably change the current decision. If a known uninspected/unavailable source could materially change scope, feasibility, requirement meaning, or acceptance, keep the affected claim `UNKNOWN` or explicitly blocked.
+A full-source read is unnecessary when unseen portions cannot reasonably change the current decision. If a known unread/unavailable source could materially change scope, feasibility, requirement meaning, risk, or acceptance, keep the affected claim `UNKNOWN` or blocked.
 
-### Provenance rule
+### Provenance and freshness
 
-When a material `SOURCE-BACKED` claim changes project scope, feasibility, requirement, risk, compatibility, or acceptance, preserve enough source identity in the appropriate current Foundation owner to re-open/revalidate the basis later.
+When a material `SOURCE-BACKED` premise changes scope, feasibility, requirement, risk, compatibility, or acceptance, retain the smallest useful source identity in the affected Foundation owner so it can be reopened/revalidated later.
 
-Use the smallest useful provenance, for example:
-
-```text
-repository path / commit / revision
-source title / document section
-official URL / standard identifier
-version / platform / model when material
-verification/access date when the fact is change-prone
-```
-
-Do not create a source inventory for a few simple references. If source intake/reconciliation itself becomes a distinct durable responsibility, use the `docs/README.md` Foundation Expansion Gate.
-
-### Freshness rule
-
-Foundation records accepted project meaning; it is **not perpetual proof that an external fact remains unchanged**.
-
-For change-prone external claims, record enough version/date/source context to know what was verified. When later project work materially depends on that factual premise and staleness is plausible, revalidate the current authoritative source rather than treating an old verification as permanent truth.
-
-Do not repeatedly re-research stable facts for ceremony.
+For change-prone facts, keep enough version/date/source context to know what was verified. Revalidate later only when current work materially depends on the premise and staleness is plausible; do not repeatedly research stable facts for ceremony.
 
 ## Recover the real goal
 
@@ -122,38 +98,43 @@ material unknown
 
 A user-suggested technology, architecture, provider, workflow, or feature set is not automatically a requirement.
 
-### Negative requirements are first-class
+Negative statements such as `remove`, `no longer use`, `do not use`, `must not`, `only`, `replaced by`, and `out of scope` are first-class when material. Do not silently reintroduce them from old source, reference architecture, framework convention, or compatibility instinct; do not broaden them beyond their actual scope.
 
-Treat statements such as these as material when their scope is material:
+## User-guidance interaction contract
+
+Guide the user toward a strong project definition without turning the interaction into an interview checklist.
+
+Default conversational flow:
 
 ```text
-remove
-no longer use
-do not use
-must not
-only
-replaced by
-out of scope
+1. recover what is already knowable
+2. form the current project model and best supported direction
+3. expose only material interpretation, tradeoff, PROPOSAL, or UNKNOWN
+4. ask the smallest grouped high-impact question set only when a responsible recommendation cannot settle it
+5. accept natural-language approval/correction; no special approval syntax or form required
+6. reconcile every affected Foundation owner
+7. continue until Documentation Readiness passes or one exact material blocker remains
 ```
 
-Do not silently reintroduce removed/excluded behavior through “best practice”, backward compatibility, an old source path, or a generated design suggestion. Do not broaden a negative requirement beyond the scope actually stated.
+Rules:
 
-Ask:
+- Recommend before asking. Do not ask the user to choose implementation details the agent can own responsibly.
+- Do not ask one question at a time when several tightly related unresolved high-impact decisions can be presented together clearly.
+- Do not dump every internal concern, evidence class, or checklist item into the conversation.
+- For low-impact details with a responsible default, choose the default and keep moving.
+- For a material AI `PROPOSAL`, state it plainly as a recommendation with the reason/evidence boundary; do not silently promote it to approved truth.
+- Natural-language responses such as “yes”, “use that”, corrections, or revised constraints are sufficient approval/correction when their referent is clear.
+- If the user rejects the recommendation, re-evaluate against the actual goal/evidence; do not defend a prior proposal merely because it was generated earlier.
+- `BLOCKED` is reserved for cases where no responsible direction can be formed without missing material authority/evidence or a genuine user-owned decision.
 
-1. What outcome does the user actually want?
-2. Who/what is the primary consumer?
-3. What observable output/deliverable satisfies it?
-4. Which constraints/exclusions are real and current?
-5. Which proposed parts are requirements versus methods?
-6. Which external claims require evidence or revalidation?
-7. What is the simplest complete direction that satisfies the goal?
+A useful user-facing Project Definition pass should feel like **critical guidance**, not questionnaire completion.
 
 ## Critical direction verdict
 
-Use one verdict when useful:
+Use one verdict when it helps communicate a material direction:
 
 ```text
-FOLLOW   → goal and proposed direction are grounded/proportionate
+FOLLOW   → goal and direction are grounded/proportionate
 REFINE   → fundamentally sound; material details/boundaries need correction
 REDIRECT → goal valid; proposed method/scope materially inferior/disproportionate
 REJECT   → direction conflicts with evidence/requirements or has no responsible justification
@@ -162,53 +143,51 @@ BLOCKED  → no responsible direction can be formed without missing material aut
 
 Do not use arbitrary scores or maturity percentages.
 
-When redirecting/rejecting, state the valid goal being preserved, exact unsupported/contradictory part, evidence/reasoning boundary, smallest better direction when one exists, and what remains `UNKNOWN`.
+When redirecting/rejecting, identify the valid goal being preserved, the unsupported/contradictory part, the evidence/reasoning boundary, the smallest better direction when one exists, and what remains `UNKNOWN`.
 
 ## Resolution ladder
 
 For each material gap/conflict:
 
 ```text
-1. Current authority resolves it
-   → recover.
+current authority resolves it
+→ recover
 
-2. One necessary result follows from evidence
-   → DERIVED completion.
+one necessary result follows
+→ DERIVED
 
-3. AI must choose among plausible material options
-   → one concrete PROPOSAL best fitting current goal/constraints/evidence.
+AI must choose among plausible material options
+→ one best-supported PROPOSAL
 
-4. Options remain close but a responsible default exists
-   → choose one PROPOSAL; mention alternatives only when they materially help review.
+responsible default exists
+→ choose one PROPOSAL; mention alternatives only when they materially help review
 
-5. Current direction is materially wrong/disproportionate
-   → REDIRECT or REJECT; provide the better supported direction when possible.
+current direction is materially wrong
+→ REDIRECT / REJECT with better supported direction when possible
 
-6. No responsible conclusion/proposal can be formed
-   → BLOCKED / focused user or external decision.
+no responsible conclusion/proposal exists
+→ BLOCKED / focused decision
 ```
 
 `BLOCKED` is a last resort, not a substitute for reasoning.
 
 ## Critical completeness pass
 
-After evidence recovery, inspect only applicable concerns:
+Inspect only concerns that can materially change current scope or acceptance:
 
-| Concern | Must be sufficiently clear when material |
-|---|---|
-| User goal / intended value | actual intended outcome; external value claims only when claimed/material |
-| Deliverable | canonical output/result and success boundary |
-| Scope / exclusions | included work, explicit non-goals, removals, forbidden adjacent behavior |
-| Source authority | evidence/decisions allowed to establish project truth and material provenance |
-| Product/domain boundaries | semantic areas that must not silently repair/own each other |
-| Flow/lifecycle | stages, transitions, eligibility, failure/retry/handoff |
-| Feasibility | required capability/runtime/platform/dependency plausible from current evidence |
-| Complexity | proposed architecture/features proportional to current need |
-| Data/security/privacy | material ownership, sensitivity, destructive/authorization boundaries |
-| Quality | dimensions materially determining acceptance |
-| External contracts | public API/protocol/file format/deployed-client obligations |
-| Acceptance/proof | evidence required to claim intended outcome works |
-| Operational clarity | implementers should not need to invent material project behavior |
+- actual user goal/intended value;
+- canonical deliverable and success boundary;
+- scope, non-goals, removals, forbidden adjacent behavior;
+- source authority and material provenance;
+- product/domain boundaries;
+- material flow/lifecycle/handoff;
+- feasibility of required capability/runtime/platform/dependency;
+- proportionality of proposed architecture/features;
+- material data/security/privacy obligations;
+- quality dimensions controlling acceptance;
+- external compatibility/contracts;
+- acceptance/proof boundary;
+- enough operational clarity that implementers do not invent material project behavior.
 
 Do not add a concern merely because mature projects often have it.
 
@@ -218,92 +197,56 @@ For each material architecture, feature family, dependency, provider, compatibil
 
 ```text
 required by current goal?
-backed by current evidence/constraint when fact-dependent?
+backed by evidence/constraint when fact-dependent?
 what simpler complete alternative exists?
-what new failure/maintenance/proof cost appears?
-would removing it change accepted outcome?
+what failure/maintenance/proof cost does it add?
+would removing it change the accepted outcome?
 ```
 
-If removal does not harm the accepted outcome, it is not automatically part of the project. “Best practice”, “scalability”, “enterprise-ready”, “future-proof”, and popularity are not standalone requirements.
+“Best practice”, “scalability”, “enterprise-ready”, “future-proof”, and popularity are not standalone requirements.
 
-## Build and reconcile the Project Definition
+## Build and reconcile Foundation
 
-Persist current approved meaning into:
+Persist approved current meaning into:
 
 ```text
 docs/foundation/01-project-overview.md
 docs/foundation/02-product-requirements.md
-+ only additional durable owners earned through docs/README.md
++ only additional owners earned through docs/README.md
 ```
 
-Use the Foundation Expansion Gate rather than inventing a document structure.
+Use the Foundation Expansion Gate rather than inventing documentation structure.
 
-When one recovered/approved decision affects several Foundation owners:
+When one decision affects several Foundation owners, update all affected owners coherently in the same logical definition change, replace superseded conflicting meaning, and leave no old/new alternatives. Cross-Foundation contradiction is a readiness defect.
 
-```text
-identify all affected current owners
-→ update them coherently in the same logical definition change
-→ remove/replace superseded conflicting meaning
-→ leave no pending old/new alternatives
-```
-
-Cross-Foundation contradiction is a readiness defect. Do not “solve” it with a compatibility note or duplicate source.
-
-Do not create parallel `PROJECT-BRIEF.md`, `PROJECT-PLAN.md`, research-summary, approval file, or per-session design artifact.
-
-## Proposal disclosure and user authority
-
-Material AI-selected `PROPOSAL` must be disclosed before promotion to approved truth. Prefer one coherent recommendation rather than asking the user to decide every small detail.
-
-A user decision is required when the remaining choice materially changes product outcome/scope, user behavior, consequential architecture/runtime/data ownership, privacy/security/destructive behavior, compatibility/release obligation, acceptance boundary, or another high-impact user-owned project fact.
-
-When the user approves/corrects a proposal, reconcile all affected Foundation owners. Do not preserve rejected/pending alternatives beside the current decision.
+Do not create parallel project-brief/plan/research-summary/approval/session artifacts merely to store reasoning.
 
 ## Documentation Readiness handoff
 
-After the project model is coherent:
+After current Foundation meaning is coherent:
 
 ```text
 Foundation current truth
-→ Foundation Expansion Gate
-→ Documentation Readiness review
+→ docs/README.md Documentation Readiness
+→ return to AGENTS.md routing
 ```
 
-If readiness fails, fix only the missing material responsibility/contract/evidence basis. If it passes, hand off to `project-skill-planner` to determine whether project specialists are actually needed before initial development routing is finalized.
+If readiness fails, fix only the missing material responsibility/contract/evidence basis.
 
-## Hard anti-slop rules
-
-Do not:
-
-- agree with unsupported assumptions merely to be helpful;
-- convert AI recommendations into fake facts;
-- invent external claims without evidence;
-- treat partial source coverage as complete;
-- lose material provenance when a source-backed fact becomes Foundation truth;
-- treat old external verification as permanently current;
-- fabricate a business problem for a personal/creative project;
-- ignore/remove negative requirements because a familiar architecture usually includes the feature;
-- add architecture/features because they sound professional;
-- create multiple alternatives when one responsible recommendation is enough;
-- turn every unknown into a user question;
-- hide a bad root direction under implementation detail;
-- create extra project docs outside canonical owners;
-- preserve rejected/superseded proposals as legacy current state;
-- use prototype/mock/static proof as evidence for claims it did not exercise;
-- continue brainstorming after current definition/readiness is satisfied.
+If readiness passes, **do not automatically invoke `project-skill-planner`**. `AGENTS.md` owns the specialist-necessity gate: simple projects may proceed with zero project specialists; load the planner only when specialist need is plausible/ambiguous or an existing specialist set needs review.
 
 ## Completion
 
 A Project Definition pass ends when:
 
-- known material authority has been inspected to sufficient depth for current scope;
-- material source-backed claims are traceable enough to revalidate when needed;
-- material unsupported assumptions are challenged;
+- material authority has been inspected deeply enough for current scope;
+- material source-backed premises are traceable enough to revalidate when needed;
+- unsupported assumptions and disproportionate direction have been challenged;
 - negative/removal requirements are preserved;
-- the direction has a responsible verdict;
+- the current direction has a responsible verdict;
 - applicable project meaning is complete enough for current scope;
-- material AI proposals are approved/corrected or an exact blocker remains;
-- all affected Foundation owners are coherent and contain the current accepted truth;
+- material AI proposals are approved/corrected or one exact blocker remains;
+- all affected Foundation owners are coherent and current;
 - Documentation Readiness is truthfully classified.
 
-Then hand off to `project-skill-planner` only when readiness passes; otherwise report the exact remaining definition blocker and STOP.
+Then return to `AGENTS.md` routing or report the exact blocker and STOP.

@@ -1,12 +1,12 @@
 # Develop-Builder Context
 
-Stable orientation for the Develop-Builder starter source on branch `Local`.
+Stable orientation for the Develop-Builder starter source on canonical branch `Local`.
 
-This file owns stable starter/repository facts only. Documentation architecture belongs in `docs/README.md`; active continuation belongs in `docs/knowledge/next-action.md`; task routing belongs in `AGENTS.md`; GitHub execution discipline belongs in `GITHUB_RULES.md`.
+This file is intentionally compact. Detailed routing belongs in `AGENTS.md`; GitHub execution in `GITHUB_RULES.md`; documentation/readiness in `docs/README.md`; active continuation in `docs/knowledge/next-action.md`; reusable procedures in `.agents/skills/`.
 
 ## Purpose
 
-Develop-Builder is a general starter for AI-assisted project definition, critical project design, development-capability planning, and repository development.
+Develop-Builder is a domain-neutral GitHub Template Repository for AI-assisted project definition and repository development.
 
 Primary principle:
 
@@ -17,188 +17,57 @@ shortest correct path
 + sufficient proof
 ```
 
-The starter is domain-neutral. It does not choose a language, framework, runtime, source architecture, database, provider model, release strategy, production workflow, or project-specialist inventory for the project using it.
+It does not preselect a language, framework, runtime, database, source architecture, provider, release model, production workflow, or project-specialist inventory.
 
-## Repository distribution model
-
-`Local` is the **single canonical template and development authority**.
-
-Current required template-distribution metadata:
+## Repository authority and distribution
 
 ```text
-default_branch = Local
-is_template     = true
+canonical/default branch = Local
+GitHub template mode     = enabled
 ```
 
-A retained branch such as `main` may remain by explicit repository-owner decision. Its existence does not create a second current source when all of the following remain true:
+`Local` is the single current template/development authority. A retained `main` may remain by repository-owner decision, but it is non-authoritative: agents do not fall back to it, it is not a compatibility/release mirror, it needs no recurring synchronization, and divergence from `Local` is not a repair task by itself.
 
-- it is not the default/template authority;
-- agents never fall back to it for current work;
-- it is not used as a compatibility/release mirror;
-- no recurring synchronization workflow is introduced;
-- divergence from `Local` is allowed and does not need repair merely for parity.
+New projects are created from the GitHub Template mechanism using current `Local`; they do not inherit Develop-Builder project history.
 
-Branch deletion is optional owner-controlled cleanup, not a template-readiness requirement.
-
-The canonical consumption path is GitHub Template Repository creation from the current `Local` source. A new project must not inherit Develop-Builder project history or treat a retained non-authoritative branch as project authority.
-
-## Pre-development model
-
-A project created from the starter must not jump from user idea/repository naming directly into product Developing.
-
-Canonical sequence:
+## Stable operating model
 
 ```text
-project-definition
-→ evidence recovery + critical direction judgment
-→ Project Overview / Product Requirements / earned Foundation
-→ Documentation Readiness
-→ project-skill-planner
-→ zero or more justified project specialists
-→ CONTEXT projection
-→ only earned Knowledge navigation
-→ one current next-action
-→ DEVELOPMENT READY
-→ normal Developing / Domain Execution
+user intent + authoritative evidence
+→ project-definition when project meaning is new/materially undefined
+→ Foundation + Documentation Readiness
+→ AGENTS specialist-necessity routing
+→ zero specialists OR project-skill-planner when actually triggered
+→ CONTEXT + only earned Knowledge navigation
+→ one next-action
+→ development-brief for non-trivial Developing
 ```
 
-`project-definition` may redirect or reject an unsupported/disproportionate proposed method. Material AI proposals remain proposals until approved/corrected; unknown remains unknown.
-
-`project-skill-planner` does not create specialists from technologies. `No project specialist required` is a valid result.
-
-## Core workflow skills
-
-```text
-.agents/skills/project-definition/SKILL.md
-.agents/skills/project-skill-planner/SKILL.md
-.agents/skills/development-brief/SKILL.md
-```
-
-Their responsibilities are distinct:
-
-```text
-project-definition
-→ what should responsibly be built / current project meaning
-
-project-skill-planner
-→ what reusable project-specialist judgment is actually needed
-
-development-brief
-→ how one non-trivial defined change is implemented and proven
-```
-
-They are kernel procedures, not project-specific fact stores and not project specialists.
-
-## Documentation model
-
-```text
-Foundation
-→ durable project specification / what must remain or become true
-
-Knowledge
-→ current development navigation/context / how to find, understand, resume current work
-
-CONTEXT
-→ compact stable cross-session projection
-
-Skill
-→ reusable AI judgment/procedure
-
-Source
-→ actual implementation behavior
-```
-
-`docs/README.md` owns documentation creation/rejection gates. Knowledge is not a generic project-management archive.
+Simple projects are allowed to remain simple. Additional Foundation, Knowledge, local AGENTS, project-specialist, source, or proof owners exist only when a real responsibility earns them.
 
 ## Starter-source exception
 
-In the Develop-Builder source repository:
+In this source repository:
 
-- `docs/foundation/01-project-overview.md` and `02-product-requirements.md` are reusable project-definition scaffolds, not Develop-Builder product policy;
-- `docs/README.md`, `AGENTS.md`, `GITHUB_RULES.md`, and the three core workflow skills are reusable kernel owners;
-- this `CONTEXT.md`, root `README.md`, and `next-action.md` describe the starter source itself.
+- `docs/foundation/01-project-overview.md` and `02-product-requirements.md` are reusable scaffolds, not Develop-Builder product policy;
+- `AGENTS.md`, `GITHUB_RULES.md`, `docs/README.md`, and the three core workflow skills are reusable kernel owners;
+- root `README.md`, this file, and `docs/knowledge/next-action.md` describe the starter repository itself.
 
-When instantiated into a real project, project-specific owners are rewritten with current project truth; project specialists are created only when `project-skill-planner` proves a real recurring semantic responsibility.
+An instantiated project rewrites project-specific owners with its own current truth.
 
-## Current-source model
+## Canonical owner navigation
 
-Each durable responsibility has one current owner.
-
-- No artificial owner generations or legacy/current duplicates.
-- Git history owns ordinary history.
-- Compatibility/migration exists only for a real current external contract.
-- A retained non-authoritative branch is not another current owner.
-- When a responsibility disappears, unnecessary current structure is removed or folded into the remaining owner.
-
-## Work model
-
-Repository/system work distinguishes:
-
-```text
-Context Recovery
-Plan
-Developing
-Maintenance
-```
-
-Project Definition and Project Skill Planning are bounded **pre-development phases**, not permanent work modes.
-
-Normal existing-system/domain execution is distinct from changing the system itself.
-
-Non-trivial Developing uses `development-brief`; each bounded Developing task uses zero or one already-earned matching project specialist.
-
-## Core starter owners
-
-```text
-README.md
-AGENTS.md
-GITHUB_RULES.md
-CONTEXT.md
-.gitignore
-.agents/skills/project-definition/SKILL.md
-.agents/skills/project-skill-planner/SKILL.md
-.agents/skills/development-brief/SKILL.md
-docs/README.md
-docs/foundation/01-project-overview.md
-docs/foundation/02-product-requirements.md
-docs/knowledge/next-action.md
-```
-
-Additional Foundation, Knowledge, nearest-AGENTS, project-specialist, runtime/source, or verification owners are earned by real project responsibilities. File count is not a target; complete ownership without duplication is the target.
-
-## Independent judgment boundary
-
-The agent must not equate helpfulness with agreement.
-
-- User intent owns intended outcome and high-impact user decisions.
-- Evidence owns factual claims.
-- AI owns method-quality judgment, evidence recovery, scope discipline, and responsible recommendation.
-- Unsupported/disproportionate method may be redirected/rejected.
-- Current external facts that materially affect feasibility/support/compatibility must be verified from current authoritative evidence when available; otherwise remain `UNKNOWN`.
-
-## Anti-overdevelopment and AI-slop boundary
-
-Do not confuse simplicity with missing project definition or missing reusable judgment.
-
-Do not add architecture, docs, Knowledge owners, project specialists, tools, compatibility layers, branch mirrors, or proof layers speculatively.
-
-Do not omit a durable contract or recurring semantic specialist when current evidence shows its absence would force repeated material guessing/error.
-
-No project specialist is better than a fake specialist.
-
-## Evidence boundary
-
-Repository/static proof establishes only repository/static claims. Repository metadata is required for template-distribution claims. External feasibility/support claims require matching current authority. Runtime/device/visual/audio/model/target-machine/human acceptance requires matching evidence.
-
-## Navigation
-
-- bootstrap / work routing → `AGENTS.md`
-- GitHub execution → `GITHUB_RULES.md`
-- documentation architecture → `docs/README.md`
+- human/template entry and distribution contract → `README.md`
+- work routing, cross-cutting invariants, skill budget → `AGENTS.md`
+- GitHub/ref/write/history/CI/security → `GITHUB_RULES.md`
+- documentation architecture/readiness → `docs/README.md`
 - critical project definition → `.agents/skills/project-definition/SKILL.md`
-- project-specialist planning → `.agents/skills/project-skill-planner/SKILL.md`
-- distribution contract / human entry → `README.md`
-- active continuation → `docs/knowledge/next-action.md`
-- project overview → `docs/foundation/01-project-overview.md`
-- product requirements → `docs/foundation/02-product-requirements.md`
+- specialist planning when triggered → `.agents/skills/project-skill-planner/SKILL.md`
 - non-trivial Developing → `.agents/skills/development-brief/SKILL.md`
+- project definition scaffolds/current Foundation → `docs/foundation/`
+- active continuation → `docs/knowledge/next-action.md`
+- actual behavior → current source + matching proof
+
+## Proof boundary
+
+Repository/static evidence proves repository/static claims only. External change-prone facts and runtime/device/visual/audio/model/human-acceptance claims require matching current evidence when material.

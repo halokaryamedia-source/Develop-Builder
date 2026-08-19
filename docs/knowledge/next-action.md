@@ -3,120 +3,115 @@
 ## Current Status
 
 ```text
-QUALITY_AUDIT_REMEDIATION_REQUIRED
+TEMPLATE_QUALITY_STATICALLY_READY
 ```
 
 Canonical authority: **`Local`**.
 
-GitHub template distribution remains ready:
+GitHub distribution remains ready:
 
 ```text
 default_branch = Local
 is_template     = true
 ```
 
-The repository-level distribution contract is not the active problem. The retained `main` branch remains non-authoritative and is not a blocker.
+The retained `main` branch remains intentionally non-authoritative and is not a blocker.
 
-## Final Template Quality & Utility Audit
+## Quality Remediation Completed
 
-A full static quality/utility audit of the current template found **no critical architecture failure**, but found four material usability/maintainability issues that should be corrected before calling the template final-quality ready.
+The Final Template Quality & Utility Audit findings have been resolved in the current canonical owners.
 
-### 1. HIGH — Core policy duplication / drift risk
+### 1. Core policy ownership consolidated
 
-Detailed project-definition, skill-planning, evidence, anti-slop, and STOP rules are repeated across `AGENTS.md`, `docs/README.md`, core skills, and `development-brief` beyond what routing guards require.
-
-Required direction:
+Detailed policy now has one clear owner:
 
 ```text
 AGENTS.md
-→ routing + cross-cutting invariants only
+→ routing + cross-cutting invariants + specialist-necessity gate
 
 docs/README.md
-→ documentation/readiness contract
+→ documentation architecture + Foundation/Knowledge + Documentation Readiness
 
 project-definition
-→ critical project-definition procedure
+→ critical project-definition judgment + user-guidance interaction
 
 project-skill-planner
-→ specialist necessity/creation/pruning procedure
+→ specialist necessity/creation/pruning when triggered
 
 development-brief
-→ bounded non-trivial implementation procedure
+→ bounded non-trivial implementation contract/procedure
 
 GITHUB_RULES.md
-→ GitHub execution discipline
+→ GitHub execution/history/CI/security
 ```
 
-Keep short references/guards where needed, but remove duplicated detailed policy that creates multi-owner synchronization obligations.
+Other owners keep only the references/guards needed for routing rather than reproducing full policy.
 
-### 2. HIGH — `CONTEXT.md` is not compact enough
+### 2. `CONTEXT.md` compacted
 
-`CONTEXT.md` currently repeats distribution rules, skill responsibilities, documentation model, work modes, anti-slop rules, evidence rules, and navigation already owned elsewhere.
+`CONTEXT.md` now contains only stable template identity, repository authority/distribution facts, the short operating model, starter-source exception, owner navigation, and proof boundary.
 
-Required direction:
+It no longer duplicates detailed documentation, skill, anti-slop, or work-mode procedures.
 
-- keep stable project/template identity;
-- keep current authority/distribution facts;
-- keep only the smallest stable orientation and owner navigation;
-- link to detailed owners instead of reproducing their rules.
+### 3. Project Skill Planning made conditional
 
-### 3. HIGH — Project Skill Planning is mandatory even when obviously unnecessary
-
-The current bootstrap sequence always invokes `project-skill-planner` after Documentation Readiness. This creates avoidable ceremony for simple projects even though `No project specialist required` is valid.
-
-Required direction:
+After Documentation Readiness:
 
 ```text
-Documentation Readiness
-→ cheap specialist-necessity gate
-
 no plausible recurring specialized semantic judgment
 → zero project specialists
-→ do not load project-skill-planner
+→ skip project-skill-planner
 
-specialist need plausible / ambiguous / existing specialists need review
+specialist need plausible/ambiguous
+/ existing specialist set needs review
 → project-skill-planner
 ```
 
-The planner remains a core capability, but invocation becomes evidence-triggered rather than universal ceremony.
+A simple project no longer pays planner ceremony merely because bootstrap completed.
 
-### 4. MEDIUM — `project-definition` lacks an explicit user-guidance interaction contract
+### 4. Project Definition user-guidance flow added
 
-The critical reasoning model is strong, but the skill does not yet define a sufficiently explicit conversational path for guiding a user from a vague idea to approved Foundation without turning the process into a checklist/questionnaire.
-
-Required direction:
+`project-definition` now explicitly guides interaction as:
 
 ```text
-recover what is already knowable
-→ form current project model + recommended direction
-→ expose only material uncertainty/proposals
-→ ask the smallest high-impact question set when genuinely needed
+recover what is knowable
+→ form current model + best recommendation
+→ expose only material proposal/unknown/tradeoff
+→ ask the smallest grouped high-impact questions only when necessary
 → accept natural-language approval/correction
 → reconcile affected Foundation owners
-→ continue until readiness or exact blocker
+→ continue until readiness or one exact blocker
 ```
 
-The agent should recommend rather than interrogate, and should not require confirmation for low-impact implementation choices it can own responsibly.
+The agent recommends rather than interrogates and does not ask the user to decide low-impact implementation choices it can own responsibly.
 
-## Areas That Passed
+## Static Quality Re-read
 
-No material correction is currently justified for:
+The affected owner boundaries were re-read after remediation.
 
-- GitHub distribution/default/template settings;
-- `GITHUB_RULES.md` core/conditional execution model;
-- Foundation vs Knowledge semantic separation;
-- Overview / Product Requirements scaffold coverage;
-- evidence provenance/freshness/negative-requirement rules;
-- project-specialist semantic creation criteria themselves;
-- single current source / no legacy-generation policy;
-- retained `main` branch policy.
+No material issue remains in the audited areas:
+
+- routing vs detailed-procedure ownership;
+- Foundation vs Knowledge separation;
+- `CONTEXT.md` scope;
+- specialist-planner activation;
+- critical user-guidance behavior;
+- non-trivial development handoff;
+- distribution/default/template metadata;
+- retained non-authoritative `main` policy.
+
+No new skill, verifier, CI workflow, registry, sample project, architecture layer, or compatibility path is justified by this remediation.
 
 ## Proof Boundary
 
-This is a **static product-quality / utility audit**. It does not claim runtime/template-instantiation proof and does not authorize testing merely for reassurance.
+This status means **static template design/utility quality is ready** based on current source-policy inspection.
 
-No new skill, verifier, CI workflow, registry, sample project, or architecture layer is justified by the findings.
+It does not claim real project-instantiation, runtime, device, visual, audio, model, or human-acceptance proof. Do not begin testing merely for reassurance.
+
+## Active Boundary
+
+There is no active Develop-Builder design/distribution/quality milestone.
 
 ## Next Step
 
-**Perform one coherent quality-remediation pass focused on the four findings above: reduce duplicate detailed policy, compact `CONTEXT.md`, make specialist planning conditional for simple projects, and add a concise user-guidance/approval flow to `project-definition`. Do not add new capabilities or begin testing during this remediation.**
+**Keep Develop-Builder frozen at the current canonical owners. Reopen it only for a concrete template defect or when the repository owner explicitly selects a real project/bootstrap phase. Do not automatically test, mirror branches, add another audit layer, or create new hardening machinery.**

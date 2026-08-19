@@ -2,7 +2,7 @@
 
 This file is the canonical documentation-system owner for projects created from this starter.
 
-Its job is not to make the repository look documented. Its job is to ensure the project has **enough durable truth to develop correctly**, while preventing duplicate, speculative, ceremonial, or versioned documentation.
+Its job is not to make the repository look documented. Its job is to ensure the project has **enough durable truth to develop correctly** and **enough current navigation/context to continue development safely**, while preventing duplicate, speculative, ceremonial, historical, or versioned documentation.
 
 ## 1. Documentation principle
 
@@ -14,7 +14,7 @@ no current responsibility
 → no file
 ```
 
-Documentation is created because a decision, contract, workflow, quality boundary, source authority, or acceptance rule must survive across tasks/sessions—not because a template feels incomplete without another document.
+Documentation is created because a decision, contract, workflow, quality boundary, source authority, development-navigation need, or acceptance rule must survive across tasks/sessions—not because a template feels incomplete without another document.
 
 Git history owns ordinary historical versions. Current docs describe current truth.
 
@@ -24,10 +24,26 @@ Git history owns ordinary historical versions. Current docs describe current tru
 |---|---|---|
 | root `README.md` | What is this project and where do humans start? | concise orientation/navigation |
 | `CONTEXT.md` | What stable project/repository facts must a fresh session know? | stable summary + navigation |
-| `docs/foundation/` | What durable product/project truth must remain correct? | scope, requirements, boundaries, workflow policy, quality standards |
-| `docs/knowledge/` | What current repository navigation/operating memory is needed? | next action, ownership map, source authority, proof state, runbooks |
+| `docs/foundation/` | What durable project/product truth must remain correct? | scope, requirements, boundaries, workflow policy, quality standards |
+| `docs/knowledge/` | How does an AI/developer navigate and resume the project **currently being developed**? | next action, current owner/source map, current implementation flow, source precedence needed for active work |
 | `.agents/skills/` | What reusable AI judgment/procedure is needed repeatedly? | non-trivial Developing, earned domain specialist |
 | implementation/source | What actually exists/behaves now? | code, assets, configs, tests, runtime source |
+
+### Foundation vs Knowledge
+
+```text
+FOUNDATION
+= durable specification / definition
+= what the project must remain or become
+
+KNOWLEDGE
+= navigation + current development context
+= how to find, understand, and resume what is being developed now
+```
+
+`docs/knowledge/` is **not a generic project-management archive**. Historical rationale, old reviews, completed work, inactive plans, and arbitrary backlog do not belong there merely because they may be useful someday.
+
+A decision, review/evidence index, backlog/future-work owner, or runbook may exist under Knowledge only when it has a live navigation/current-context responsibility that is not already served cleanly elsewhere. It must remain outside normal boot unless the active task needs it.
 
 Do not use a lower-authority or derived layer to repair missing upstream meaning.
 
@@ -121,7 +137,7 @@ Create an additional foundation owner **only** when the answer is yes.
 |---|---|---|---|
 | Product/domain boundaries | multiple semantic domains have materially different ownership or forbidden cross-repair rules | one product boundary is simple and obvious | `product-boundaries.md` |
 | Product/production workflow | multi-stage lifecycle/order materially controls correctness, handoff, or downstream eligibility | flow is short and safely described in Requirements | `product-flow.md` / `production-flow.md` |
-| Source intake / source authority | correctness depends on recovering, classifying, reconciling, or normalizing multiple sources | input authority is simple | `source-intake.md` / `source-authority-policy.md` |
+| Source intake / source authority policy | correctness depends on recovering, classifying, reconciling, or normalizing multiple source classes as durable product policy | input authority is simple | `source-intake.md` / `source-authority-policy.md` |
 | System architecture | architecture decisions materially constrain implementation ownership, runtime boundaries, or acceptance | implementation architecture is not yet decided or is straightforward | `system-architecture.md` |
 | Data/state/storage | state ownership, lifecycle, persistence, migration, or destructive behavior is materially complex | storage/state rules are small | `data-state.md` |
 | External interface/integration | a public/external contract has independent semantics/compatibility/acceptance | interface details are local implementation detail | `interface-contract.md` |
@@ -166,25 +182,53 @@ distinct semantic responsibility
 
 File length alone is not a reason to split. Importance alone is not a reason to split.
 
-## 7. Knowledge growth gate
+## 7. Knowledge Navigation Gate
 
-`docs/knowledge/next-action.md` is the only baseline knowledge owner.
+`docs/knowledge/next-action.md` is the only baseline Knowledge owner.
 
-Additional knowledge owners are created only when repository operation becomes materially clearer/safer with them.
+Knowledge grows only to make the **currently developing repository** easier and safer to navigate, understand, or resume. Do not create a Knowledge file merely to preserve information.
 
-| Knowledge owner | Create when... | Do not create when... |
+Before adding a Knowledge owner, require all of the following:
+
+```text
+current development/navigation problem exists
++ existing root/foundation/source/next-action owner does not answer it cleanly
++ information must survive across tasks/sessions
++ the new owner reduces repeated search, ambiguity, or resume error
+```
+
+| Knowledge owner | Create when it materially helps current development navigation/context | Do not create when... |
 |---|---|---|
-| detailed `flow.md` / work-routing reference | root routing is correct but detailed current repository workflow is repeatedly needed | it would only restate `AGENTS.md` |
+| detailed `flow.md` / current implementation-flow reference | developers repeatedly need a map of how current repository owners/components connect or execute | it would only restate product policy or `AGENTS.md` |
 | `ownership.md` / `implementation-map.md` | finding current source/procedure owners is no longer obvious and repeated search causes error/cost | source ownership is still direct |
-| `source-authority.md` | multiple source/state classes create recurring precedence ambiguity | one authority chain is obvious |
-| decisions register/records | rationale must survive because the decision is durable, non-obvious, and likely to be revisited | the decision is trivial or current policy already explains enough |
-| proof/validation state | repeated proof surfaces need a persistent current evidence boundary across sessions | proof is one-task/ephemeral |
-| operations/runbook | a repeatable local/manual/production procedure is risky or easy to execute incorrectly | the procedure is one-off or obvious |
-| skill inventory/activation map | multiple earned specialists make selection genuinely ambiguous | only one/few obvious skills exist |
-| backlog/future-work owner | non-active future work must be retained separately from current continuation | Git issues/history/current next step are sufficient |
-| review evidence index | review evidence has a real retained lifecycle and current-vs-historical distinction | reviews are ephemeral |
+| current `source-authority.md` navigation | several current source/state classes create recurring precedence ambiguity during development | authority is simple or the rule is durable product policy better owned by Foundation |
+| current proof/evidence navigation | several proof surfaces must be located/interpreted across sessions to continue active development correctly | proof is one-task/ephemeral or only historical evidence |
+| operations/runbook | a repeatable procedure is part of current development/operation and is risky/easy to execute incorrectly | procedure is one-off or does not help current navigation |
+| skill inventory/activation map | multiple earned specialists make current selection genuinely ambiguous | only one/few obvious skills exist |
+| durable decision context | a non-obvious decision is repeatedly needed to interpret current owners and current policy does not explain enough | it is only historical rationale or can be expressed in the current Foundation owner |
+| future/non-active work owner | retained future work must be explicitly separated to prevent it contaminating current continuation **and** issues/history are insufficient | it is merely a wishlist/project-management backlog |
+| review/evidence index | retained review evidence must be navigated as part of current development and current-vs-historical distinction matters | reviews are completed history with no current navigation role |
 
-Never create all of these during bootstrap.
+### Knowledge separation rule
+
+```text
+active resume point
+→ next-action.md
+
+current development navigation / owner map / source map / implementation flow
+→ earned Knowledge owner
+
+durable product meaning
+→ Foundation
+
+actual behavior
+→ source + proof
+
+ordinary completed history / retired rationale
+→ Git history / issues / PRs
+```
+
+Never create all possible Knowledge owners during bootstrap. Never broad-read all Knowledge owners during normal work; routing decides the smallest current context needed.
 
 ## 8. Project Definition Readiness Gate
 
@@ -233,9 +277,10 @@ Direct Bounded Maintenance on an already understood local defect does not requir
 - create decision records for trivial decisions;
 - create an ownership map before ownership is materially difficult;
 - create an architecture document before architecture is a material project decision;
-- create a validation report before persistent proof-state ownership is needed;
+- create a validation report before persistent proof-state navigation is needed;
 - create a specialist because a technology/file type exists;
 - retain obsolete docs merely because they once existed;
+- turn Knowledge into a generic archive for decisions, reviews, meeting notes, or backlog;
 - interpret “professional documentation” as “more documentation.”
 
 ### Do
@@ -243,7 +288,7 @@ Direct Bounded Maintenance on an already understood local defect does not requir
 ```text
 use existing owner when responsibility fits
 → link instead of copy
-→ split only for distinct durable responsibility
+→ split only for distinct durable responsibility or real current-navigation need
 → update current owner in place
 → merge/remove when responsibility disappears
 → let Git history preserve history
@@ -256,27 +301,36 @@ Every persistent document must materially do at least one of:
 3. establish an authority/ownership boundary;
 4. define a workflow/quality/acceptance rule needed by current work;
 5. reduce current navigation/coordination complexity;
-6. preserve current state/proof that must survive sessions.
+6. preserve current navigation/state/proof that must survive sessions.
 
 Otherwise, do not create it.
 
-## 10. Foundation vs Knowledge vs Skill
+## 10. Foundation vs Knowledge vs Context vs Skill
 
 ```text
-project/product fact or durable requirement
-→ foundation / project owner
+project/product durable definition or requirement
+→ Foundation
 
-current repository navigation / operating memory
-→ knowledge
+current repository navigation + current development context
+→ Knowledge
+
+compact stable cross-session projection of project/repository truth
+→ CONTEXT.md
 
 reusable AI judgment/procedure
-→ skill
+→ Skill
 
 actual implementation behavior
 → current source + matching proof
 ```
 
-Skills must not become storage for project-specific facts.
+### Authority rule
+
+- Foundation is not derived from Knowledge.
+- Knowledge does not define product requirements merely because it describes current development.
+- `CONTEXT.md` summarizes/navigates stable truth and must not become a second Foundation or Knowledge index dump.
+- Skills must not store project-specific facts.
+- Source owns actual implementation behavior, but source does not silently redefine approved Foundation meaning.
 
 A new specialist is justified only after a real recurring semantic responsibility exists and generic `development-brief` is insufficient. Technology names alone do not create specialists.
 
@@ -336,4 +390,4 @@ remove or fold obsolete owner
 → Git history retains retired rationale
 ```
 
-Documentation quality is measured by **clarity of current authority and development readiness**, not document count.
+Documentation quality is measured by **clarity of current authority, current development navigation, and development readiness**, not document count.

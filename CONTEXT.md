@@ -8,7 +8,7 @@ This file owns durable project facts only. Active continuation belongs in `docs/
 
 Develop-Builder is a general bootstrap preset for starting and developing projects with AI-assisted repository work.
 
-Its purpose is to preserve a disciplined development operating model while keeping the route to a correct result as direct as the real problem allows.
+Current baseline: **v1**.
 
 Primary principle:
 
@@ -33,11 +33,11 @@ Maintenance
 
 Developing may use either a Direct Bounded Path or the non-trivial `development-brief` path. Escalation is based on material uncertainty, impact, risk, blast radius, ownership coordination, and proof difficulty—not code/file count.
 
-Normal **existing-system/domain execution** is a separate semantic boundary: creating or revising the normal output of an already-defined system does not become system Developing merely because files/artifacts are created. A project may formalize a named production/authoring mode only when a real repeatable workflow earns it.
+Normal existing-system/domain execution is a separate semantic boundary: creating or revising the normal output of an already-defined system does not become system Developing merely because files/artifacts are created. A project may formalize a named production/authoring mode only when a real repeatable workflow earns it.
 
 The repository preserves **one canonical owner per responsibility**, while one coherent task may legitimately touch the smallest necessary set of owners.
 
-## Core Bootstrap
+## Core Bootstrap v1
 
 The day-zero preset contains nine persistent files:
 
@@ -55,30 +55,11 @@ docs/knowledge/next-action.md
 
 These own human orientation, AI routing, GitHub execution, stable memory, hygiene, non-trivial Developing procedure, durable project intent, durable requirements, and active continuation.
 
-## Earned growth
+Additional routing/ownership maps, decision/backlog/review systems, governance automation, experiments, workspaces, specialists, production procedures, product CI/release workflows, and runtime/source architecture are **earned growth**, not baseline requirements. Mature structure may shrink again when a responsibility disappears.
 
-The following are not baseline requirements and appear only after a real project responsibility proves need:
+## Anti-overdevelopment and AI-slop boundary
 
-- detailed work-routing documents;
-- ownership/source maps;
-- decision logs/backlogs/review archives;
-- repository-governance automation;
-- experiments;
-- workspace active/archive systems;
-- additional specialist skills;
-- product-specific production/authoring procedures;
-- product-specific CI/release workflows;
-- runtime/source architecture.
-
-Mature structure is allowed to shrink again when a responsibility disappears.
-
-## Anti-overdevelopment
-
-Anti-overdevelopment means proportional complexity, not minimal line/file count.
-
-A simple bounded correction should remain direct. Normal use of an existing system should go directly through its domain owner/procedure. A risky or cross-owner system change may require more coordination and proof. An abstraction is justified only when it uniquely supplies a current required capability or reduces total current complexity rather than moving it.
-
-## AI-slop boundary
+Anti-overdevelopment means proportional complexity, not minimal line/file count. Simple bounded correction and normal domain execution should remain direct; materially uncertain, risky, or cross-owner system change may require more coordination and proof.
 
 Do not add generic filler, duplicate state, speculative architecture, fabricated unknowns, ceremonial tests/reports, placeholder specialists, or robustness layers that hide an unknown root cause.
 

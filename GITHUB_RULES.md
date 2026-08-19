@@ -2,7 +2,7 @@
 
 Canonical GitHub execution policy for this repository and the generic preset baseline.
 
-Root `AGENTS.md` owns task class, direct/escalated routing, continuity, and semantic scope. This file owns GitHub/ref/write/history/CI/security mechanics. Domain rules may narrow these rules but must not weaken integrity, proof, or STOP boundaries.
+Root `AGENTS.md` owns task class, direct/escalated routing, continuity, semantic scope, and architecture-addition judgment. This file owns GitHub/ref/write/history/CI/security mechanics. Domain rules may narrow these rules but must not weaken integrity, proof, or STOP boundaries.
 
 For normal material GitHub work:
 
@@ -115,6 +115,7 @@ Prepare the intended result before committing when practical.
 - Update README/CONTEXT/continuation only when their owned state actually changed.
 - Generated artifacts follow their canonical source/generator; do not patch generated output to hide an upstream defect.
 - New persistent side effects default to zero unless current scope proves need.
+- Whether a new architecture/governance layer is justified is decided by `AGENTS.md` / `development-brief`; this file only governs how an approved repository change is executed safely.
 
 ### Commit discipline
 
@@ -170,23 +171,6 @@ Do not automatically:
 - create branches/PRs/issues/comments/releases for ceremony;
 - reopen historical TODOs;
 - start the next milestone.
-
-## High-cost persistent additions
-
-A new service/runtime/state authority/provider/router/registry/compatibility layer/fallback/cache/queue/workflow/specialist/dependency boundary/governance owner must have a demonstrated current responsibility.
-
-Before adding one, establish:
-
-```text
-current need
-why the direct/existing owner is insufficient
-current consumer
-unique capability or net complexity reduction
-new failure/maintenance cost
-whether an equally correct smaller solution exists
-```
-
-If an equally correct smaller solution exists, use it.
 
 ## Sensitive and high-impact operations
 

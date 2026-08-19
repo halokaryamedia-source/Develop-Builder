@@ -3,45 +3,49 @@
 ## Current Status
 
 ```text
-CORE_BOOTSTRAP_PHASE_1_IMPLEMENTED
+PRESET_V1_FROZEN
+CORE_BOOTSTRAP_PHASE_1_COMPLETE
 PHASE_2_TEMPLATE_VERIFIER_GATE_COMPLETE — NO AUTOMATION REQUIRED
 PHASE_3_CROSS_DOMAIN_ASSUMPTION_AUDIT_COMPLETE
+PHASE_4_COMPLEXITY_PRUNING_AUDIT_COMPLETE
 DOMAIN_EXECUTION_BOUNDARY_HARDENED
 MATERIAL_DEPENDENCY_ESCALATION_REFINED
-LOCAL_APPLICATION_CONTEXT_PASS
-CONTENT_PRODUCTION_CONTEXT_PASS
-CREATIVE_TOOLING_CONTEXT_PASS
+TEMPORARY_IMPLEMENTATION_PLAN_RETIRED
 PROMOTED_GOVERNANCE_NOT_ADDED
 ```
 
 Working authority: **`Local`**.
 
-Phase 3 tested the Core Bootstrap against three materially different contexts without building sample applications or adding optional architecture.
+Develop-Builder Core Bootstrap **v1** is now the accepted baseline.
 
-The audit found two generic routing defects and corrected them:
+Phase 4 removed remaining unnecessary synchronization/ownership overlap without changing the nine-file Core Bootstrap responsibility set:
 
-1. normal use of an existing content/production/creative system could be misclassified as system Developing; the kernel now routes normal domain execution directly to the project-defined domain owner/procedure and keeps `development-brief` for actual non-trivial system change;
-2. Direct Bounded wording could over-escalate any dependency-related work; escalation now depends on a **material dependency boundary** that can change runtime, distribution, security, compatibility, ownership, rollback, or acceptance.
+- README is a human entrypoint/navigation surface and no longer duplicates the exact stable Core Bootstrap shape;
+- `CONTEXT.md` owns the stable Core Bootstrap shape and baseline identity;
+- `GITHUB_RULES.md` no longer owns architecture-addition judgment already owned by `AGENTS.md` / `development-brief`;
+- the temporary implementation-plan handoff has been retired because its live responsibilities are now fully represented by canonical owners and Git history.
 
-After those corrections, all three contexts pass the current assumption audit.
+No core owner could be removed or merged without mixing distinct human-orientation, routing, GitHub-execution, stable-context, hygiene, durable-intent, durable-requirement, continuation, or non-trivial-development responsibilities.
 
 ## Active Boundary
 
-The current objective is the Phase 4 complexity/pruning audit of the implemented Core Bootstrap itself.
+There is **no active kernel-development milestone** after the v1 freeze.
 
-The audit must challenge the current kernel rather than add features:
+Reopen Develop-Builder kernel work only when there is concrete evidence of one of the following:
 
-- test whether any of the nine core owners lacks a unique day-zero responsibility;
-- detect duplicated rules or decision hops across `AGENTS.md`, `GITHUB_RULES.md`, `CONTEXT.md`, foundation, and `development-brief`;
-- verify Direct Bounded work remains short after the Phase 3 corrections;
-- verify existing-system/domain execution does not require repository-development machinery;
-- verify non-trivial work can still become complete without underdevelopment;
-- identify any abstraction/gate that merely moves complexity;
-- keep promoted governance absent unless the audit proves a real current need.
+- a reproducible routing/continuity/ownership defect;
+- a real task that becomes unnecessarily complex because of the preset;
+- a real underdevelopment case where required safety/contract/proof is skipped;
+- repeated template drift that makes automation simpler than manual review;
+- a demonstrated simplification that removes current complexity without losing required responsibility.
+
+Do not add promoted governance, specialists, workflows, or runtime/domain architecture merely because a future project may need them.
 
 ## Proof Boundary
 
-Phase 3 is a static/semantic assumption audit of the generic routing contracts. It establishes that the current rules can represent:
+v1 is supported by static/source review, cross-domain semantic assumption audit, and complexity/pruning review of the generic kernel.
+
+The audit covered:
 
 ```text
 local application/runtime
@@ -49,12 +53,10 @@ content/production system
 creative/tooling/plugin system
 ```
 
-without forcing one domain architecture or one universal production mode.
+This proves the current generic routing/ownership contracts are internally coherent for those assumption classes. It does **not** prove the runtime, output quality, or project-specific behavior of a future instantiated project.
 
-It does not prove a future instantiated project's runtime behavior or human/domain output quality. Those remain project-specific proof surfaces.
-
-No verifier, CI workflow, ownership map, routing map, new specialist, workspace system, or runtime architecture was added by this audit.
+Automated template verification remains intentionally absent because no recurring template-drift problem currently justifies its maintenance cost.
 
 ## Next Step
 
-**Run Phase 4 as a hard complexity/pruning audit of the current nine-file Core Bootstrap. Remove or merge only what lacks a unique responsibility or creates unnecessary decision hops; preserve required separation where merging would mix stable, active, execution, requirement, or development-procedure authority. If no material simplification is justified, make no structural change and advance to the v1 freeze gate.**
+**Use Develop-Builder v1 as the bootstrap source for the next real project. If a concrete kernel defect or demonstrated simplification appears during real use, reproduce that evidence and reopen only the affected Maintenance/Plan boundary; otherwise make no kernel change.**

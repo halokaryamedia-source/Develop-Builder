@@ -3,79 +3,120 @@
 ## Current Status
 
 ```text
-TEMPLATE_DISTRIBUTION_READY
+QUALITY_AUDIT_REMEDIATION_REQUIRED
 ```
 
 Canonical authority: **`Local`**.
 
-Verified GitHub repository metadata:
+GitHub template distribution remains ready:
 
 ```text
 default_branch = Local
 is_template     = true
 ```
 
-This satisfies the repository-level template distribution contract.
+The repository-level distribution contract is not the active problem. The retained `main` branch remains non-authoritative and is not a blocker.
 
-## Retained `main` Branch
+## Final Template Quality & Utility Audit
 
-The repository owner has explicitly chosen to retain `main` for now.
+A full static quality/utility audit of the current template found **no critical architecture failure**, but found four material usability/maintainability issues that should be corrected before calling the template final-quality ready.
 
-This is **not a blocker** and does not create another current source because:
+### 1. HIGH — Core policy duplication / drift risk
 
-- `Local` remains the default branch and template authority;
-- agents must not fall back to `main` for current work;
-- `main` is not a release/compatibility mirror;
-- no recurring synchronization workflow is required;
-- `main` may diverge from `Local` without creating a repair task merely for parity.
+Detailed project-definition, skill-planning, evidence, anti-slop, and STOP rules are repeated across `AGENTS.md`, `docs/README.md`, core skills, and `development-brief` beyond what routing guards require.
 
-Delete or repurpose `main` only when the repository owner explicitly chooses to do so. Do not treat branch removal as part of template readiness.
-
-## Current Distribution Path
+Required direction:
 
 ```text
-GitHub Template Repository
-→ current Local source
-→ new project repository without Develop-Builder project history
-→ Local project working authority
-→ project-definition
-→ evidence-grounded Foundation
-→ Documentation Readiness
-→ project-skill-planner
-→ zero or more justified project specialists
-→ CONTEXT + earned Knowledge navigation
-→ one next-action
-→ DEVELOPMENT READY
+AGENTS.md
+→ routing + cross-cutting invariants only
+
+docs/README.md
+→ documentation/readiness contract
+
+project-definition
+→ critical project-definition procedure
+
+project-skill-planner
+→ specialist necessity/creation/pruning procedure
+
+development-brief
+→ bounded non-trivial implementation procedure
+
+GITHUB_RULES.md
+→ GitHub execution discipline
 ```
 
-No alternate current bootstrap path is defined.
+Keep short references/guards where needed, but remove duplicated detailed policy that creates multi-owner synchronization obligations.
 
-## Active Boundary
+### 2. HIGH — `CONTEXT.md` is not compact enough
 
-There is **no active template-design or distribution implementation milestone**.
+`CONTEXT.md` currently repeats distribution rules, skill responsibilities, documentation model, work modes, anti-slop rules, evidence rules, and navigation already owned elsewhere.
 
-Do not automatically:
+Required direction:
 
-- test or instantiate the template merely for reassurance;
-- synchronize `main` with `Local`;
-- create a branch-mirroring workflow;
-- add another baseline/version/generation;
-- reopen static design audit without a concrete defect;
-- add CI/verifier/sample-project machinery without a real current requirement.
+- keep stable project/template identity;
+- keep current authority/distribution facts;
+- keep only the smallest stable orientation and owner navigation;
+- link to detailed owners instead of reproducing their rules.
+
+### 3. HIGH — Project Skill Planning is mandatory even when obviously unnecessary
+
+The current bootstrap sequence always invokes `project-skill-planner` after Documentation Readiness. This creates avoidable ceremony for simple projects even though `No project specialist required` is valid.
+
+Required direction:
+
+```text
+Documentation Readiness
+→ cheap specialist-necessity gate
+
+no plausible recurring specialized semantic judgment
+→ zero project specialists
+→ do not load project-skill-planner
+
+specialist need plausible / ambiguous / existing specialists need review
+→ project-skill-planner
+```
+
+The planner remains a core capability, but invocation becomes evidence-triggered rather than universal ceremony.
+
+### 4. MEDIUM — `project-definition` lacks an explicit user-guidance interaction contract
+
+The critical reasoning model is strong, but the skill does not yet define a sufficiently explicit conversational path for guiding a user from a vague idea to approved Foundation without turning the process into a checklist/questionnaire.
+
+Required direction:
+
+```text
+recover what is already knowable
+→ form current project model + recommended direction
+→ expose only material uncertainty/proposals
+→ ask the smallest high-impact question set when genuinely needed
+→ accept natural-language approval/correction
+→ reconcile affected Foundation owners
+→ continue until readiness or exact blocker
+```
+
+The agent should recommend rather than interrogate, and should not require confirmation for low-impact implementation choices it can own responsibly.
+
+## Areas That Passed
+
+No material correction is currently justified for:
+
+- GitHub distribution/default/template settings;
+- `GITHUB_RULES.md` core/conditional execution model;
+- Foundation vs Knowledge semantic separation;
+- Overview / Product Requirements scaffold coverage;
+- evidence provenance/freshness/negative-requirement rules;
+- project-specialist semantic creation criteria themselves;
+- single current source / no legacy-generation policy;
+- retained `main` branch policy.
 
 ## Proof Boundary
 
-Current proof establishes:
+This is a **static product-quality / utility audit**. It does not claim runtime/template-instantiation proof and does not authorize testing merely for reassurance.
 
-- template kernel/design static stability;
-- `Local` as canonical template/development authority;
-- GitHub `default_branch=Local`;
-- GitHub `is_template=true`;
-- canonical source-side consumption path;
-- retained `main` is intentionally non-authoritative by current repository-owner decision.
-
-This does not claim real project-instantiation, runtime, device, visual, or user-acceptance proof. Those become relevant only when an explicitly selected future project requires them.
+No new skill, verifier, CI workflow, registry, sample project, or architecture layer is justified by the findings.
 
 ## Next Step
 
-**Keep the template frozen at the current canonical owners. Reopen Develop-Builder only for a concrete template defect or when the repository owner explicitly selects a real project/bootstrap phase. Do not automatically test, mirror branches, or add another hardening layer.**
+**Perform one coherent quality-remediation pass focused on the four findings above: reduce duplicate detailed policy, compact `CONTEXT.md`, make specialist planning conditional for simple projects, and add a concise user-guidance/approval flow to `project-definition`. Do not add new capabilities or begin testing during this remediation.**

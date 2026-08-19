@@ -7,7 +7,7 @@ description: Mandatory front door for non-trivial Developing. Recover current st
 
 Turn a non-trivial development request into the **smallest grounded development contract that preserves correctness without adding ceremony**.
 
-Root `AGENTS.md` owns task class, Direct vs non-trivial routing, existing-system/domain-execution boundary, continuity, source/claim ownership, skill budget, and STOP behavior. Root `GITHUB_RULES.md` owns GitHub execution/history/CI/safety. Do not duplicate those rules here.
+Root `AGENTS.md` owns task class, Direct vs non-trivial routing, existing-system/domain-execution boundary, continuity, source/claim ownership, local-rule inheritance, skill budget, and STOP behavior. Root `GITHUB_RULES.md` owns GitHub execution/history/CI/safety. Do not duplicate those rules here.
 
 ## Entry boundary
 
@@ -29,6 +29,7 @@ AGENTS.md
 → CONTEXT.md
 → docs/knowledge/next-action.md
 → this development-brief
+→ nearest relevant AGENTS.md when one exists and matters
 → smallest relevant owner/caller/contract evidence
 ```
 
@@ -80,6 +81,8 @@ Treat frameworks, screenshots, samples, old branches/source, reference projects,
 Recover discoverable repository facts before asking the user. If a high-impact product/architecture/privacy/data/release/acceptance decision remains unresolved, return to Plan instead of inventing it.
 
 If the request is actually normal existing-system/domain execution, leave Developing and route to the matching domain owner/procedure instead of forcing this contract.
+
+If current owners materially disagree, use root `AGENTS.md` conflict-resolution semantics. Do not silently pick the convenient authority.
 
 ### 2. Development necessity gate
 
@@ -189,3 +192,20 @@ If implementation is complete but required target/human proof is unavailable, re
 Update `next-action.md` only when active status, boundary, blocker, proof requirement, or next meaningful action actually changed.
 
 Then STOP.
+
+## User-facing brief
+
+For non-trivial Developing, expose only the amount of meta-context that helps the user steer material decisions. When useful, a compact pre-edit brief is enough:
+
+```text
+Tujuan:
+Cara berpikir:
+Hasil yang dituju:
+Tidak diubah:
+Cara memastikan benar:
+```
+
+- Do not dump the internal development contract by default.
+- A trivial/unambiguous correction does not need this meta-brief.
+- Normal existing-system/domain execution should deliver the requested output rather than repository-development ceremony.
+- If a material decision needs user review, surface that decision directly instead of wrapping it in generic process language.

@@ -8,6 +8,7 @@ These are the durable requirements of the Develop-Builder general preset. They d
 - The system must not silently fall back to another branch or repository default.
 - Stable project orientation must be recoverable from repository state without relying on chat history.
 - Active continuation must have one canonical owner and one meaningful next step.
+- Context Recovery and non-trivial Developing must recover `CONTEXT.md` + `docs/knowledge/next-action.md` before choosing current work.
 - If continuation prose conflicts with current source/state, the exact current owner must be inspected and stale state reconciled before continuing.
 
 ## Work classification
@@ -26,6 +27,49 @@ Maintenance
 - Maintenance begins from a concrete defect/first wrong owner when wider context cannot change the decision.
 - Developing supports both a Direct Bounded Path and a non-trivial escalated path.
 
+### Bootstrap Instantiation
+
+A fresh project created from Develop-Builder must have an explicit bounded bootstrap route before normal development.
+
+Bootstrap must establish only:
+
+- project name/purpose;
+- primary user/consumer;
+- current scope and explicit non-goals;
+- working branch/ref authority;
+- known material constraints;
+- initial proof boundary;
+- first real development objective.
+
+The bootstrap should adapt existing project-specific owners first:
+
+```text
+README.md
+CONTEXT.md
+docs/foundation/01-project-overview.md
+docs/foundation/02-product-requirements.md
+docs/knowledge/next-action.md
+```
+
+Root routing/GitHub/development-brief rules remain generic unless the instantiated project proves a real authority/routing/procedure difference.
+
+Bootstrap must not invent final architecture, source trees, database/API/release systems, compatibility matrices, specialist inventories, test matrices for nonexistent surfaces, or future roadmaps.
+
+Bootstrap must remove or replace Develop-Builder-specific project identity, preset audit/status state, and old preset continuation from the instantiated project's current truth. Generic governance semantics may remain; preset-specific project facts may not masquerade as new-project facts.
+
+Bootstrap is accepted only when:
+
+```text
+new project identity is consistent across current project owners
+stable context describes the new project
+foundation describes current approved intent and requirements
+next-action contains only the new project's current continuation
+exactly one real Next Step exists
+unknowns remain explicit rather than fabricated
+```
+
+Bootstrap completion does not itself authorize implementation unless the user also requested it.
+
 ### Existing-system / Domain Execution boundary
 
 Normal use of an existing system to create or revise its intended domain output must not be classified as system Developing merely because files or artifacts are created.
@@ -35,6 +79,30 @@ When a valid domain owner/procedure already exists and no system behavior is cha
 The baseline must not pre-create a universal `Production Execution`, `Asset Authoring`, or equivalent mode. A project may formalize a named domain mode only when a real repeatable workflow exists and the additional route reduces current coordination complexity.
 
 If domain execution exposes a defect or requires changing how the system works, the defect/change must route to Maintenance or Developing instead of being hidden inside production/authoring work.
+
+## Plan discipline
+
+Plan must recover repository/source facts before asking the user to repeat or decide discoverable information.
+
+Ask the user only when a remaining unresolved choice materially changes product behavior, architecture, privacy/security/data ownership, compatibility, release/destructive boundary, or acceptance.
+
+Plan transitions must be explicit:
+
+```text
+plan-only request
+→ report plan
+→ STOP
+
+explicit plan + implementation request
++ no remaining material user decision
+→ state transition
+→ Developing
+
+material user decision still required
+→ STOP and ask
+```
+
+Plan must not silently become Developing.
 
 ## Direct Bounded Path
 
@@ -62,10 +130,11 @@ The full Developing path is required when material uncertainty, semantic impact,
 
 Non-trivial Developing must:
 
-- recover sufficient current context;
+- recover `CONTEXT.md` + `docs/knowledge/next-action.md`;
 - use `development-brief`;
 - separate requested outcome from suggested method/reference;
 - establish the smallest coherent owner/caller/contract set;
+- inspect relevant existing regression/invariant assertions when they can constrain correctness;
 - define 2–5 falsifiable acceptance criteria;
 - select a proof budget proportional to the claim;
 - use zero or one useful project specialist by default;
@@ -75,12 +144,48 @@ Non-trivial Developing must:
 
 `Non-trivial` must not be inferred from code presence, line count, file count, or impressive terminology alone.
 
-## Ownership
+## Local rule inheritance
+
+A mature project may add a nearer `AGENTS.md` only when a durable package/domain responsibility requires distinct local routing or rules.
+
+- Root `AGENTS.md` remains repository-wide authority.
+- The nearest applicable `AGENTS.md` may narrow local behavior but must not silently weaken root branch/ref safety, proof honesty, ownership integrity, or STOP boundaries.
+- The agent should read the nearest local `AGENTS.md` only when it can materially change the affected task.
+- Directory existence alone is not justification for another `AGENTS.md`.
+
+## Ownership and conflict resolution
 
 - Each durable responsibility must have one canonical owner.
 - One logical task may affect several owners when they are all required for one complete outcome.
 - The system must prefer the smallest coherent owner set, not force one-file/one-owner solutions.
 - Generated/derived output must not outrank or be manually patched to hide defects in its canonical source/generator.
+
+Conflicts must be interpreted by claim type instead of resolved with one global ranking:
+
+```text
+current user decision vs durable policy
+→ reconcile current policy
+
+durable policy vs current source
+→ distinguish desired behavior from implementation state
+→ determine which owner is stale/wrong
+
+next-action vs current source/state
+→ distinguish stale continuation from stale implementation
+→ reconcile stale owner
+
+historical evidence vs current owner
+→ current owner wins unless history is explicitly revalidated/promoted
+
+generated artifact vs canonical source
+→ fix canonical source/generator
+
+material conflict cannot be recovered responsibly
+→ UNKNOWN
+→ Plan / focused user decision
+```
+
+The agent must not silently choose between contradictory current authorities merely to continue.
 
 ## Requirement vs method
 
@@ -138,20 +243,6 @@ The day-zero Core Bootstrap is intentionally small.
 Detailed routing references, ownership maps, decision logs, backlogs, reviews, governance automation, experiments, workspace continuity, specialist skills, domain-specific production/authoring routes, product CI/release workflows, and runtime/source architecture are added only when a real current responsibility earns them.
 
 When a persistent layer no longer owns a live responsibility, it should be removed or folded into the remaining canonical owner when safe. Historical rationale belongs in Git history or a justified durable decision owner, not in dead compatibility structure.
-
-## Bootstrap adaptation
-
-When the preset is used for a new project, define only what is needed to begin correctly:
-
-- project name/purpose;
-- primary user/consumer;
-- current scope/non-goals;
-- working authority;
-- known material constraints;
-- initial proof boundary;
-- first real development objective.
-
-Do not invent final architecture, complete source trees, specialist inventories, database/API/release systems, compatibility matrices, test matrices for nonexistent surfaces, or future roadmaps during bootstrap.
 
 ## Completion
 

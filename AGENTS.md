@@ -9,7 +9,74 @@ Develop-Builder is a general development preset. Current repository/project sour
 - Material GitHub execution follows `GITHUB_RULES.md`.
 - Choose the **smallest sufficient path**. Efficiency must not remove context, contracts, safety, or proof that can change correctness.
 
+## Rule inheritance
+
+Root `AGENTS.md` owns repository-wide invariants and task routing. A project may later add a nearer `AGENTS.md` for a real package/domain responsibility.
+
+When work is inside a subtree with a nearer `AGENTS.md`:
+
+```text
+root AGENTS.md
+→ nearest relevant AGENTS.md
+→ exact owner/source
+```
+
+- Read a nearer `AGENTS.md` only when its local rules can materially change the task.
+- A nearer rule may narrow local/domain behavior; it must not silently weaken root branch/ref safety, proof honesty, ownership integrity, or STOP boundaries.
+- For local behavior, the nearest applicable rule wins when it is compatible with root invariants.
+- Do not create nested `AGENTS.md` files merely because directories exist; add one only when a durable local responsibility needs distinct routing/rules.
+
 ## Task class first
+
+### Bootstrap Instantiation
+
+Use this route when starting a **new project from the Develop-Builder preset** before normal project development begins.
+
+Establish only current project truth:
+
+```text
+project name / purpose
+primary user or consumer
+current scope / explicit non-goals
+working branch/ref authority
+known material constraints
+initial proof boundary
+first real development objective
+```
+
+Then adapt only the existing owners whose project-specific state must change:
+
+```text
+README.md
+CONTEXT.md
+docs/foundation/01-project-overview.md
+docs/foundation/02-product-requirements.md
+docs/knowledge/next-action.md
+```
+
+`AGENTS.md`, `GITHUB_RULES.md`, and `development-brief` remain the generic kernel unless the new project has a **real** authority/routing/procedure difference that must be represented there.
+
+Bootstrap rules:
+
+- unknown project facts remain unknown;
+- do not invent final architecture, source tree, database/API/release design, specialist inventory, compatibility matrix, future roadmap, or tests for nonexistent surfaces;
+- remove/replace Develop-Builder-specific project identity, preset status, parity/audit state, and old continuation from the instantiated project's current truth;
+- retain generic governance semantics only where they still apply;
+- do not copy Develop-Builder Git history/status as project requirements;
+- finish with exactly one real project `Next Step`.
+
+Bootstrap acceptance:
+
+```text
+project identity is the new project, not Develop-Builder
+stable context describes the new project
+foundation describes current approved intent/requirements
+next-action describes only the new project's active continuation
+generic kernel has no leaked preset-specific project facts
+unknowns remain explicit
+```
+
+After those conditions are true: report the bootstrap result and STOP. Bootstrap does not automatically start the first development objective unless the user also requested implementation.
 
 ### Context Recovery
 
@@ -34,15 +101,22 @@ Do not edit, run CI, execute a recorded next step, or promote old TODO/history m
 Use when a material product, architecture, ownership, risk, or acceptance decision remains unresolved.
 
 ```text
-recover relevant authority
+recover relevant current authority
+→ recover repository/source facts that can answer the question
 → inspect smallest evidence that can change the decision
 → separate goal from suggested method
-→ resolve/present the material decision
-→ NO IMPLEMENTATION
-→ STOP
+→ resolve/present only the remaining material decision
 ```
 
-Plan must not silently become Developing.
+Before asking the user, recover facts that current repository owners/source can answer. Ask only when an unresolved choice materially changes product behavior, architecture, privacy/security/data ownership, compatibility, release boundary, destructive behavior, or acceptance.
+
+Plan transition:
+
+- **Plan-only request** → NO IMPLEMENTATION → report → STOP.
+- **User explicitly requested planning + implementation** → when all material decisions are resolved without a new user choice, state the transition and continue into the appropriate Developing path.
+- If a new material user decision is required → STOP and ask for that decision; do not invent it.
+
+Plan must never silently become Developing.
 
 ### Existing-system / Domain Execution
 
@@ -103,6 +177,7 @@ AGENTS.md
 → CONTEXT.md
 → docs/knowledge/next-action.md
 → .agents/skills/development-brief/SKILL.md
+→ nearest relevant AGENTS.md when one exists and matters
 → smallest relevant owner/caller/contract set
 → zero/one useful specialist
 → coherent implementation
@@ -129,13 +204,13 @@ exact defect
 
 If diagnosis exposes an unresolved product/architecture decision, leave Maintenance and return to Plan.
 
-## Claim ownership
+## Claim ownership and conflict resolution
 
-Use the nearest authoritative owner for the claim:
+Use the nearest authoritative owner for each claim type:
 
-- current task intent/new explicit decision → current user instruction;
+- current task intent/new explicit product decision → current user instruction;
 - GitHub/ref/write/history/CI/security discipline → `GITHUB_RULES.md`;
-- work mode/path/skill budget → `AGENTS.md`;
+- work mode/path/skill budget → root/nearest applicable `AGENTS.md`;
 - stable project orientation → `CONTEXT.md`;
 - durable intended behavior/non-goals → `docs/foundation/`;
 - active continuation/status/boundary/blocker/one next step → `docs/knowledge/next-action.md`;
@@ -143,7 +218,33 @@ Use the nearest authoritative owner for the claim:
 - generated/derived output → upstream canonical source/generator;
 - historical rationale → Git history unless a later justified decision owner exists.
 
-If `next-action.md` disagrees materially with current source/state, inspect the exact current owner, reconcile stale continuity vs stale implementation, then continue from actual truth.
+Interpret conflicts instead of blindly applying a global priority list:
+
+```text
+current user decision vs foundation
+→ reconcile the current durable policy owner
+
+foundation vs current source
+→ distinguish desired behavior from implementation state
+→ inspect whether source is wrong or policy became stale
+
+next-action vs current source/state
+→ identify stale continuity vs stale implementation
+→ reconcile the stale owner
+→ continue from actual current truth
+
+generated/derived output vs canonical source
+→ canonical source/generator owns the correction
+
+historical evidence/TODO/audit vs current owner
+→ current owner wins unless the historical item is explicitly revalidated/promoted
+
+material owner conflict cannot be responsibly resolved from current evidence
+→ UNKNOWN
+→ Plan / focused user decision when truly necessary
+```
+
+Never silently choose between contradictory current authorities merely to keep moving.
 
 ## Requirement and method discipline
 

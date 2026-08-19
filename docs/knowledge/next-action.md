@@ -3,47 +3,24 @@
 ## Current Status
 
 ```text
-PRESET_V1_FROZEN_AND_PARITY_HARDENED
-CORE_BOOTSTRAP_COMPLETE
-CROSS_DOMAIN_ROUTING_AUDIT_COMPLETE
-COMPLEXITY_PRUNING_AUDIT_COMPLETE
-GITHUB_CORE_RULES_PARITY_COMPLETE
-GITHUB_CONDITIONAL_SURFACES_RESTORED
-PRE_WRITE_TRANSACTION_GATE_ADDED
-DOCS_OWNERSHIP_PARITY_COMPLETE
-DEVELOPMENT_BRIEF_PARITY_COMPLETE
-MANDATORY_CONTINUITY_PARITY_COMPLETE
-AUTOMATED_TEMPLATE_VERIFIER_NOT_REQUIRED
-PROMOTED_GOVERNANCE_NOT_ADDED
+PRESET_V1_READY
 ```
 
 Working authority: **`Local`**.
 
-Develop-Builder Core Bootstrap **v1** remains the accepted baseline. Post-freeze Maintenance audits compared the generic kernel against the shared operating patterns of BuildIT, TranslateIT, and PRD-Creator and corrected only reusable parity gaps inside existing canonical owners.
-
-Current parity state preserves:
-
-- GitHub Core Rules plus conditional API/special-file/PR/Actions/security/release surfaces inside `GITHUB_RULES.md`;
-- stable project facts/navigation only in `CONTEXT.md`;
-- durable intent and requirements in `docs/foundation/`;
-- active continuation only in this file;
-- mandatory `CONTEXT.md` + `next-action.md` continuity for Context Recovery and non-trivial Developing;
-- Direct Bounded and normal existing-system/domain execution fast paths without full Developing ceremony;
-- `development-brief` as the mandatory front door only for non-trivial Developing;
-- development-contract grounding, requirement-vs-method separation, smallest coherent owner set, 2–5 falsifiable criteria, proportional proof, regression/invariant preflight when relevant, known-condition fallback discipline, zero/one useful specialist, final proof gate, and STOP;
-- no mandatory ownership map, work-routing file, decision log, extra specialist, governance workflow, workspace system, or runtime/domain architecture before a real responsibility earns it.
+Develop-Builder v1 is the accepted generic development bootstrap baseline. Current kernel rules cover routing, Bootstrap Instantiation, continuity, conflict resolution, local-rule inheritance, anti-overdevelopment/anti-slop, development-brief quality gates, GitHub execution safety, proof boundaries, and STOP behavior.
 
 ## Active Boundary
 
-There is **no active kernel-development milestone** after the parity hardening.
+There is **no active kernel-development milestone**.
 
-Reopen the kernel only for reproduced evidence of:
+Reopen the kernel only when real use reproduces one of these conditions:
 
-- a routing/continuity/ownership defect;
+- a routing/continuity/ownership or conflict-resolution defect;
+- a new-project bootstrap that leaks preset-specific project truth or becomes unnecessarily procedural;
 - a task made unnecessarily complex by the preset;
 - underdevelopment that skips a material contract/safety/proof requirement;
-- GitHub behavior not correctly handled by the current core/conditional rules;
-- docs/skill behavior that materially diverges from the reusable operating kernel;
+- GitHub/docs/skill behavior not correctly handled by the current generic rules;
 - repeated template drift that makes automation simpler than manual review;
 - a demonstrated simplification that reduces current complexity without losing required responsibility.
 
@@ -53,21 +30,23 @@ Do not add promoted governance, specialists, workflows, runtime/domain architect
 
 The current kernel has been statically compared against the reusable operating patterns of BuildIT, TranslateIT, and PRD-Creator.
 
-Parity review now covers:
+The comparison covers:
 
 ```text
-agent routing and work modes
+work-mode and direct/escalated routing
+new-project bootstrap/identity replacement
 stable vs active documentation ownership
-durable foundation requirements
+claim conflict reconciliation
+root/nearest AGENTS inheritance
 cross-session continuity
-development-brief entry/contract/quality gates
+development-brief entry/contract/quality/communication gates
 GitHub authority/write/history/CI/security discipline
 proof boundaries
 STOP behavior
 ```
 
-This is repository/source policy proof. It does not prove behavior or output quality of a future project-specific runtime/domain implementation.
+This is repository/source-policy proof. It does not prove the runtime behavior, output quality, or project-specific acceptance of a future instantiated project.
 
 ## Next Step
 
-**Use Develop-Builder v1 as the bootstrap source for the next real project. Reopen only the exact affected Maintenance/Plan boundary when real use produces evidence of a kernel defect or a simpler complete rule; otherwise make no kernel change.**
+**Use Develop-Builder v1 to bootstrap the next real project through the `AGENTS.md` Bootstrap Instantiation route. Reopen only the exact affected Maintenance/Plan boundary if real use produces evidence of a kernel defect or a simpler complete rule; otherwise make no kernel change.**

@@ -13,9 +13,15 @@ The preset standardizes how work is routed, grounded, owned, continued, verified
 
 The Core Bootstrap is intentionally limited to day-zero responsibilities. Its exact stable shape lives in `CONTEXT.md`; optional routing maps, ownership indexes, decision systems, workspaces, specialists, CI/release workflows, and runtime structure are added only when a real project responsibility earns them.
 
+## Using the preset
+
+For a new project, start from the Core Bootstrap and follow **Bootstrap Instantiation** in `AGENTS.md` before normal project development. Replace Develop-Builder-specific project identity/continuation with the new project's real current truth, keep unknowns explicit, and preserve the generic kernel unless the new project proves a real routing/authority difference.
+
+Bootstrap is complete when README/CONTEXT/foundation/next-action describe the new project, no preset-specific project status leaks into current truth, and exactly one real project next step exists.
+
 ## Navigation
 
-- AI work routing and path selection → `AGENTS.md`
+- AI work routing, Bootstrap Instantiation, and path selection → `AGENTS.md`
 - GitHub execution/history/safety → `GITHUB_RULES.md`
 - stable project orientation and Core Bootstrap shape → `CONTEXT.md`
 - durable project intent → `docs/foundation/01-project-overview.md`

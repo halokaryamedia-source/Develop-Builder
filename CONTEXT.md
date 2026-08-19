@@ -19,6 +19,25 @@ shortest correct path
 
 The starter is domain-neutral. It does not choose a language, framework, runtime, source architecture, database, provider model, release strategy, production workflow, or project-specialist inventory for the project using it.
 
+## Repository distribution model
+
+`Local` is the **single canonical template and development authority**.
+
+Required repository metadata for final template distribution:
+
+```text
+default_branch = Local
+is_template     = true
+```
+
+`main` is not an independent source owner, compatibility branch, or fallback. While GitHub repository metadata still points to `main`, it may temporarily exist only because it is the current platform default pointer. After the default branch is moved to `Local`, remove `main` when no concrete current external obligation requires it.
+
+Do not create a recurring mirror/synchronization mechanism between `Local` and `main`.
+
+The canonical consumption path is GitHub Template Repository creation from the current `Local` source. A new project must not inherit Develop-Builder project history or treat another branch as project authority.
+
+Current repository-setting completion/blockers belong in `docs/knowledge/next-action.md`, not here.
+
 ## Pre-development model
 
 A project created from the starter must not jump from user idea/repository naming directly into product Developing.
@@ -156,7 +175,7 @@ The agent must not equate helpfulness with agreement.
 
 Do not confuse simplicity with missing project definition or missing reusable judgment.
 
-Do not add architecture, docs, Knowledge owners, project specialists, tools, compatibility layers, or proof layers speculatively.
+Do not add architecture, docs, Knowledge owners, project specialists, tools, compatibility layers, branch mirrors, or proof layers speculatively.
 
 Do not omit a durable contract or recurring semantic specialist when current evidence shows its absence would force repeated material guessing/error.
 
@@ -164,7 +183,7 @@ No project specialist is better than a fake specialist.
 
 ## Evidence boundary
 
-Repository/static proof establishes only repository/static claims. External feasibility/support claims require matching current authority. Runtime/device/visual/audio/model/target-machine/human acceptance requires matching evidence.
+Repository/static proof establishes only repository/static claims. Repository metadata is required for template-distribution claims. External feasibility/support claims require matching current authority. Runtime/device/visual/audio/model/target-machine/human acceptance requires matching evidence.
 
 ## Navigation
 
@@ -173,7 +192,8 @@ Repository/static proof establishes only repository/static claims. External feas
 - documentation architecture → `docs/README.md`
 - critical project definition → `.agents/skills/project-definition/SKILL.md`
 - project-specialist planning → `.agents/skills/project-skill-planner/SKILL.md`
+- distribution contract / human entry → `README.md`
+- current distribution setting blocker → `docs/knowledge/next-action.md`
 - project overview → `docs/foundation/01-project-overview.md`
 - product requirements → `docs/foundation/02-product-requirements.md`
-- active continuation → `docs/knowledge/next-action.md`
 - non-trivial Developing → `.agents/skills/development-brief/SKILL.md`

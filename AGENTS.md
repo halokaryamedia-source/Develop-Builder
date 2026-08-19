@@ -42,6 +42,26 @@ recover relevant authority
 
 Plan must not silently become Developing.
 
+### Existing-system / Domain Execution
+
+Using an existing system to create or revise its normal domain output is **not automatically Developing** merely because files or artifacts are created.
+
+When the project already has a valid domain owner/procedure and no system behavior is being changed:
+
+```text
+current request + current project/domain state
+→ matching domain owner/procedure
+→ produce/revise requested output
+→ matching domain acceptance
+→ STOP
+```
+
+Do not invoke `development-brief` for normal production/authoring/execution when repository/system behavior is unchanged.
+
+A project may later formalize a named mode such as `Production Execution`, `Asset Authoring`, or another domain-specific route only when a real repeatable workflow earns it. The Core Bootstrap does not pre-create that mode or its specialists.
+
+If normal execution reveals a defect or requires changing how the system works, route the defect/change to Maintenance or Developing as appropriate.
+
 ### Developing
 
 Developing has two execution paths.
@@ -54,7 +74,7 @@ Use when all material conditions are true:
 - current/first-wrong owner is obvious or cheaply discoverable;
 - wider stable context cannot materially change the solution, or the relevant invariant is already known;
 - no unresolved product/architecture/data/security decision exists;
-- no new durable authority/runtime/compatibility/dependency boundary/generic abstraction is required;
+- no new durable authority/runtime/compatibility/material dependency boundary/generic abstraction is required;
 - blast radius is local and understandable;
 - rollback is straightforward;
 - targeted proof is obvious.
@@ -166,6 +186,7 @@ Do not broad-read, broad-test, create ceremonial reports, invent unknown require
 - Non-trivial Developing → mandatory `development-brief` + zero/one useful project specialist.
 - Maintenance → zero/one specialist only when the diagnosed semantic boundary needs it.
 - Plan / Context Recovery → no project specialist by default.
+- Existing-system/domain execution → use only the project-defined domain procedure/specialist if one already exists and adds material value; do not route through `development-brief` by default.
 
 A specialist is selected by recurring semantic responsibility, not programming language/framework name.
 

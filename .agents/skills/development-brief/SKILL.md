@@ -1,13 +1,13 @@
 ---
 name: development-brief
-description: Mandatory front door for non-trivial Developing. Recover sufficient current context, ground the real goal, separate outcome from suggested method, identify the smallest coherent owner set, define 2-5 falsifiable acceptance criteria and a proportional proof budget, then use at most one useful specialist. Do not use for Direct Bounded work when wider context cannot materially change the decision.
+description: Mandatory front door for non-trivial Developing. Recover sufficient current context, ground the real goal, separate outcome from suggested method, identify the smallest coherent owner set, define 2-5 falsifiable acceptance criteria and a proportional proof budget, then use at most one useful specialist. Do not use for Direct Bounded work or normal existing-system/domain execution when wider context cannot materially change the decision.
 ---
 
 # Development Brief
 
 Turn a non-trivial development request into the **smallest grounded development contract that preserves correctness without adding ceremony**.
 
-Root `AGENTS.md` owns task class, Direct vs non-trivial routing, continuity, source/claim ownership, skill budget, and STOP behavior. Root `GITHUB_RULES.md` owns GitHub execution/history/CI/safety. Do not duplicate those rules here.
+Root `AGENTS.md` owns task class, Direct vs non-trivial routing, existing-system/domain-execution boundary, continuity, source/claim ownership, skill budget, and STOP behavior. Root `GITHUB_RULES.md` owns GitHub execution/history/CI/safety. Do not duplicate those rules here.
 
 ## Entry boundary
 
@@ -15,7 +15,9 @@ Use this skill only for **non-trivial Developing**.
 
 Do not invoke it merely because code/files are involved. Direct Bounded work and bounded Maintenance should stay on their shorter route when wider stable context cannot materially change the solution or proof.
 
-Use this skill when material uncertainty, impact, risk, ownership coordination, migration, new persistent authority/dependency boundary, difficult rollback, or target/human acceptance can change the implementation or acceptance.
+Do not invoke it for normal production, authoring, or domain execution when an existing system/procedure is simply being used to create or revise its intended output without changing system behavior.
+
+Use this skill when material uncertainty, impact, risk, ownership coordination, migration, new persistent authority/material dependency boundary, difficult rollback, or target/human acceptance can change the implementation or acceptance.
 
 ## Sufficient continuity
 
@@ -73,9 +75,14 @@ Treat frameworks, screenshots, samples, old branches/source, reference projects,
 
 Recover discoverable repository facts before asking the user. If a high-impact product/architecture/privacy/data/release/acceptance decision remains unresolved, return to Plan instead of inventing it.
 
+If the request is actually normal existing-system/domain execution, leave Developing and route to the matching domain owner/procedure instead of forcing this contract.
+
 ### 2. Development necessity gate
 
 ```text
+normal existing-system/domain execution
+→ matching domain owner/procedure
+
 current behavior already satisfies goal
 → No change required
 
@@ -85,7 +92,7 @@ requirement materially unresolved
 suggested method unsupported/disproportionate
 → Redirect / Refine
 
-grounded non-trivial change required
+grounded non-trivial system change required
 → Develop
 ```
 
@@ -117,7 +124,7 @@ Choose the cheapest proof capable of falsifying each changed claim.
 
 ### 5. Complexity guard
 
-Before adding a high-cost persistent layer—new service/runtime/state authority/provider/router/registry/compatibility/fallback/cache/queue/dependency boundary/workflow/specialist/governance owner—establish:
+Before adding a high-cost persistent layer—new service/runtime/state authority/provider/router/registry/compatibility/fallback/cache/queue/material dependency boundary/workflow/specialist/governance owner—establish:
 
 ```text
 current demonstrated need
@@ -134,7 +141,7 @@ Do not add architecture for “best practice”, “clean architecture”, futur
 
 ### 6. Select at most one useful specialist
 
-Normal budget:
+Normal non-trivial Developing budget:
 
 ```text
 development-brief
@@ -145,6 +152,8 @@ zero or one project specialist
 Select by recurring semantic responsibility, not programming language/framework name. If no specialist adds material procedure, use none.
 
 If a second independent problem appears, close/reframe the current boundary rather than stacking scopes/specialists.
+
+Domain execution uses the project-defined production/authoring procedure or specialist budget instead; this skill does not invent that routing.
 
 ### 7. Implement and prove
 

@@ -26,6 +26,16 @@ Maintenance
 - Maintenance begins from a concrete defect/first wrong owner when wider context cannot change the decision.
 - Developing supports both a Direct Bounded Path and a non-trivial escalated path.
 
+### Existing-system / Domain Execution boundary
+
+Normal use of an existing system to create or revise its intended domain output must not be classified as system Developing merely because files or artifacts are created.
+
+When a valid domain owner/procedure already exists and no system behavior is changing, work should route directly to that owner/procedure and its matching acceptance boundary.
+
+The baseline must not pre-create a universal `Production Execution`, `Asset Authoring`, or equivalent mode. A project may formalize a named domain mode only when a real repeatable workflow exists and the additional route reduces current coordination complexity.
+
+If domain execution exposes a defect or requires changing how the system works, the defect/change must route to Maintenance or Developing instead of being hidden inside production/authoring work.
+
 ## Direct Bounded Path
 
 A simple task must be able to remain simple when the requested outcome, owner, blast radius, rollback, and proof are sufficiently clear.
@@ -44,9 +54,11 @@ The direct path must not be forced through foundation review, `development-brief
 
 The direct path must also never skip a material contract, safety boundary, affected caller, or required proof.
 
+A small/local dependency use does not automatically make work non-trivial. Escalation is required when a **material dependency boundary** can change runtime, distribution, security, compatibility, ownership, rollback, or acceptance.
+
 ## Non-trivial Developing
 
-The full Developing path is required when material uncertainty, semantic impact, risk, blast radius, ownership coordination, migration, new persistent authority, dependency boundary, hard rollback, or target/human acceptance can change the solution.
+The full Developing path is required when material uncertainty, semantic impact, risk, blast radius, ownership coordination, migration, new persistent authority, material dependency boundary, hard rollback, or target/human acceptance can change the solution.
 
 Non-trivial Developing must:
 
@@ -89,7 +101,7 @@ correct existing responsibility/location?
 simplest complete form?
 ```
 
-High-cost durable architecture—new state authority, runtime/service, provider/router/registry, compatibility/fallback layer, persistent queue/cache, dependency boundary, specialist, CI/release/experiment system, or new governance owner—requires demonstrated current need.
+High-cost durable architecture—new state authority, runtime/service, provider/router/registry, compatibility/fallback layer, persistent queue/cache, material dependency boundary, specialist, CI/release/experiment system, or new governance owner—requires demonstrated current need.
 
 A high-cost addition is justified only when the existing direct solution cannot satisfy the current requirement cleanly and the addition uniquely provides required capability or reduces total current complexity after its own failure/maintenance costs are counted.
 
@@ -123,7 +135,7 @@ A persistent element should materially change a necessary decision, prevent a re
 
 The day-zero Core Bootstrap is intentionally small.
 
-Detailed routing references, ownership maps, decision logs, backlogs, reviews, governance automation, experiments, workspace continuity, specialist skills, product CI/release workflows, and runtime/source architecture are added only when a real current responsibility earns them.
+Detailed routing references, ownership maps, decision logs, backlogs, reviews, governance automation, experiments, workspace continuity, specialist skills, domain-specific production/authoring routes, product CI/release workflows, and runtime/source architecture are added only when a real current responsibility earns them.
 
 When a persistent layer no longer owns a live responsibility, it should be removed or folded into the remaining canonical owner when safe. Historical rationale belongs in Git history or a justified durable decision owner, not in dead compatibility structure.
 

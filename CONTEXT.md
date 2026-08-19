@@ -22,7 +22,7 @@ The preset is intentionally domain-neutral. It does not choose a programming lan
 
 ## Stable operating model
 
-Develop-Builder distinguishes:
+For repository/system work, Develop-Builder distinguishes:
 
 ```text
 Context Recovery
@@ -32,6 +32,8 @@ Maintenance
 ```
 
 Developing may use either a Direct Bounded Path or the non-trivial `development-brief` path. Escalation is based on material uncertainty, impact, risk, blast radius, ownership coordination, and proof difficulty—not code/file count.
+
+Normal **existing-system/domain execution** is a separate semantic boundary: creating or revising the normal output of an already-defined system does not become system Developing merely because files/artifacts are created. A project may formalize a named production/authoring mode only when a real repeatable workflow earns it.
 
 The repository preserves **one canonical owner per responsibility**, while one coherent task may legitimately touch the smallest necessary set of owners.
 
@@ -64,6 +66,7 @@ The following are not baseline requirements and appear only after a real project
 - experiments;
 - workspace active/archive systems;
 - additional specialist skills;
+- product-specific production/authoring procedures;
 - product-specific CI/release workflows;
 - runtime/source architecture.
 
@@ -73,7 +76,7 @@ Mature structure is allowed to shrink again when a responsibility disappears.
 
 Anti-overdevelopment means proportional complexity, not minimal line/file count.
 
-A simple bounded correction should remain direct. A risky or cross-owner change may require more coordination and proof. An abstraction is justified only when it uniquely supplies a current required capability or reduces total current complexity rather than moving it.
+A simple bounded correction should remain direct. Normal use of an existing system should go directly through its domain owner/procedure. A risky or cross-owner system change may require more coordination and proof. An abstraction is justified only when it uniquely supplies a current required capability or reduces total current complexity rather than moving it.
 
 ## AI-slop boundary
 
